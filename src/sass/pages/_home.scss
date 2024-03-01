@@ -1,0 +1,15 @@
+.home-header {
+  background-image: linear-gradient(
+      to left top,
+      rgba(#038ad8, 0.5),
+      rgba(#ffffff, 0.4)
+    ),
+    url("/src/assets/images/patrick-fore-0_AX9pab940-unsplash.webp");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  height: 100vh;
+
+  position: relative;
+}
