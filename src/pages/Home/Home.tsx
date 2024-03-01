@@ -3,7 +3,9 @@ import { Box, Container } from "@mui/material";
 export const Home = () => {
   return (
     <>
-      <Box display={"flex"} component={"header"} className="home-header"></Box>
+      <Box display={"flex"} component={"header"} className="home-header">
+        <h1 className="heading-primary home-header--heading">Welcome</h1>
+      </Box>
       <Container>
         <Box
           display={"flex"}
