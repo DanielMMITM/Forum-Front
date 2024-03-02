@@ -17,6 +17,9 @@
     letter-spacing: 1.5rem;
     font-size: 5rem;
     text-shadow: 0 0 6rem $black;
+
+    margin-top: -5rem;
+
     @media screen and (max-width: 700px) {
       font-size: 3rem;
       letter-spacing: 1rem;
@@ -28,8 +31,10 @@
     line-height: 5rem;
     font-size: 4rem;
     font-family: Arial, Helvetica, sans-serif;
-    width: 65vw;
     text-align: center;
+
+    width: 65vw;
+    margin-top: -1rem;
 
     @media screen and (max-width: 700px) {
       font-size: 2rem;
@@ -48,7 +53,7 @@
       font-size: 2rem;
 
       position: absolute;
-      top: 90vh;
+      top: 92vh;
 
       transition: all 0.2s;
 

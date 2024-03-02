@@ -28,7 +28,8 @@ body {
   .home-header--heading {
     letter-spacing: 1.5rem;
     font-size: 5rem;
-    text-shadow: 0 0 6rem #000000; }
+    text-shadow: 0 0 6rem #000000;
+    margin-top: -5rem; }
     @media screen and (max-width: 700px) {
       .home-header--heading {
         font-size: 3rem;
@@ -38,8 +39,9 @@ body {
     line-height: 5rem;
     font-size: 4rem;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
     width: 65vw;
-    text-align: center; }
+    margin-top: -1rem; }
     @media screen and (max-width: 700px) {
       .home-header--text {
         font-size: 2rem;
@@ -51,7 +53,7 @@ body {
     text-decoration: none;
     font-size: 2rem;
     position: absolute;
-    top: 90vh;
+    top: 92vh;
     transition: all 0.2s; }
     .home-header--swipe:link::after, .home-header--swipe:visited::after {
       content: ">";
