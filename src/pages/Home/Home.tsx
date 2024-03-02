@@ -3,7 +3,14 @@ import { Box, Container } from "@mui/material";
 export const Home = () => {
   return (
     <>
-      <Box display={"flex"} component={"header"} className="home-header">
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        component={"header"}
+        className="home-header"
+      >
         <h1 className="heading-primary home-header--heading">Welcome</h1>
         <p className="home-header--text">
           Our forum is the perfect place to share knowledge and solve your
