@@ -6,11 +6,11 @@ export const Home = () => {
       <Box display={"flex"} component={"header"} className="home-header">
         <h1 className="heading-primary home-header--heading">Welcome</h1>
         <p className="home-header--text">
-          Nuestro foro es el lugar perfecto para compartir conocimientos y
-          resolver dudas.
+          Our forum is the perfect place to share knowledge and solve your
+          problems.
         </p>
         <a href="#" className="home-header--swipe">
-          Explorar
+          Swipe up
         </a>
       </Box>
       <Container>
