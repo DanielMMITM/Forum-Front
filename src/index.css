@@ -12,10 +12,11 @@ body {
   padding: 0;
   box-sizing: border-box; }
 
+body {
+  font-family: Georgia, "Times New Roman", Times, serif; }
+
 .heading-primary {
-  text-transform: uppercase;
-  letter-spacing: 1.5rem;
-  font-size: 4rem; }
+  text-transform: uppercase; }
 
 .home-header {
   background-image: linear-gradient(320deg, rgba(3, 138, 216, 0.5), rgba(255, 255, 255, 0.1)), url("/src/assets/images/patrick-fore-0_AX9pab940-unsplash.webp");
@@ -24,10 +25,41 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
   position: relative;
+  z-index: 0;
   display: flex;
   justify-content: center;
   color: #ffffff; }
   .home-header--heading {
+    letter-spacing: 1.5rem;
+    font-size: 5rem;
+    text-shadow: 0 0 6rem #000000;
+    width: fit-content;
     position: absolute;
     z-index: 2;
-    top: 15rem; }
+    top: 15%; }
+  .home-header--text {
+    letter-spacing: 2px;
+    line-height: 5rem;
+    font-size: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 65vw;
+    position: absolute;
+    z-index: 1;
+    top: 33%; }
+  .home-header--swipe:link, .home-header--swipe:visited {
+    color: currentColor;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-size: 2rem;
+    position: absolute;
+    top: 90vh;
+    z-index: 1;
+    transition: all 0.2s; }
+    .home-header--swipe:link::after, .home-header--swipe:visited::after {
+      content: ">";
+      transform: rotate(90deg);
+      margin: auto; }
+  .home-header--swipe:hover {
+    transform: translateY(-5px); }
