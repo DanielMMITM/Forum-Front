@@ -48,10 +48,15 @@ body {
   font-family: "Times New Roman", Times, serif; }
 
 .heading-primary {
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) max-content minmax(max-content, 1fr);
+  grid-column-gap: 2rem;
+  align-items: center;
   text-transform: uppercase;
   backface-visibility: hidden;
   font-size: 3.2rem;
-  color: #003459; }
+  color: #003459;
+  text-align: center; }
   .heading-primary--main {
     letter-spacing: 1rem;
     font-size: 6rem;
@@ -77,6 +82,11 @@ body {
       .heading-primary--sub {
         font-size: 2rem;
         line-height: 3.5rem; } }
+  .heading-primary::before, .heading-primary::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: currentColor; }
 
 .heading-secondary {
   color: #b68cb8;

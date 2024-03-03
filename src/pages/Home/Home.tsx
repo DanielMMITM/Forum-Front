@@ -23,11 +23,10 @@ export const Home = () => {
       </Box>
       <Box
         display={"flex"}
-        alignItems={"center"}
         flexDirection={"column"}
+        justifyContent={"center"}
         component={"main"}
         p={"3rem"}
-        flexWrap={"wrap"}
       >
         <h1 className="heading-primary">Lorem ipsum dolor sit amet.</h1>
         <Box

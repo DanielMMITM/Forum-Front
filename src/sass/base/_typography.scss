@@ -3,10 +3,19 @@ body {
 }
 
 .heading-primary {
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) max-content minmax(
+      max-content,
+      1fr
+    );
+  grid-column-gap: 2rem;
+  align-items: center;
+
   text-transform: uppercase;
   backface-visibility: hidden;
   font-size: 3.2rem;
   color: $color-primary-dark;
+  text-align: center;
 
   &--main {
     letter-spacing: 1rem;
@@ -41,6 +50,14 @@ body {
       font-size: 2rem;
       line-height: 3.5rem;
     }
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background: currentColor;
   }
 }
 
