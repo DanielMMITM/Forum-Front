@@ -27,8 +27,7 @@
 
       position: absolute;
       top: 92vh;
-
-      transition: all 0.2s;
+      animation: jump 1.4s infinite;
 
       &::after {
         content: ">";
@@ -39,10 +38,6 @@
       @media screen and (max-width: 700px) {
         font-size: 1.8rem;
       }
-    }
-
-    &:hover {
-      transform: translateY(-5px);
     }
   }
 }
