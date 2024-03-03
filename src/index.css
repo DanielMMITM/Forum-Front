@@ -50,8 +50,9 @@ body {
   text-transform: uppercase;
   backface-visibility: hidden; }
   .heading-primary--main {
-    letter-spacing: 1.5rem;
+    letter-spacing: 1rem;
     font-size: 5rem;
+    font-weight: 800;
     text-shadow: 0 0 6rem #000000;
     margin-top: -5rem;
     animation: move-in-up 1s ease-out; }
@@ -65,6 +66,7 @@ body {
     font-size: 4rem;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    font-weight: 300;
     animation: move-in-down 1s ease-out;
     width: 65vw;
     margin-top: -1rem; }
