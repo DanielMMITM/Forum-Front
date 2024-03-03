@@ -11,7 +11,7 @@
 
   min-height: 100vh;
 
-  color: $white;
+  color: $black;
 
   backface-visibility: hidden;
 
@@ -42,4 +42,9 @@
       font-size: 1.8rem;
     }
   }
+}
+
+.home-section-image {
+  width: 100%;
+  height: 100%;
 }

@@ -41,17 +41,20 @@ html {
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: #f3f3f3f3; }
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif; }
+  font-family: "Times New Roman", Times, serif; }
 
 .heading-primary {
   text-transform: uppercase;
-  backface-visibility: hidden; }
+  backface-visibility: hidden;
+  font-size: 3.2rem;
+  color: #003459; }
   .heading-primary--main {
     letter-spacing: 1rem;
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 800;
     text-shadow: 0 0 6rem #000000;
     margin-top: -5rem;
@@ -75,13 +78,26 @@ body {
         font-size: 2rem;
         line-height: 3.5rem; } }
 
+.heading-secondary {
+  color: #b68cb8;
+  text-transform: capitalize;
+  font-size: 2.5rem;
+  font-weight: 600; }
+
+.paragraphs {
+  margin-top: -0.5rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: 1px;
+  font-weight: 100; }
+
 .home-header {
   background-image: linear-gradient(320deg, rgba(3, 138, 216, 0.5), rgba(255, 255, 255, 0.1)), url("/src/assets/images/patrick-fore-0_AX9pab940-unsplash.webp");
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-  color: #ffffff;
+  color: #000000;
   backface-visibility: hidden; }
   .home-header--swipe {
     display: flex;
@@ -100,3 +116,7 @@ body {
     @media screen and (max-width: 700px) {
       .home-header--swipe {
         font-size: 1.8rem; } }
+
+.home-section-image {
+  width: 100%;
+  height: 100%; }

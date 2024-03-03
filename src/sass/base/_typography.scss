@@ -1,14 +1,16 @@
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .heading-primary {
   text-transform: uppercase;
   backface-visibility: hidden;
+  font-size: 3.2rem;
+  color: $color-primary-dark;
 
   &--main {
     letter-spacing: 1rem;
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 800;
     text-shadow: 0 0 6rem $black;
 
@@ -40,4 +42,19 @@ body {
       line-height: 3.5rem;
     }
   }
+}
+
+.heading-secondary {
+  color: $color-secondary-dark;
+  text-transform: capitalize;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.paragraphs {
+  margin-top: -0.5rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: 1px;
+  font-weight: 100;
 }
