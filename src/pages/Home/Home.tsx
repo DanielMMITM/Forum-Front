@@ -21,18 +21,20 @@ export const Home = () => {
           Swipe up
         </a>
       </Box>
+
       <Box
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
         component={"main"}
-        p={"3rem"}
+        p={"6rem"}
       >
         <h1 className="heading-primary">Lorem ipsum dolor sit amet.</h1>
         <Box
           display={"flex"}
           flexDirection={{ xs: "column", md: "row" }}
           component={"section"}
+          mt={"4rem"}
         >
           <Box
             component={"picture"}
@@ -45,7 +47,7 @@ export const Home = () => {
             display={"flex"}
             flexDirection={"column"}
             flexBasis={"50%"}
-            p={{ xs: "2rem", lg: "3rem" }}
+            p={{ xs: "2rem", lg: "5rem" }}
           >
             <h2 className="heading-secondary">
               Lorem ipsum dolor sit amet consectetur
