@@ -11,7 +11,7 @@ export const Home = () => {
         component={"header"}
         className="home-header"
       >
-        <h1 className="heading-primary--main">Welcome</h1>
+        <h1 className="heading-primary--main">Welcome !</h1>
         <p className="heading-primary--sub">
           Our forum is the perfect place to share knowledge and solve your
           problems.
