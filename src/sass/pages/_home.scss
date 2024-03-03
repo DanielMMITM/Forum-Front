@@ -13,34 +13,7 @@
 
   color: $white;
 
-  &--heading {
-    letter-spacing: 1.5rem;
-    font-size: 5rem;
-    text-shadow: 0 0 6rem $black;
-
-    margin-top: -5rem;
-
-    @media screen and (max-width: 700px) {
-      font-size: 3rem;
-      letter-spacing: 1rem;
-    }
-  }
-
-  &--text {
-    letter-spacing: 2px;
-    line-height: 5rem;
-    font-size: 4rem;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-
-    width: 65vw;
-    margin-top: -1rem;
-
-    @media screen and (max-width: 700px) {
-      font-size: 2rem;
-      line-height: 3.5rem;
-    }
-  }
+  backface-visibility: hidden;
 
   &--swipe {
     &:link,

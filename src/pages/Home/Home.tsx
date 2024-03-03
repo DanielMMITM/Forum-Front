@@ -11,8 +11,8 @@ export const Home = () => {
         component={"header"}
         className="home-header"
       >
-        <h1 className="heading-primary home-header--heading">Welcome</h1>
-        <p className="home-header--text">
+        <h1 className="heading-primary--main">Welcome</h1>
+        <p className="heading-primary--sub">
           Our forum is the perfect place to share knowledge and solve your
           problems.
         </p>
@@ -21,12 +21,7 @@ export const Home = () => {
         </a>
       </Box>
       <Container>
-        <Box
-          display={"flex"}
-          border={"2px red solid"}
-          mt={"calc(100vh - 88vh)"}
-          component={"main"}
-        >
+        <Box display={"flex"} border={"2px red solid"} component={"main"}>
           <h1>HOME FROM COMPONENT</h1>
         </Box>
       </Container>

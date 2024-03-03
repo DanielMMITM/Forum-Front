@@ -1,3 +1,23 @@
+@keyframes move-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(-20rem); }
+  80% {
+    transform: translateY(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes move-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(20rem); }
+  80% {
+    transform: translateY(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
 *,
 *::after *::before {
   margin: 0;
@@ -16,7 +36,31 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif; }
 
 .heading-primary {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  backface-visibility: hidden; }
+  .heading-primary--main {
+    letter-spacing: 1.5rem;
+    font-size: 5rem;
+    text-shadow: 0 0 6rem #000000;
+    margin-top: -5rem;
+    animation: move-in-up 1s ease-out; }
+    @media screen and (max-width: 700px) {
+      .heading-primary--main {
+        font-size: 3rem;
+        letter-spacing: 1rem; } }
+  .heading-primary--sub {
+    letter-spacing: 2px;
+    line-height: 5rem;
+    font-size: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    animation: move-in-down 1s ease-out;
+    width: 65vw;
+    margin-top: -1rem; }
+    @media screen and (max-width: 700px) {
+      .heading-primary--sub {
+        font-size: 2rem;
+        line-height: 3.5rem; } }
 
 .home-header {
   background-image: linear-gradient(320deg, rgba(3, 138, 216, 0.5), rgba(255, 255, 255, 0.1)), url("/src/assets/images/patrick-fore-0_AX9pab940-unsplash.webp");
@@ -24,28 +68,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-  color: #ffffff; }
-  .home-header--heading {
-    letter-spacing: 1.5rem;
-    font-size: 5rem;
-    text-shadow: 0 0 6rem #000000;
-    margin-top: -5rem; }
-    @media screen and (max-width: 700px) {
-      .home-header--heading {
-        font-size: 3rem;
-        letter-spacing: 1rem; } }
-  .home-header--text {
-    letter-spacing: 2px;
-    line-height: 5rem;
-    font-size: 4rem;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    width: 65vw;
-    margin-top: -1rem; }
-    @media screen and (max-width: 700px) {
-      .home-header--text {
-        font-size: 2rem;
-        line-height: 3.5rem; } }
+  color: #ffffff;
+  backface-visibility: hidden; }
   .home-header--swipe:link, .home-header--swipe:visited {
     color: currentColor;
     display: flex;
