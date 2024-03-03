@@ -16,28 +16,30 @@
   backface-visibility: hidden;
 
   &--swipe {
+    display: flex;
+    flex-direction: column;
+
+    color: currentColor;
+    font-size: 2rem;
+
+    position: absolute;
+    top: 92vh;
+
+    animation: jump 1.4s infinite;
+
     &:link,
     &:visited {
-      color: currentColor;
-      display: flex;
-      flex-direction: column;
-
       text-decoration: none;
-      font-size: 2rem;
-
-      position: absolute;
-      top: 92vh;
-      animation: jump 1.4s infinite;
 
       &::after {
         content: ">";
         transform: rotate(90deg);
         margin: auto;
       }
+    }
 
-      @media screen and (max-width: 700px) {
-        font-size: 1.8rem;
-      }
+    @media screen and (max-width: 700px) {
+      font-size: 1.8rem;
     }
   }
 }

@@ -78,19 +78,20 @@ body {
   min-height: 100vh;
   color: #ffffff;
   backface-visibility: hidden; }
-  .home-header--swipe:link, .home-header--swipe:visited {
-    color: currentColor;
+  .home-header--swipe {
     display: flex;
     flex-direction: column;
-    text-decoration: none;
+    color: currentColor;
     font-size: 2rem;
     position: absolute;
     top: 92vh;
     animation: jump 1.4s infinite; }
-    .home-header--swipe:link::after, .home-header--swipe:visited::after {
-      content: ">";
-      transform: rotate(90deg);
-      margin: auto; }
+    .home-header--swipe:link, .home-header--swipe:visited {
+      text-decoration: none; }
+      .home-header--swipe:link::after, .home-header--swipe:visited::after {
+        content: ">";
+        transform: rotate(90deg);
+        margin: auto; }
     @media screen and (max-width: 700px) {
-      .home-header--swipe:link, .home-header--swipe:visited {
+      .home-header--swipe {
         font-size: 1.8rem; } }
