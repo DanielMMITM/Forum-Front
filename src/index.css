@@ -103,7 +103,8 @@ body {
   letter-spacing: 1px;
   font-weight: 100; }
   .text--stats {
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    text-align: center; }
 
 .home-header {
   background-image: linear-gradient(320deg, rgba(3, 138, 216, 0.5), rgba(255, 255, 255, 0.1)), url("/src/assets/images/header.webp");
