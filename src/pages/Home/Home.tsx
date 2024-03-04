@@ -72,7 +72,7 @@ export const Home = () => {
         component={"section"}
         padding={"1rem 6rem 6rem 3rem"}
       >
-        <h1 className="heading-primary">Lorem ipsum dolor sit amet</h1>
+        <h1 className="heading-primary">Statistics</h1>
         <Box
           display={"flex"}
           alignItems={"center"}
@@ -95,7 +95,8 @@ export const Home = () => {
               component={"article"}
               p={"2rem"}
             >
-              <h3 className="heading-secondary--stats-title">15</h3>
+              <h2 className="heading-secondary--stats-title">15</h2>
+              <h3 className="heading-tertiary--stats-sub">Years</h3>
               <span className="text--stats">
                 More than 15 years connecting people
               </span>
@@ -107,7 +108,8 @@ export const Home = () => {
               component={"article"}
               p={"2rem"}
             >
-              <h3 className="heading-secondary--stats-title">500,000</h3>
+              <h2 className="heading-secondary--stats-title">500,000</h2>
+              <h3 className="heading-tertiary--stats-sub">People</h3>
               <span className="text--stats">
                 Stay in touch with our community
               </span>
@@ -119,7 +121,8 @@ export const Home = () => {
               component={"article"}
               p={"2rem"}
             >
-              <h3 className="heading-secondary--stats-title">1,000,000</h3>
+              <h2 className="heading-secondary--stats-title">1,000,000</h2>
+              <h3 className="heading-tertiary--stats-sub">Posts</h3>
               <span className="text--stats">Find your doubt over 1M posts</span>
             </Box>
             <Box
@@ -129,8 +132,9 @@ export const Home = () => {
               component={"article"}
               p={"2rem"}
             >
-              <h3 className="heading-secondary--stats-title">1,000,000</h3>
-              <span className="text--stats">Find your doubt over 1M posts</span>
+              <h2 className="heading-secondary--stats-title">24</h2>
+              <h3 className="heading-tertiary--stats-sub">Hrs</h3>
+              <span className="text--stats">Our community helps every day</span>
             </Box>
           </Box>
         </Box>

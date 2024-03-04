@@ -68,7 +68,16 @@ body {
   font-weight: 600;
 
   &--stats-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    margin-bottom: 0;
+  }
+}
+
+.heading-tertiary {
+  &--stats-sub {
+    font-size: 1.7rem;
+    margin: 0 0 2rem 0;
+    text-transform: uppercase;
   }
 }
 
@@ -80,7 +89,7 @@ body {
   font-weight: 100;
 
   &--stats {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-align: center;
   }
 }
