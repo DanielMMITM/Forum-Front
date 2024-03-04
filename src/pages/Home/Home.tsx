@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import image from "/src/assets/images/patrick-fore-0_AX9pab940-unsplash.webp";
+import image from "/src/assets/images/main-sm.webp";
 
 export const Home = () => {
   return (
@@ -36,11 +36,7 @@ export const Home = () => {
           component={"section"}
           mt={"4rem"}
         >
-          <Box
-            component={"picture"}
-            flexBasis={"50%"}
-            sx={{ aspectRatio: "16/9" }}
-          >
+          <Box component={"picture"} flexBasis={"50%"}>
             <img src={image} alt="" className="home-section-image" />
           </Box>
           <Box
@@ -69,6 +65,22 @@ export const Home = () => {
             </p>
           </Box>
         </Box>
+      </Box>
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        justifyContent={"center"}
+        component={"main"}
+        p={"6rem"}
+      >
+        <h1 className="heading-primary">Lorem ipsum dolor sit amet.</h1>
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          className="home-stats"
+        ></Box>
       </Box>
     </>
   );

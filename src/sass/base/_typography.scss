@@ -14,7 +14,7 @@ body {
   text-transform: uppercase;
   backface-visibility: hidden;
   font-size: 3.2rem;
-  color: $color-primary-dark;
+  color: $color-primary;
   text-align: center;
 
   &--main {
@@ -62,7 +62,7 @@ body {
 }
 
 .heading-secondary {
-  color: $color-secondary-dark;
+  color: $color-primary-dark;
   text-transform: capitalize;
   font-size: 2.5rem;
   font-weight: 600;
