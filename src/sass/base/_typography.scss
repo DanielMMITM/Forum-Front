@@ -66,12 +66,20 @@ body {
   text-transform: capitalize;
   font-size: 2.5rem;
   font-weight: 600;
+
+  &--stats-title {
+    font-size: 3rem;
+  }
 }
 
-.paragraphs {
+.text {
   margin-top: -0.5rem;
   font-size: 2rem;
   line-height: 2.5rem;
   letter-spacing: 1px;
   font-weight: 100;
+
+  &--stats {
+    font-size: 1.5rem;
+  }
 }

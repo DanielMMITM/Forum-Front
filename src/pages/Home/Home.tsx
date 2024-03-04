@@ -29,7 +29,7 @@ export const Home = () => {
         component={"main"}
         p={"6rem"}
       >
-        <h1 className="heading-primary">Lorem ipsum dolor sit amet.</h1>
+        <h1 className="heading-primary">Lorem ipsum dolor sit amet</h1>
         <Box
           display={"flex"}
           flexDirection={{ xs: "column", md: "row" }}
@@ -48,7 +48,7 @@ export const Home = () => {
             <h2 className="heading-secondary">
               Lorem ipsum dolor sit amet consectetur
             </h2>
-            <p className="paragraphs">
+            <p className="text">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae
               dolore et, quidem commodi placeat praesentium debitis facilis
               iste, assumenda molestias temporibus hic officiis iusto? Itaque
@@ -57,7 +57,7 @@ export const Home = () => {
             <h2 className="heading-secondary">
               Lorem ipsum dolor sit amet consectetur
             </h2>
-            <p className="paragraphs">
+            <p className="text">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae
               dolore et, quidem commodi placeat praesentium debitis facilis
               iste, assumenda molestias temporibus hic officiis iusto? Itaque
@@ -69,18 +69,71 @@ export const Home = () => {
       <Box
         display={"flex"}
         flexDirection={"column"}
-        justifyContent={"center"}
-        component={"main"}
+        component={"section"}
         p={"6rem"}
       >
-        <h1 className="heading-primary">Lorem ipsum dolor sit amet.</h1>
+        <h1 className="heading-primary">Lorem ipsum dolor sit amet</h1>
         <Box
           display={"flex"}
-          flexDirection={"column"}
           alignItems={"center"}
           justifyContent={"center"}
           className="home-stats"
-        ></Box>
+          p={"2rem"}
+        >
+          <Box
+            display={"flex"}
+            flexDirection={{ xs: "column", md: "row" }}
+            flexBasis={"100%"}
+            justifyContent={"space-evenly"}
+            flexWrap={"wrap"}
+            p={"2rem"}
+          >
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              alignItems={"center"}
+              component={"article"}
+              p={"2rem"}
+            >
+              <h3 className="heading-secondary--stats-title">15</h3>
+              <span className="text--stats">
+                More than 15 years connecting people
+              </span>
+            </Box>
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              alignItems={"center"}
+              component={"article"}
+              p={"2rem"}
+            >
+              <h3 className="heading-secondary--stats-title">500,000</h3>
+              <span className="text--stats">
+                Stay in touch with our community
+              </span>
+            </Box>
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              alignItems={"center"}
+              component={"article"}
+              p={"2rem"}
+            >
+              <h3 className="heading-secondary--stats-title">1,000,000</h3>
+              <span className="text--stats">Find your doubt over 1M posts</span>
+            </Box>
+            <Box
+              display={"flex"}
+              flexDirection={"column"}
+              alignItems={"center"}
+              component={"article"}
+              p={"2rem"}
+            >
+              <h3 className="heading-secondary--stats-title">1,000,000</h3>
+              <span className="text--stats">Find your doubt over 1M posts</span>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </>
   );
