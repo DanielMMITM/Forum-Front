@@ -92,16 +92,21 @@ body {
 .heading-secondary {
   color: #003459;
   text-transform: capitalize;
-  font-size: 2.5rem;
-  font-weight: 600; }
+  font-size: 2.5rem; }
   .heading-secondary--stats-title {
     font-size: 3.5rem;
     margin-bottom: 0; }
+  .heading-secondary--card-title {
+    text-transform: capitalize;
+    font-size: 2.5rem; }
 
-.heading-tertiary--stats-sub {
-  font-size: 1.7rem;
-  margin: 0 0 2rem 0;
-  text-transform: uppercase; }
+.heading-tertiary {
+  font-size: 1.8rem;
+  color: #2998e1; }
+  .heading-tertiary--stats-sub {
+    font-size: 1.7rem;
+    margin: 0 0 2rem 0;
+    text-transform: uppercase; }
 
 .text {
   margin-top: -0.5rem;
@@ -112,6 +117,18 @@ body {
   .text--stats {
     font-size: 1.8rem;
     text-align: center; }
+  .text--card {
+    font-size: 1.8rem; }
+
+.feature {
+  box-shadow: 0 4px 20px #555;
+  border: 1px solid #000000;
+  background: linear-gradient(to bottom, #038ad8, #003459);
+  color: #ffffff; }
+  .feature__icon {
+    fill: currentColor;
+    width: 6rem;
+    height: 6rem; }
 
 .home-header {
   background-image: linear-gradient(320deg, rgba(0, 52, 89, 0.9), rgba(0, 0, 0, 0.6)), url("/src/assets/images/header.webp");

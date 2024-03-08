@@ -65,15 +65,22 @@ body {
   color: $color-primary-dark;
   text-transform: capitalize;
   font-size: 2.5rem;
-  font-weight: 600;
 
   &--stats-title {
     font-size: 3.5rem;
     margin-bottom: 0;
   }
+
+  &--card-title {
+    text-transform: capitalize;
+    font-size: 2.5rem;
+  }
 }
 
 .heading-tertiary {
+  font-size: 1.8rem;
+  color: $color-primary-light;
+
   &--stats-sub {
     font-size: 1.7rem;
     margin: 0 0 2rem 0;
@@ -91,5 +98,9 @@ body {
   &--stats {
     font-size: 1.8rem;
     text-align: center;
+  }
+
+  &--card {
+    font-size: 1.8rem;
   }
 }
