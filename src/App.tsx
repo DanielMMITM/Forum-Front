@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { AppRouter } from "./routes/AppRouter";
+import { AppRouter } from "@/routes/AppRouter";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function App() {

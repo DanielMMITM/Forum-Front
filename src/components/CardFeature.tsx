@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import sprite from "/src/assets/icons/sprite.svg";
+import sprite from "@/assets/icons/sprite.svg";
 
 interface CardProperties {
   iconName: string;
