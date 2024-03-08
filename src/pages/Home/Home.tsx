@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
 import image from "/src/assets/images/main-sm.webp";
+import { CardFeature } from "../../components/NavBar/CardFeature";
 
 export const Home = () => {
   return (
-    <>
+    <Box display={"flex"} flexDirection={"column"}>
       <Box
         display={"flex"}
         flexDirection={"column"}
@@ -139,6 +140,40 @@ export const Home = () => {
           </Box>
         </Box>
       </Box>
-    </>
+
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        component={"section"}
+        padding={"1rem 6rem 6rem 3rem"}
+      >
+        <h1 className="heading-primary">Watch our categories</h1>
+        <Box
+          mt={"2rem"}
+          display={"flex"}
+          flexDirection={{ xs: "column", md: "row" }}
+          flexBasis={"100%"}
+          justifyContent={"space-evenly"}
+          flexWrap={"wrap"}
+        >
+          <CardFeature
+            iconName="#icon-smartphone"
+            title="Connect everywhere"
+            description="Stay tuned no matter where you are, ask your questions even away from
+        your computer"
+          />
+          <CardFeature
+            iconName="#icon-smile"
+            title="Friendly Community"
+            description="Our community is always seeking to help others by taking some time to read and solve your questiond providing the best attitude possible"
+          />
+          <CardFeature
+            iconName="#icon-users"
+            title="Big community"
+            description="Theres no unsolved problem, thanks to the ammount of users we have, all the questions and problems are solved in less than a day"
+          />
+        </Box>
+      </Box>
+    </Box>
   );
 };
