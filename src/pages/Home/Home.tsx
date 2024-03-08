@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import image from "/src/assets/images/main-sm.webp";
-import { CardFeature } from "../../components/NavBar/CardFeature";
+import { CardFeature } from "../../components/CardFeature";
 
 export const Home = () => {
   return (
