@@ -28,7 +28,7 @@ export const Home = () => {
         flexDirection={"column"}
         justifyContent={"center"}
         component={"main"}
-        padding={"4rem 6rem"}
+        padding={"1rem 6rem 6rem 3rem"}
       >
         <h1 className="heading-primary">Lorem ipsum dolor sit amet</h1>
         <Box
