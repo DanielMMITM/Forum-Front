@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PrivateRouter from "./PrivateRouter";
 import { Home } from "@/pages/Home/Home";
 import { NavBar } from "@/components/NavBar";
+import { Footer } from "@/components/Footer";
 
 export const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ export const AppRouter = () => {
           <Route path="/posts"></Route>
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
