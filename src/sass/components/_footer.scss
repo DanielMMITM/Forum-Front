@@ -1,0 +1,33 @@
+.footer {
+  background-color: $color-primary-dark;
+  color: $white;
+
+  &__link {
+    color: currentColor;
+    font-size: 2rem;
+    text-transform: capitalize;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      transform: translateY(-5px);
+    }
+  }
+
+  &__social-icon {
+    border-radius: 30%;
+    fill: currentColor;
+    width: 4rem;
+    height: 4rem;
+
+    &:not(:last-child) {
+      margin-right: 4rem;
+    }
+  }
+}

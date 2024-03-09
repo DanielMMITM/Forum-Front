@@ -59,6 +59,12 @@ body {
     height: 1px;
     background: currentColor;
   }
+
+  &--footer {
+    font-size: 4rem;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
 }
 
 .heading-secondary {
