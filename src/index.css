@@ -124,6 +124,14 @@ body {
   .text--card {
     font-size: 1.8rem; }
 
+.navbar {
+  font-size: 4rem; }
+  .navbar__link {
+    text-decoration: none;
+    color: #000000; }
+    .navbar__link:link, .navbar__link:visited {
+      text-decoration: none; }
+
 .feature {
   box-shadow: 0 4px 20px #555;
   border: 1px solid #000000;

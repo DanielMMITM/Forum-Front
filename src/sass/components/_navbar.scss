@@ -1,0 +1,12 @@
+.navbar {
+  font-size: 4rem;
+  &__link {
+    text-decoration: none;
+    color: $black;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+}
