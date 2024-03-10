@@ -49,14 +49,17 @@ export const NavBar = () => {
 
   return (
     <AppBar position="fixed" className="navbar">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+      <Container maxWidth="auto">
+        <Toolbar
+          disableGutters
+          sx={{ display: "flex", justifyContent: "space-between" }}
+        >
           <AdbIcon
             sx={{
               display: { xs: "none", md: "flex" },
               mr: 1,
-              width: { md: "4rem" },
-              height: { md: "4rem" },
+              width: { md: "3rem" },
+              height: { md: "3rem" },
             }}
           />
           <Typography
