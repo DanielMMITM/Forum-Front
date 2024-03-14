@@ -146,7 +146,12 @@ body {
   .text--card-post {
     font-size: 1.8rem;
     line-height: 2.6rem;
-    margin-top: -0.5rem; }
+    margin-top: -0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; }
 
 .navbar {
   font-size: 4rem; }
