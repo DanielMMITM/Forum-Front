@@ -103,6 +103,26 @@ body {
   .heading-secondary--card-title {
     text-transform: capitalize;
     font-size: 2.5rem; }
+  .heading-secondary--posts {
+    text-transform: uppercase; }
+    .heading-secondary--posts::after {
+      content: "";
+      display: flex;
+      flex-direction: column;
+      height: 2px;
+      background: currentColor;
+      margin-top: 1rem; }
+  .heading-secondary--card-post__name {
+    text-align: center;
+    color: #003459;
+    font-size: 1.8rem; }
+  .heading-secondary--card-post__title::after {
+    content: "";
+    display: flex;
+    flex-direction: column;
+    height: 2px;
+    background: currentColor;
+    margin-top: 1rem; }
 
 .heading-tertiary {
   font-size: 1.8rem;
@@ -123,6 +143,10 @@ body {
     text-align: center; }
   .text--card {
     font-size: 1.8rem; }
+  .text--card-post {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+    margin-top: -0.5rem; }
 
 .navbar {
   font-size: 4rem; }
@@ -163,6 +187,17 @@ body {
     height: 4rem; }
     .footer__social-icon:not(:last-child) {
       margin-right: 4rem; }
+
+.card-post {
+  border: 1px solid currentColor;
+  min-height: 20rem;
+  background-color: #efef;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px #000000 inset; }
+  .card-post__picture {
+    width: 11rem;
+    height: 10rem;
+    border-radius: 100%; }
 
 .home-header {
   background-image: linear-gradient(320deg, rgba(0, 52, 89, 0.9), rgba(0, 0, 0, 0.6)), url("/src/assets/images/header.webp");

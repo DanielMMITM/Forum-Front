@@ -81,6 +81,35 @@ body {
     text-transform: capitalize;
     font-size: 2.5rem;
   }
+
+  &--posts {
+    text-transform: uppercase;
+    &::after {
+      content: "";
+      display: flex;
+      flex-direction: column;
+      height: 2px;
+      background: currentColor;
+      margin-top: 1rem;
+    }
+  }
+
+  &--card-post__name {
+    text-align: center;
+    color: $color-primary-dark;
+    font-size: 1.8rem;
+  }
+
+  &--card-post__title {
+    &::after {
+      content: "";
+      display: flex;
+      flex-direction: column;
+      height: 2px;
+      background: currentColor;
+      margin-top: 1rem;
+    }
+  }
 }
 
 .heading-tertiary {
@@ -108,5 +137,11 @@ body {
 
   &--card {
     font-size: 1.8rem;
+  }
+
+  &--card-post {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+    margin-top: -0.5rem;
   }
 }
