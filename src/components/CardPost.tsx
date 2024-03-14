@@ -25,7 +25,8 @@ export const CardPost = () => {
         display={"flex"}
         flexDirection={"column"}
         alignSelf={"start"}
-        marginInline={"6rem"}
+        marginInlineStart={"2rem"}
+        marginInlineEnd={"6rem"}
       >
         <h2 className=" heading-secondary heading-secondary--card-post__title">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit
