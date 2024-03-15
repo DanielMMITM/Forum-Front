@@ -7,6 +7,8 @@ export const axiosAuthClient = axios.create({
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
     Authorization: "bearer ",
   },
+
+  timeout: 5000,
 });
 
 export const axiosClient = axios.create({
@@ -15,4 +17,6 @@ export const axiosClient = axios.create({
     "Content-Type": "application/json",
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
   },
+
+  timeout: 5000,
 });
