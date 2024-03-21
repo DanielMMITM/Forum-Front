@@ -15,13 +15,13 @@ import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
 
 const pages = [
-  { name: "Home", link: "/" },
-  { name: "Posts", link: "/posts" },
+  { id: 1, name: "Home", link: "/" },
+  { id: 2, name: "Posts", link: "/posts" },
 ];
 const settings = [
-  { name: "Profile", link: "/profile" },
+  { id: 1, name: "Profile", link: "/profile" },
   ,
-  { name: "Login", link: "/login" },
+  { id: 2, name: "Login", link: "/login" },
 ];
 
 export const NavBar = () => {
@@ -120,8 +120,8 @@ export const NavBar = () => {
               }}
             >
               {pages.map((page) => (
-                <Link to={page.link} className="navbar__link">
-                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                <Link key={page.id} to={page.link} className="navbar__link">
+                  <MenuItem onClick={handleCloseNavMenu}>
                     <Typography
                       textAlign="center"
                       sx={{ fontSize: { xs: "1.5rem", sm: "1.9rem" } }}
@@ -161,18 +161,19 @@ export const NavBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page.name}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  color: "white",
-                  display: "block",
-                  fontSize: { xs: "1.1rem", md: "1.5rem" },
-                }}
-              >
-                {page.name}
-              </Button>
+              <Link key={page.id} to={page.link} className="navbar__link">
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontSize: { xs: "1.1rem", md: "1.5rem" },
+                  }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
 
@@ -205,8 +206,12 @@ export const NavBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <Link to={setting!.link} className="navbar__link">
-                  <MenuItem key={setting?.name} onClick={handleCloseUserMenu}>
+                <Link
+                  key={setting?.id}
+                  to={setting!.link}
+                  className="navbar__link"
+                >
+                  <MenuItem onClick={handleCloseUserMenu}>
                     <Typography
                       textAlign="center"
                       sx={{
