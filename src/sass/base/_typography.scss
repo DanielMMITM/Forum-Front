@@ -84,14 +84,6 @@ body {
 
   &--posts {
     text-transform: uppercase;
-    &::after {
-      content: "";
-      display: flex;
-      flex-direction: column;
-      height: 2px;
-      background: currentColor;
-      margin-top: 1rem;
-    }
   }
 
   &--card-post__name {

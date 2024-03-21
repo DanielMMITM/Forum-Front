@@ -105,13 +105,6 @@ body {
     font-size: 2.5rem; }
   .heading-secondary--posts {
     text-transform: uppercase; }
-    .heading-secondary--posts::after {
-      content: "";
-      display: flex;
-      flex-direction: column;
-      height: 2px;
-      background: currentColor;
-      margin-top: 1rem; }
   .heading-secondary--card-post__name {
     text-align: center;
     color: #003459;
@@ -251,3 +244,6 @@ body {
 
 .login-form button {
   font-size: 1.5rem; }
+
+.posts__header {
+  border-bottom: 2px solid #038ad8; }
