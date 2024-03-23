@@ -1,12 +1,21 @@
-import { Box, Button, Container, Grid, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+  TextareaAutosize,
+} from "@mui/material";
 
 export const NewPost = () => {
   return (
     <Box
       display={"flex"}
       flexDirection={"column"}
-      minHeight={"100vh"}
-      marginTop={"calc(100vh - (100vh - 76px))"}
+      marginTop={"calc(100vh - (100vh - 50px))"}
       padding={"6rem"}
       className="posts"
     >
@@ -20,7 +29,7 @@ export const NewPost = () => {
       <Container>
         <Grid
           container
-          marginTop={"4rem"}
+          marginTop={"3rem"}
           gridAutoFlow={"column"}
           rowGap={2}
           component={"form"}
@@ -30,21 +39,57 @@ export const NewPost = () => {
             <label id="--custom-label" className="heading-secondary">
               Title
             </label>
-            <TextField fullWidth sx={{ fontSize: "1.5rem" }}></TextField>
+            <TextField
+              fullWidth
+              sx={{ fontSize: "1.5rem" }}
+              size="small"
+            ></TextField>
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <label id="--custom-label" className="heading-secondary">
+              Course
+            </label>
+            <Select
+              fullWidth
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              value={0}
+              onChange={() => {}}
+              sx={{ fontSize: "1.6rem" }}
+            >
+              <MenuItem value={0} sx={{ fontSize: "1.6rem" }} disabled>
+                <em>Select a course</em>
+              </MenuItem>
+              <MenuItem value={10} sx={{ fontSize: "1.6rem" }}>
+                Ten
+              </MenuItem>
+              <MenuItem value={20} sx={{ fontSize: "1.6rem" }}>
+                Twenty
+              </MenuItem>
+              <MenuItem value={30} sx={{ fontSize: "1.6rem" }}>
+                Thirty
+              </MenuItem>
+            </Select>
           </Grid>
           <Grid item xs={12} sx={{ fontSize: "1.5rem" }}>
             <label id="--custom-label" className="heading-secondary">
               Text
             </label>
-            <TextField fullWidth></TextField>
+            <textarea id="--text-area"></textarea>
           </Grid>
           <Grid container item xs={12} columnGap={4} justifyContent={"end"}>
-            <Grid item xs={12} sm={2}>
+            <Grid item xs={12} md={2} order={{ xs: 2, md: 1 }}>
               <Button variant="contained" color="error" fullWidth>
                 Back
               </Button>
             </Grid>
-            <Grid item xs={12} sm={2}>
+            <Grid
+              item
+              xs={12}
+              md={2}
+              order={{ xs: 1, md: 2 }}
+              marginBottom={{ xs: "2rem", md: 0 }}
+            >
               <Button variant="contained" fullWidth>
                 Create
               </Button>

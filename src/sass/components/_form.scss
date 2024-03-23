@@ -12,4 +12,16 @@
   & #--custom-label {
     font-size: 2.5rem;
   }
+
+  & #--text-area {
+    display: flex;
+    width: 100%;
+    font-size: 1.6rem;
+    resize: vertical;
+    min-height: 30vh;
+  }
+
+  & #--select-option {
+    font-size: 1.2rem;
+  }
 }
