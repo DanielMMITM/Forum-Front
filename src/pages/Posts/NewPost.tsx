@@ -9,8 +9,10 @@ import {
   TextField,
   TextareaAutosize,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export const NewPost = () => {
+  const navigate = useNavigate();
   return (
     <Box
       display={"flex"}
@@ -79,7 +81,12 @@ export const NewPost = () => {
           </Grid>
           <Grid container item xs={12} columnGap={4} justifyContent={"end"}>
             <Grid item xs={12} md={2} order={{ xs: 2, md: 1 }}>
-              <Button variant="contained" color="error" fullWidth>
+              <Button
+                variant="contained"
+                color="error"
+                fullWidth
+                onClick={() => navigate(-1)}
+              >
                 Back
               </Button>
             </Grid>
