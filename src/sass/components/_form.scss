@@ -1,0 +1,15 @@
+.form-container {
+  & label {
+    font-size: 1.5rem;
+  }
+  & input {
+    font-size: 2rem;
+  }
+
+  & button {
+    font-size: 1.5rem;
+  }
+  & #--custom-label {
+    font-size: 2.5rem;
+  }
+}

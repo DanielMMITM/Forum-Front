@@ -1,7 +1,9 @@
 import { CardPost } from "@/components/CardPost";
 import { Box, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export const Posts = () => {
+  const navigate = useNavigate();
   return (
     <Box
       display={"flex"}
@@ -17,6 +19,7 @@ export const Posts = () => {
         </Box>
         <Button
           variant="contained"
+          onClick={() => navigate("/new-post")}
           sx={{ alignSelf: "center", fontSize: "1.3rem" }}
         >
           New Post

@@ -38,7 +38,7 @@ export const Login = () => {
         flexDirection={"column"}
         rowGap={"2rem"}
         minWidth={"30%"}
-        className="login-form"
+        className="form-container "
         component={"form"}
         onSubmit={handleSubmit(onSubmit, onError)}
         autoComplete="off"

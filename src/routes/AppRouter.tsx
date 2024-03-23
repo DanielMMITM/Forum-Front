@@ -4,7 +4,8 @@ import { Home } from "@/pages/Home";
 import { Login } from "@/pages/Login";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
-import { Posts } from "@/pages/Posts";
+import { Posts } from "@/pages/Posts/Posts";
+import { NewPost } from "@/pages/Posts/NewPost";
 
 export const AppRouter = () => {
   return (
@@ -17,6 +18,7 @@ export const AppRouter = () => {
           <Route path="/account"></Route>
         </Route>
         <Route path="/posts" element={<Posts />}></Route>
+        <Route path="/new-post" element={<NewPost />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
