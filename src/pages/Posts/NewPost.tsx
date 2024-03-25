@@ -1,3 +1,7 @@
+import {
+  TEXT_PLACEHOLDER,
+  TITLE_PLACEHOLDER,
+} from "@/utils/constants/Posts/Posts";
 import { usePostsForm } from "@/utils/hooks/Posts/usePostsForm";
 import {
   Box,
@@ -56,7 +60,7 @@ export const NewPost = () => {
             </label>
             <TextField
               type="text"
-              placeholder="Write the title of the post..."
+              placeholder={TITLE_PLACEHOLDER}
               fullWidth
               size="small"
               ref={titleReference}
@@ -76,21 +80,21 @@ export const NewPost = () => {
               id="demo-simple-select-standard"
               value={0}
               onChange={() => {}}
-              sx={{ fontSize: "1.4rem" }}
+              sx={{ fontSize: "1.6rem" }}
               size="small"
               ref={courseReference}
               inputProps={{ ...courseProps }}
             >
-              <MenuItem value={0} sx={{ fontSize: "1.4rem" }} disabled>
+              <MenuItem value={0} sx={{ fontSize: "1.6rem" }} disabled>
                 <em>Select a course</em>
               </MenuItem>
-              <MenuItem value={10} sx={{ fontSize: "1.4rem" }}>
+              <MenuItem value={10} sx={{ fontSize: "1.6rem" }}>
                 Ten
               </MenuItem>
-              <MenuItem value={20} sx={{ fontSize: "1.4rem" }}>
+              <MenuItem value={20} sx={{ fontSize: "1.6rem" }}>
                 Twenty
               </MenuItem>
-              <MenuItem value={30} sx={{ fontSize: "1.4rem" }}>
+              <MenuItem value={30} sx={{ fontSize: "1.6rem" }}>
                 Thirty
               </MenuItem>
             </Select>
@@ -104,7 +108,7 @@ export const NewPost = () => {
             </label>
             <textarea
               id="--text-area"
-              placeholder="Describe what is your post about..."
+              placeholder={TEXT_PLACEHOLDER}
               ref={textReference}
               {...textProps}
             />
