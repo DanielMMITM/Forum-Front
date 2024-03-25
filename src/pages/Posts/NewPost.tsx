@@ -1,7 +1,9 @@
+import { usePostsForm } from "@/utils/hooks/Posts/usePostsForm";
 import {
   Box,
   Button,
   Container,
+  FormHelperText,
   Grid,
   MenuItem,
   Select,
@@ -11,6 +13,18 @@ import { useNavigate } from "react-router-dom";
 
 export const NewPost = () => {
   const navigate = useNavigate();
+  const {
+    titleReference,
+    titleProps,
+    courseReference,
+    courseProps,
+    textReference,
+    textProps,
+    handleSubmit,
+    onSubmit,
+    onError,
+    errors,
+  } = usePostsForm();
   return (
     <Box
       display={"flex"}
@@ -34,6 +48,7 @@ export const NewPost = () => {
           rowGap={2}
           component={"form"}
           className="form-container"
+          onSubmit={handleSubmit(onSubmit, onError)}
         >
           <Grid item xs={12}>
             <label id="--custom-label" className="heading-secondary">
@@ -43,9 +58,13 @@ export const NewPost = () => {
               type="text"
               placeholder="Write the title of the post..."
               fullWidth
-              sx={{ fontSize: "1.5rem" }}
               size="small"
-            ></TextField>
+              ref={titleReference}
+              {...titleProps}
+            />
+            <FormHelperText className="form-container__error form-container__error--posts">
+              {errors?.title ? errors?.title?.message : ""}
+            </FormHelperText>
           </Grid>
           <Grid item xs={12} md={8}>
             <label id="--custom-label" className="heading-secondary">
@@ -57,21 +76,27 @@ export const NewPost = () => {
               id="demo-simple-select-standard"
               value={0}
               onChange={() => {}}
-              sx={{ fontSize: "1.6rem" }}
+              sx={{ fontSize: "1.4rem" }}
+              size="small"
+              ref={courseReference}
+              inputProps={{ ...courseProps }}
             >
-              <MenuItem value={0} sx={{ fontSize: "1.6rem" }} disabled>
+              <MenuItem value={0} sx={{ fontSize: "1.4rem" }} disabled>
                 <em>Select a course</em>
               </MenuItem>
-              <MenuItem value={10} sx={{ fontSize: "1.6rem" }}>
+              <MenuItem value={10} sx={{ fontSize: "1.4rem" }}>
                 Ten
               </MenuItem>
-              <MenuItem value={20} sx={{ fontSize: "1.6rem" }}>
+              <MenuItem value={20} sx={{ fontSize: "1.4rem" }}>
                 Twenty
               </MenuItem>
-              <MenuItem value={30} sx={{ fontSize: "1.6rem" }}>
+              <MenuItem value={30} sx={{ fontSize: "1.4rem" }}>
                 Thirty
               </MenuItem>
             </Select>
+            <FormHelperText className="form-container__error form-container__error--posts">
+              {errors?.course ? errors?.course?.message : ""}
+            </FormHelperText>
           </Grid>
           <Grid item xs={12} sx={{ fontSize: "1.5rem" }}>
             <label id="--custom-label" className="heading-secondary">
@@ -80,7 +105,12 @@ export const NewPost = () => {
             <textarea
               id="--text-area"
               placeholder="Describe what is your post about..."
-            ></textarea>
+              ref={textReference}
+              {...textProps}
+            />
+            <FormHelperText className="form-container__error form-container__error--posts">
+              {errors?.text ? errors?.text?.message : ""}
+            </FormHelperText>
           </Grid>
           <Grid container item xs={12} columnGap={4} justifyContent={"end"}>
             <Grid item xs={12} md={2} order={{ xs: 2, md: 1 }}>
@@ -100,7 +130,7 @@ export const NewPost = () => {
               order={{ xs: 1, md: 2 }}
               marginBottom={{ xs: "2rem", md: 0 }}
             >
-              <Button variant="contained" fullWidth>
+              <Button variant="contained" fullWidth type="submit">
                 Create
               </Button>
             </Grid>
