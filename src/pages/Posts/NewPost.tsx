@@ -1,3 +1,4 @@
+import { EMPTY } from "@/utils/constants/GlobalConstants";
 import {
   TEXT_PLACEHOLDER,
   TITLE_PLACEHOLDER,
@@ -67,7 +68,7 @@ export const NewPost = () => {
               {...titleProps}
             />
             <FormHelperText className="form-container__error form-container__error--posts">
-              {errors?.title ? errors?.title?.message : ""}
+              {errors?.title ? errors?.title?.message : EMPTY}
             </FormHelperText>
           </Grid>
           <Grid item xs={12} md={8}>
@@ -99,7 +100,7 @@ export const NewPost = () => {
               </MenuItem>
             </Select>
             <FormHelperText className="form-container__error form-container__error--posts">
-              {errors?.course ? errors?.course?.message : ""}
+              {errors?.course ? errors?.course?.message : EMPTY}
             </FormHelperText>
           </Grid>
           <Grid item xs={12} sx={{ fontSize: "1.5rem" }}>
@@ -113,7 +114,7 @@ export const NewPost = () => {
               {...textProps}
             />
             <FormHelperText className="form-container__error form-container__error--posts">
-              {errors?.text ? errors?.text?.message : ""}
+              {errors?.text ? errors?.text?.message : EMPTY}
             </FormHelperText>
           </Grid>
           <Grid container item xs={12} columnGap={4} justifyContent={"end"}>

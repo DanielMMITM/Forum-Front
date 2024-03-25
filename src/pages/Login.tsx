@@ -2,6 +2,7 @@ import { Box, Button, FormHelperText, TextField } from "@mui/material";
 import { useLoginForm } from "@/utils/hooks/Auth/Login/useLoginForm";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { PASSWORD_FIELD, USERNAME_FIELD } from "@/utils/constants/Auth/Login";
+import { EMPTY } from "@/utils/constants/GlobalConstants";
 
 export const Login = () => {
   const {
@@ -45,7 +46,7 @@ export const Login = () => {
           error={!!errors.username}
         />
         <FormHelperText className="form-container__error">
-          {errors?.username ? errors?.username?.message : ""}
+          {errors?.username ? errors?.username?.message : EMPTY}
         </FormHelperText>
         <TextField
           label={capitalizeString(PASSWORD_FIELD)}
@@ -56,7 +57,7 @@ export const Login = () => {
           error={!!errors.password}
         />
         <FormHelperText className="form-container__error">
-          {errors?.password ? errors?.password?.message : ""}
+          {errors?.password ? errors?.password?.message : EMPTY}
         </FormHelperText>
         <Button variant="contained" type="submit" disabled={isPending}>
           Login
