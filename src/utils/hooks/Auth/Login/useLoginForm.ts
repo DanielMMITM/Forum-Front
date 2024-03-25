@@ -1,11 +1,13 @@
 import {
-  CHARACTERS_WORD_ERROR,
   MAX_LENGTH,
-  MAX_LENGTH_ERROR,
   PASSWORD_FIELD,
-  REQUIRED_FIELD_ERROR,
   USERNAME_FIELD,
 } from "@/utils/constants/Auth/Login";
+import {
+  CHARACTERS_WORD_ERROR,
+  MAX_LENGTH_ERROR,
+  REQUIRED_FIELD_ERROR,
+} from "@/utils/constants/GlobalConstants";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { useLogin } from "@/utils/hooks/Auth/Login/useLogin";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
@@ -27,7 +29,7 @@ export const useLoginForm = () => {
         value: MAX_LENGTH,
         message: `${capitalizeString(
           USERNAME_FIELD
-        )}${MAX_LENGTH_ERROR}${MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
+        )}${MAX_LENGTH_ERROR}${MAX_LENGTH_ERROR}${CHARACTERS_WORD_ERROR}`,
       },
     }
   );
