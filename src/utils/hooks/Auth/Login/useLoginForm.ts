@@ -7,7 +7,7 @@ import {
   USERNAME_FIELD,
 } from "@/utils/constants/Auth/Login";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
-import { useLogin } from "@/utils/hooks/Auth/useLogin";
+import { useLogin } from "@/utils/hooks/Auth/Login/useLogin";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 
 export const useLoginForm = () => {
