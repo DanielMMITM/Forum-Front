@@ -40,6 +40,8 @@ export const NewPost = () => {
               Title
             </label>
             <TextField
+              type="text"
+              label="Write yor title here..."
               fullWidth
               sx={{ fontSize: "1.5rem" }}
               size="small"
@@ -75,7 +77,10 @@ export const NewPost = () => {
             <label id="--custom-label" className="heading-secondary">
               Text
             </label>
-            <textarea id="--text-area"></textarea>
+            <textarea
+              id="--text-area"
+              placeholder="Describe what is your post about..."
+            ></textarea>
           </Grid>
           <Grid container item xs={12} columnGap={4} justifyContent={"end"}>
             <Grid item xs={12} md={2} order={{ xs: 2, md: 1 }}>
