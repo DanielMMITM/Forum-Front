@@ -176,6 +176,11 @@ body {
 .form-container #--select-option {
   font-size: 1.2rem; }
 
+.form-container__error {
+  color: red !important;
+  font-size: 1.1rem !important;
+  margin-top: -1rem !important; }
+
 .feature {
   box-shadow: 0 4px 20px #555;
   border: 1px solid #000000;

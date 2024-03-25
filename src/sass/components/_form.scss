@@ -24,4 +24,10 @@
   & #--select-option {
     font-size: 1.2rem;
   }
+
+  &__error {
+    color: red !important;
+    font-size: 1.1rem !important;
+    margin-top: -1rem !important;
+  }
 }
