@@ -10,8 +10,8 @@ export const useLogin = () => {
       localStorage.setItem("token", data.token);
       navigate("/");
     },
-    onError: (error) => {
-      alert("Invalid credentials: " + error.message);
+    onError: (error: any) => {
+      alert(error.response.data.message);
     },
   });
 

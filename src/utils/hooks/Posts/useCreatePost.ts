@@ -10,8 +10,8 @@ export const useCreatePost = () => {
       alert("Post created");
       queryClient.invalidateQueries({ queryKey: ["posts"] });
     },
-    onError: (error) => {
-      alert(error);
+    onError: (error: any) => {
+      alert(error.response.data.message);
     },
   });
   return { createPost, isPending };
