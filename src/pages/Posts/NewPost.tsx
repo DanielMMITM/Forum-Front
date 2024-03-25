@@ -41,7 +41,7 @@ export const NewPost = () => {
             </label>
             <TextField
               type="text"
-              label="Write yor title here..."
+              placeholder="Write the title of the post..."
               fullWidth
               sx={{ fontSize: "1.5rem" }}
               size="small"
