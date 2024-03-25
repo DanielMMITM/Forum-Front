@@ -5,7 +5,7 @@ import {
   PASSWORD_FIELD,
   REQUIRED_FIELD_ERROR,
   USERNAME_FIELD,
-} from "@/utils/constants/Login";
+} from "@/utils/constants/Auth/Login";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { useLogin } from "@/utils/hooks/Auth/useLogin";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
