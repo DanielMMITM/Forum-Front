@@ -17,7 +17,7 @@ export const useLoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginForm>({ mode: "all" });
+  } = useForm<LoginForm>();
 
   const { ref: usernameReference, ...usernameProps } = register(
     USERNAME_FIELD,
