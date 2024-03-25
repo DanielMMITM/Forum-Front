@@ -2,7 +2,7 @@ interface PostForm {
   title: string;
   text: string;
   userId: number;
-  courseId: number;
+  course: number;
 }
 
 interface PostResponse {
