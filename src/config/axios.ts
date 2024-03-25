@@ -1,7 +1,6 @@
 import axios from "axios";
-
 export const axiosClient = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: import.meta.env.VITE_BACKEND_URL,
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
