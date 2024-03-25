@@ -1,28 +1,19 @@
-import { useLogin } from "@/utils/hooks/Auth/useLogin";
 import { Box, Button, FormHelperText, TextField } from "@mui/material";
-import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
+import { useLoginForm } from "./useLoginForm";
 
 export const Login = () => {
   const {
-    register,
+    usernameReference,
+    usernameProps,
+    passwordReference,
+    passwordProps,
     handleSubmit,
-    formState: { errors },
-  } = useForm<LoginForm>({ mode: "all" });
+    onSubmit,
+    onError,
+    errors,
+    isPending,
+  } = useLoginForm();
 
-  const { login, isPending } = useLogin();
-
-  const onSubmit: SubmitHandler<LoginForm> = (data) => {
-    console.log("submit: ", data);
-    const body: Record<string, string> = {
-      username: data.username,
-      password: data.password,
-    };
-    login(body);
-  };
-
-  const onError: SubmitErrorHandler<LoginForm> = (data) => {
-    console.log("error: ", data);
-  };
   return (
     <Box
       display={"flex"}
@@ -47,7 +38,8 @@ export const Login = () => {
           label="Username"
           variant="filled"
           type="text"
-          {...register("username", { required: "Username is required" })}
+          ref={usernameReference}
+          {...usernameProps}
           error={!!errors.username}
         />
         <FormHelperText sx={{ color: "red", fontSize: "1.3rem" }}>
@@ -57,7 +49,8 @@ export const Login = () => {
           label="Password"
           variant="filled"
           type="text"
-          {...register("password", { required: "Password is required" })}
+          ref={passwordReference}
+          {...passwordProps}
           error={!!errors.password}
         />
         <FormHelperText sx={{ color: "red", fontSize: "1.3rem" }}>

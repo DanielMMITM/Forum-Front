@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PrivateRouter from "./PrivateRouter";
 import { Home } from "@/pages/Home";
-import { Login } from "@/pages/Login";
+import { Login } from "@/pages/Login/Login";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Posts } from "@/pages/Posts/Posts";
