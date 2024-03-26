@@ -54,7 +54,7 @@ export const usePostsForm = () => {
       value: TEXT_MAX_LENGTH,
       message: `${capitalizeString(
         TEXT_FIELD
-      )}${MAX_LENGTH_ERROR}${CHARACTERS_WORD_ERROR}`,
+      )}${MAX_LENGTH_ERROR}${TEXT_MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
     },
   });
 
