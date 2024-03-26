@@ -12,13 +12,27 @@ import {
 } from "@/utils/constants/Posts/Posts";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
+import { useCreatePost } from "./useCreatePost";
 
 export const usePostsForm = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<PostForm>();
+    reset,
+  } = useForm<PostForm>({
+    defaultValues: {
+      title: "",
+      course: 0,
+      text: "",
+    },
+  });
+
+  const { createPost, isPending } = useCreatePost();
+
+  function updateFields(): void {
+    reset();
+  }
 
   const { ref: titleReference, ...titleProps } = register(TITLE_FIELD, {
     required: `${capitalizeString(TITLE_FIELD)}${REQUIRED_FIELD_ERROR}`,
@@ -46,6 +60,14 @@ export const usePostsForm = () => {
 
   const onSubmit: SubmitHandler<PostForm> = (data) => {
     console.log("submit: ", data);
+    const { title, text } = data;
+    const body: Record<string, string | number> = {
+      title: title,
+      text: text,
+      userId: 1,
+      courseId: 1,
+    };
+    createPost(body, { onSuccess: updateFields });
   };
 
   const onError: SubmitErrorHandler<PostForm> = (data) => {
@@ -63,5 +85,6 @@ export const usePostsForm = () => {
     onSubmit,
     onError,
     errors,
+    isPending,
   };
 };

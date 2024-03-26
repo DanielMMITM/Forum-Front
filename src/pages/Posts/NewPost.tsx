@@ -29,6 +29,7 @@ export const NewPost = () => {
     onSubmit,
     onError,
     errors,
+    isPending,
   } = usePostsForm();
   return (
     <Box
@@ -66,6 +67,7 @@ export const NewPost = () => {
               size="small"
               ref={titleReference}
               {...titleProps}
+              disabled={isPending}
             />
             <FormHelperText className="form-container__error form-container__error--posts">
               {errors?.title ? errors?.title?.message : EMPTY}
@@ -85,6 +87,7 @@ export const NewPost = () => {
               size="small"
               ref={courseReference}
               inputProps={{ ...courseProps }}
+              disabled={isPending}
             >
               <MenuItem value={0} sx={{ fontSize: "1.6rem" }} disabled>
                 <em>Select a course</em>
@@ -112,6 +115,7 @@ export const NewPost = () => {
               placeholder={TEXT_PLACEHOLDER}
               ref={textReference}
               {...textProps}
+              disabled={isPending}
             />
             <FormHelperText className="form-container__error form-container__error--posts">
               {errors?.text ? errors?.text?.message : EMPTY}
@@ -124,6 +128,7 @@ export const NewPost = () => {
                 color="error"
                 fullWidth
                 onClick={() => navigate(-1)}
+                disabled={isPending}
               >
                 Back
               </Button>
@@ -135,7 +140,12 @@ export const NewPost = () => {
               order={{ xs: 1, md: 2 }}
               marginBottom={{ xs: "2rem", md: 0 }}
             >
-              <Button variant="contained" fullWidth type="submit">
+              <Button
+                variant="contained"
+                fullWidth
+                type="submit"
+                disabled={isPending}
+              >
                 Create
               </Button>
             </Grid>
