@@ -44,6 +44,7 @@ export const Login = () => {
           ref={usernameReference}
           {...usernameProps}
           error={!!errors.username}
+          disabled={isPending}
         />
         <FormHelperText className="form-container__error">
           {errors?.username ? errors?.username?.message : EMPTY}
@@ -55,6 +56,7 @@ export const Login = () => {
           ref={passwordReference}
           {...passwordProps}
           error={!!errors.password}
+          disabled={isPending}
         />
         <FormHelperText className="form-container__error">
           {errors?.password ? errors?.password?.message : EMPTY}
