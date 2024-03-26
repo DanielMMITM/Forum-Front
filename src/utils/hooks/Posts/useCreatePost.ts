@@ -5,7 +5,8 @@ export const useCreatePost = () => {
   const queryClient = useQueryClient();
 
   const { mutate: createPost, isPending } = useMutation({
-    mutationFn: (body: Record<string, string>) => createPostRequest(body),
+    mutationFn: (body: Record<string, string | number>) =>
+      createPostRequest(body),
     onSuccess: () => {
       alert("Post created");
       queryClient.invalidateQueries({ queryKey: ["posts"] });
