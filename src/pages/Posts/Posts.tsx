@@ -55,7 +55,9 @@ export const Posts = () => {
         </Box>
       ) : (
         <>
-          <CardPost />
+          {posts.map((post: { id: number; title: string; text: string }) => (
+            <CardPost key={post.id} title={post.title} text={post.title} />
+          ))}
           <Box display={"flex"} alignSelf={"end"} mt={"4rem"}>
             <Pagination
               size="large"
