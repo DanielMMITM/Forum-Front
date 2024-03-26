@@ -7,3 +7,9 @@ export const createPostRequest = async (
   const { data } = await axiosClient.post("/posts", body);
   return data;
 };
+
+export const showPostsRequest = async (): Promise<any> => {
+  getToken();
+  const { data } = await axiosClient.get("/posts");
+  return data;
+};
