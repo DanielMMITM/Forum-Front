@@ -16,9 +16,9 @@ export const AppRouter = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route element={<PrivateRouter />}>
           <Route path="/account"></Route>
+          <Route path="/posts" element={<Posts />}></Route>
+          <Route path="/new-post" element={<NewPost />}></Route>
         </Route>
-        <Route path="/posts" element={<Posts />}></Route>
-        <Route path="/new-post" element={<NewPost />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
