@@ -10,10 +10,12 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
+import { usePaginationUtils } from "@/utils/hooks/usePaginationUtils";
 
 export const Posts = () => {
   const navigate = useNavigate();
-  const { posts, pageable, totalPages, isLoading } = useShowPosts();
+  const { posts, totalPages, isLoading } = useShowPosts();
+  const { currentPage, handleChange } = usePaginationUtils();
 
   if (isLoading && !posts)
     return (
@@ -67,9 +69,12 @@ export const Posts = () => {
                   {...item}
                 />
               )}
+              onChange={handleChange}
               count={totalPages}
-              page={pageable.pageNumber + 1}
+              page={Number(currentPage)}
               color="secondary"
+              variant="outlined"
+              shape="rounded"
             />
           </Box>
         </>
