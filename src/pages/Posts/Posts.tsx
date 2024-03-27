@@ -17,7 +17,7 @@ export const Posts = () => {
   const { posts, totalPages, isLoading } = useShowPosts();
   const { currentPage, handleChange } = usePaginationUtils();
 
-  if (isLoading && !posts)
+  if (isLoading && !posts) {
     return (
       <Box
         display={"flex"}
@@ -28,6 +28,8 @@ export const Posts = () => {
         <CircularProgress />
       </Box>
     );
+  }
+
   return (
     <Box
       display={"flex"}
