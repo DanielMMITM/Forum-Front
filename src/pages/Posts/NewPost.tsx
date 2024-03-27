@@ -33,6 +33,8 @@ export const NewPost = () => {
     onError,
     errors,
     isPending,
+    handleChange,
+    course,
   } = usePostsForm();
 
   if (isLoadingCourses && !courses) {
@@ -98,8 +100,8 @@ export const NewPost = () => {
               fullWidth
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
-              value={0}
-              onChange={() => {}}
+              value={course}
+              onChange={handleChange}
               sx={{ fontSize: "1.6rem" }}
               size="small"
               ref={courseReference}

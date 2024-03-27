@@ -13,8 +13,11 @@ import {
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { useCreatePost } from "./useCreatePost";
+import { SelectChangeEvent } from "@mui/material";
+import { useState } from "react";
 
 export const usePostsForm = () => {
+  const [course, setCourse] = useState<string>("0");
   const {
     register,
     formState: { errors },
@@ -34,6 +37,10 @@ export const usePostsForm = () => {
     reset();
   }
 
+  const handleChange = (event: SelectChangeEvent) => {
+    setCourse(event.target.value);
+  };
+
   const { ref: titleReference, ...titleProps } = register(TITLE_FIELD, {
     required: `${capitalizeString(TITLE_FIELD)}${REQUIRED_FIELD_ERROR}`,
     maxLength: {
@@ -46,6 +53,11 @@ export const usePostsForm = () => {
 
   const { ref: courseReference, ...courseProps } = register(COURSE_FIELD, {
     required: `${capitalizeString(COURSE_FIELD)}${REQUIRED_FIELD_ERROR}`,
+    validate: (value: number) => {
+      if (String(value) === "0") {
+        return `${capitalizeString(COURSE_FIELD)}${REQUIRED_FIELD_ERROR}`;
+      }
+    },
   });
 
   const { ref: textReference, ...textProps } = register(TEXT_FIELD, {
@@ -60,12 +72,12 @@ export const usePostsForm = () => {
 
   const onSubmit: SubmitHandler<PostForm> = (data) => {
     console.log("submit: ", data);
-    const { title, text } = data;
+    const { title, text, course } = data;
     const body: Record<string, string | number> = {
       title: title,
       text: text,
       userId: 1,
-      courseId: 1,
+      courseId: course,
     };
     createPost(body, { onSuccess: updateFields });
   };
@@ -86,5 +98,7 @@ export const usePostsForm = () => {
     onError,
     errors,
     isPending,
+    handleChange,
+    course,
   };
 };
