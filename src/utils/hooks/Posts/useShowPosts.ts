@@ -1,4 +1,4 @@
-import { showPostsRequest } from "@/api/posts/posts";
+import { showPostsRequest } from "@/api/Posts/posts";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 

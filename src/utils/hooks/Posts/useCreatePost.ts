@@ -1,4 +1,4 @@
-import { createPostRequest } from "@/api/posts/posts";
+import { createPostRequest } from "@/api/Posts/posts";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const useCreatePost = () => {
