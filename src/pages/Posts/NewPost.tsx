@@ -3,10 +3,12 @@ import {
   TEXT_PLACEHOLDER,
   TITLE_PLACEHOLDER,
 } from "@/utils/constants/Posts/Posts";
+import { useCourses } from "@/utils/hooks/Posts/useCourses";
 import { usePostsForm } from "@/utils/hooks/Posts/usePostsForm";
 import {
   Box,
   Button,
+  CircularProgress,
   Container,
   FormHelperText,
   Grid,
@@ -18,6 +20,7 @@ import { useNavigate } from "react-router-dom";
 
 export const NewPost = () => {
   const navigate = useNavigate();
+  const { courses, isLoadingCourses } = useCourses();
   const {
     titleReference,
     titleProps,
@@ -31,6 +34,20 @@ export const NewPost = () => {
     errors,
     isPending,
   } = usePostsForm();
+
+  if (isLoadingCourses && !courses) {
+    return (
+      <Box
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        minHeight={"100vh"}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+
   return (
     <Box
       display={"flex"}
@@ -92,15 +109,15 @@ export const NewPost = () => {
               <MenuItem value={0} sx={{ fontSize: "1.6rem" }} disabled>
                 <em>Select a course</em>
               </MenuItem>
-              <MenuItem value={10} sx={{ fontSize: "1.6rem" }}>
-                Ten
-              </MenuItem>
-              <MenuItem value={20} sx={{ fontSize: "1.6rem" }}>
-                Twenty
-              </MenuItem>
-              <MenuItem value={30} sx={{ fontSize: "1.6rem" }}>
-                Thirty
-              </MenuItem>
+              {courses.map((course: { id: number; name: string }) => (
+                <MenuItem
+                  key={course.id}
+                  value={course.id}
+                  sx={{ fontSize: "1.6rem" }}
+                >
+                  {course.name}
+                </MenuItem>
+              ))}
             </Select>
             <FormHelperText className="form-container__error form-container__error--posts">
               {errors?.course ? errors?.course?.message : EMPTY}
