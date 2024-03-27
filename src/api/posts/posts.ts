@@ -8,8 +8,10 @@ export const createPostRequest = async (
   return data;
 };
 
-export const showPostsRequest = async (): Promise<any> => {
+export const showPostsRequest = async (page: number): Promise<any> => {
   getToken();
-  const { data } = await axiosClient.get("/posts");
+  let url = `/posts`;
+  if (page) url += `?page=${page}`;
+  const { data } = await axiosClient.get(url);
   return data;
 };
