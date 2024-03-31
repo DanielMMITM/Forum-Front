@@ -146,6 +146,9 @@ body {
     overflow: hidden;
     text-overflow: ellipsis; }
 
+.toast {
+  font-size: 1.6rem; }
+
 .navbar {
   font-size: 4rem; }
   .navbar__link {
