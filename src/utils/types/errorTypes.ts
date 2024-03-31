@@ -12,3 +12,9 @@ interface SubError {
   rejectedValue: Object;
   message: string;
 }
+
+export interface CustomAxiosError {
+  response: {
+    data: CustomError;
+  };
+}
