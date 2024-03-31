@@ -5,4 +5,5 @@ interface LoginForm {
 
 interface LoginResponse {
   token: string;
+  id: number;
 }
