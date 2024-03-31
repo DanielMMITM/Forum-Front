@@ -1,4 +1,5 @@
 import { loginRequest } from "@/api/Auth/auth";
+import { useUserStore } from "@/store/userStore";
 import { handleErrorsResponse } from "@/utils/helpers/handleErrorsResponse";
 import { CustomAxiosError } from "@/utils/types/errorTypes";
 import { useMutation } from "@tanstack/react-query";
@@ -10,6 +11,8 @@ export const useLogin = () => {
     mutationFn: (body: Record<string, string>) => loginRequest(body),
     onSuccess: (data) => {
       localStorage.setItem("token", data.token);
+      const { setId } = useUserStore();
+      setId(data.id);
       navigate("/");
     },
     onError: (error: CustomAxiosError) => {
