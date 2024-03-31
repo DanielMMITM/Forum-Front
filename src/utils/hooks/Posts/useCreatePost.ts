@@ -1,5 +1,7 @@
 import { createPostRequest } from "@/api/Posts/posts";
+import { handleErrorsResponse } from "@/utils/helpers/handleErrorsResponse";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 export const useCreatePost = () => {
   const queryClient = useQueryClient();
@@ -8,11 +10,11 @@ export const useCreatePost = () => {
     mutationFn: (body: Record<string, string | number>) =>
       createPostRequest(body),
     onSuccess: () => {
-      alert("Post created");
+      toast.success("Post created successfully!", { className: "toast" });
       queryClient.invalidateQueries({ queryKey: ["posts"] });
     },
     onError: (error: any) => {
-      alert(error.response.data.message);
+      handleErrorsResponse(error);
     },
   });
   return { createPost, isPending };

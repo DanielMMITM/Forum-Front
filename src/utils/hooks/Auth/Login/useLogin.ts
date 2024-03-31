@@ -1,4 +1,5 @@
 import { loginRequest } from "@/api/Auth/auth";
+import { handleErrorsResponse } from "@/utils/helpers/handleErrorsResponse";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +12,7 @@ export const useLogin = () => {
       navigate("/");
     },
     onError: (error: any) => {
-      alert(error.response.data.message);
+      handleErrorsResponse(error);
     },
   });
 
