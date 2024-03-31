@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
   const navigate = useNavigate();
+  const { setId } = useUserStore();
   const { mutate: login, isPending } = useMutation({
     mutationFn: (body: Record<string, string>) => loginRequest(body),
     onSuccess: (data) => {
       localStorage.setItem("token", data.token);
-      const { setId } = useUserStore();
       setId(data.id);
       navigate("/");
     },
