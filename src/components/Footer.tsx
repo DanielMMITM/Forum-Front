@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 
 export const Footer = () => {
   const { pathname } = useLocation();
-  if (pathname !== "/login")
+  if (pathname !== "/login" && pathname !== "/signup")
     return (
       <Box
         display={"grid"}
