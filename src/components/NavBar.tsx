@@ -26,7 +26,7 @@ export const NavBar = () => {
   const settings = [
     localStorage.getItem("token")
       ? { id: 1, name: "Profile", link: "/profile" }
-      : { id: 1, name: "Register", link: "/signup" },
+      : { id: 1, name: "Register", link: "/register" },
     localStorage.getItem("token")
       ? { id: 2, name: "Logout", link: "" }
       : { id: 2, name: "Login", link: "/login" },
