@@ -14,3 +14,9 @@ interface SignUpForm {
   password: string;
   confirmPassword: string;
 }
+
+interface SignUpResponse {
+  id: number;
+  username: string;
+  email: string;
+}
