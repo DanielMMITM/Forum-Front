@@ -3,6 +3,7 @@ import { useLoginForm } from "@/utils/hooks/Auth/Login/useLoginForm";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { PASSWORD_FIELD, USERNAME_FIELD } from "@/utils/constants/Auth/Login";
 import { EMPTY } from "@/utils/constants/GlobalConstants";
+import { Navigate } from "react-router-dom";
 
 export const Login = () => {
   const {
@@ -17,6 +18,7 @@ export const Login = () => {
     isPending,
   } = useLoginForm();
 
+  if (localStorage.getItem("token")) return <Navigate to={"/"} replace />;
   return (
     <Box
       display={"flex"}
