@@ -7,3 +7,10 @@ export const loginRequest = async (
   console.log(data);
   return data;
 };
+
+export const createUserRequest = async (
+  body: Record<string, string>
+): Promise<SignUpResponse> => {
+  const { data } = await axiosClient.post("/auth/signup", body);
+  return data;
+};
