@@ -15,8 +15,10 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { useCreatePost } from "./useCreatePost";
 import { SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
+import { useUserStore } from "@/store/userStore";
 
 export const usePostsForm = () => {
+  const { id } = useUserStore();
   const [course, setCourse] = useState<string>("0");
   const {
     register,
@@ -76,7 +78,7 @@ export const usePostsForm = () => {
     const body: Record<string, string | number> = {
       title: title,
       text: text,
-      userId: 1,
+      userId: Number(id),
       courseId: course,
     };
     createPost(body, { onSuccess: updateFields });
