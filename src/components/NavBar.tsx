@@ -13,18 +13,25 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
+import { useLogout } from "@/utils/hooks/Auth/Logout/useLogout";
+import { Divider } from "@mui/material";
 
 const pages = [
   { id: 1, name: "Home", link: "/" },
   { id: 2, name: "Posts", link: "/posts" },
 ];
-const settings = [
-  { id: 1, name: "Profile", link: "/profile" },
-  ,
-  { id: 2, name: "Login", link: "/login" },
-];
 
 export const NavBar = () => {
+  const { logout } = useLogout();
+
+  const settings = [
+    { id: 1, name: "Profile", link: "/profile" },
+    ,
+    localStorage.getItem("token")
+      ? { id: 2, name: "Logout", link: "" }
+      : { id: 2, name: "Login", link: "/login" },
+  ];
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -211,7 +218,16 @@ export const NavBar = () => {
                   to={setting!.link}
                   className="navbar__link"
                 >
-                  <MenuItem onClick={handleCloseUserMenu}>
+                  <MenuItem
+                    onClick={
+                      setting?.name === "Logout"
+                        ? () => {
+                            handleCloseUserMenu();
+                            logout();
+                          }
+                        : handleCloseUserMenu
+                    }
+                  >
                     <Typography
                       textAlign="center"
                       sx={{
