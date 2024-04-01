@@ -19,6 +19,9 @@ export const useSignUpForm = () => {
   const {
     handleSubmit,
     register,
+    watch,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm<SignUpForm>({
     defaultValues: {
@@ -62,6 +65,14 @@ export const useSignUpForm = () => {
           PASSWORD_FIELD
         )}${MAX_LENGTH_ERROR}${MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
       },
+      validate: () => {
+        if (watch("password") === watch("confirmPassword")) {
+          clearErrors("confirmPassword");
+          return undefined;
+        } else {
+          setError("confirmPassword", { message: CONFIRM_PASSWORD_ERROR });
+        }
+      },
     }
   );
 
@@ -74,6 +85,11 @@ export const useSignUpForm = () => {
         message: `${capitalizeString(
           CONFIRM_PASSWORD_FIELD
         )}${MAX_LENGTH_ERROR}${MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
+      },
+      validate: () => {
+        if (watch("confirmPassword") !== watch("password")) {
+          return CONFIRM_PASSWORD_ERROR;
+        }
       },
     }
   );
