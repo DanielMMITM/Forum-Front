@@ -2,7 +2,7 @@ import {
   MAX_LENGTH,
   PASSWORD_FIELD,
   USERNAME_FIELD,
-} from "@/utils/constants/Auth/Login";
+} from "@/utils/constants/Auth/authConstants";
 import {
   CHARACTERS_WORD_ERROR,
   MAX_LENGTH_ERROR,

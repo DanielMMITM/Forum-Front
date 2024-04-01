@@ -1,7 +1,10 @@
 import { Box, Button, FormHelperText, TextField } from "@mui/material";
 import { useLoginForm } from "@/utils/hooks/Auth/Login/useLoginForm";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
-import { PASSWORD_FIELD, USERNAME_FIELD } from "@/utils/constants/Auth/Login";
+import {
+  PASSWORD_FIELD,
+  USERNAME_FIELD,
+} from "@/utils/constants/Auth/authConstants";
 import { EMPTY } from "@/utils/constants/GlobalConstants";
 import { Navigate } from "react-router-dom";
 

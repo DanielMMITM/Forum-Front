@@ -6,7 +6,7 @@ import {
   MAX_LENGTH_EMAIL,
   PASSWORD_FIELD,
   USERNAME_FIELD,
-} from "@/utils/constants/Auth/SignUp";
+} from "@/utils/constants/Auth/authConstants";
 import {
   CHARACTERS_WORD_ERROR,
   MAX_LENGTH_ERROR,
