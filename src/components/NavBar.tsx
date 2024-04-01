@@ -14,7 +14,6 @@ import AdbIcon from "@mui/icons-material/Adb";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
 import { useLogout } from "@/utils/hooks/Auth/Logout/useLogout";
-import { Divider } from "@mui/material";
 
 const pages = [
   { id: 1, name: "Home", link: "/" },
@@ -25,8 +24,9 @@ export const NavBar = () => {
   const { logout } = useLogout();
 
   const settings = [
-    { id: 1, name: "Profile", link: "/profile" },
-    ,
+    localStorage.getItem("token")
+      ? { id: 1, name: "Profile", link: "/profile" }
+      : { id: 1, name: "Register", link: "/signup" },
     localStorage.getItem("token")
       ? { id: 2, name: "Logout", link: "" }
       : { id: 2, name: "Login", link: "/login" },
