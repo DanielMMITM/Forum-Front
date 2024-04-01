@@ -2,7 +2,7 @@ import { EMPTY } from "@/utils/constants/GlobalConstants";
 import {
   TEXT_PLACEHOLDER,
   TITLE_PLACEHOLDER,
-} from "@/utils/constants/Posts/Posts";
+} from "@/utils/constants/Posts/PostsConstants";
 import { useCourses } from "@/utils/hooks/Posts/useCourses";
 import { usePostsForm } from "@/utils/hooks/Posts/usePostsForm";
 import {

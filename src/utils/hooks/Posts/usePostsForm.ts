@@ -9,7 +9,7 @@ import {
   TITLE_FIELD,
   TITLE_MAX_LENGTH,
   COURSE_FIELD,
-} from "@/utils/constants/Posts/Posts";
+} from "@/utils/constants/Posts/PostsConstants";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { useCreatePost } from "./useCreatePost";
