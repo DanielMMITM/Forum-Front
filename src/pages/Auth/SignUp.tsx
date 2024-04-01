@@ -8,10 +8,9 @@ import { EMPTY } from "@/utils/constants/GlobalConstants";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { useSignUpForm } from "@/utils/hooks/Auth/SignUp/useSignUpForm";
 import { Box, Button, FormHelperText, Grid, TextField } from "@mui/material";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
-  const isPending = false;
   const {
     usernameReference,
     usernameProps,
@@ -25,7 +24,10 @@ export const SignUp = () => {
     onSubmit,
     onError,
     errors,
+    isPending,
   } = useSignUpForm();
+  const navigate = useNavigate();
+
   if (localStorage.getItem("token")) return <Navigate to={"/"} replace />;
   return (
     <Box
@@ -97,12 +99,24 @@ export const SignUp = () => {
         </FormHelperText>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <Button variant="contained" type="submit" fullWidth color="error">
+            <Button
+              variant="contained"
+              type="submit"
+              fullWidth
+              color="error"
+              disabled={isPending}
+              onClick={() => navigate("/")}
+            >
               Back
             </Button>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Button variant="contained" type="submit" fullWidth>
+            <Button
+              variant="contained"
+              type="submit"
+              fullWidth
+              disabled={isPending}
+            >
               Save
             </Button>
           </Grid>

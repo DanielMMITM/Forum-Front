@@ -14,6 +14,7 @@ import {
 } from "@/utils/constants/GlobalConstants";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
+import { useSignUp } from "./useSignUp";
 
 export const useSignUpForm = () => {
   const {
@@ -31,6 +32,7 @@ export const useSignUpForm = () => {
       confirmPassword: "",
     },
   });
+  const { createUser, isPending } = useSignUp();
 
   const { ref: usernameReference, ...usernameProps } = register(
     USERNAME_FIELD,
@@ -95,7 +97,13 @@ export const useSignUpForm = () => {
   );
 
   const onSubmit: SubmitHandler<SignUpForm> = (data) => {
-    console.log(data);
+    const { username, email, password } = data;
+    const body: Record<string, string> = {
+      username: username,
+      email: email,
+      password: password,
+    };
+    createUser(body);
   };
 
   const onError: SubmitErrorHandler<SignUpForm> = (data) => {
@@ -115,5 +123,6 @@ export const useSignUpForm = () => {
     onSubmit,
     onError,
     errors,
+    isPending,
   };
 };
