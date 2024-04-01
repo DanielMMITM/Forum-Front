@@ -1,7 +1,31 @@
+import {
+  CONFIRM_PASSWORD_LABEL,
+  EMAIL_FIELD,
+  PASSWORD_FIELD,
+  USERNAME_FIELD,
+} from "@/utils/constants/Auth/authConstants";
+import { EMPTY } from "@/utils/constants/GlobalConstants";
+import { capitalizeString } from "@/utils/helpers/capitalizeString";
+import { useSignUpForm } from "@/utils/hooks/Auth/SignUp/useSignUpForm";
 import { Box, Button, FormHelperText, Grid, TextField } from "@mui/material";
 import { Navigate } from "react-router-dom";
 
 export const SignUp = () => {
+  const isPending = false;
+  const {
+    usernameReference,
+    usernameProps,
+    emailReference,
+    emailProps,
+    passwordReference,
+    passwordProps,
+    confirmPasswordReference,
+    confirmPasswordProps,
+    handleSubmit,
+    onSubmit,
+    onError,
+    errors,
+  } = useSignUpForm();
   if (localStorage.getItem("token")) return <Navigate to={"/"} replace />;
   return (
     <Box
@@ -21,22 +45,63 @@ export const SignUp = () => {
         className="form-container"
         component={"form"}
         autoComplete="off"
+        onSubmit={handleSubmit(onSubmit, onError)}
       >
-        <TextField label="Username" variant="filled" type="text" />
-        <FormHelperText className="form-container__error"></FormHelperText>
-        <TextField label="Email" variant="filled" type="text" />
-        <FormHelperText className="form-container__error"></FormHelperText>
-        <TextField label="Contraseña" variant="filled" type="text" />
-        <FormHelperText className="form-container__error"></FormHelperText>
-        <TextField label="Confirmar contraseña" variant="filled" type="text" />
-        <FormHelperText className="form-container__error"></FormHelperText>
+        <TextField
+          label={capitalizeString(USERNAME_FIELD)}
+          variant="filled"
+          type="text"
+          ref={usernameReference}
+          {...usernameProps}
+          error={!!errors.username}
+          disabled={isPending}
+        />
+        <FormHelperText className="form-container__error">
+          {errors?.username ? errors?.username?.message : EMPTY}
+        </FormHelperText>
+        <TextField
+          label={capitalizeString(EMAIL_FIELD)}
+          variant="filled"
+          type="text"
+          ref={emailReference}
+          {...emailProps}
+          error={!!errors.email}
+          disabled={isPending}
+        />
+        <FormHelperText className="form-container__error">
+          {errors?.email ? errors?.email?.message : EMPTY}
+        </FormHelperText>
+        <TextField
+          label={capitalizeString(PASSWORD_FIELD)}
+          variant="filled"
+          type="text"
+          ref={passwordReference}
+          {...passwordProps}
+          error={!!errors.password}
+          disabled={isPending}
+        />
+        <FormHelperText className="form-container__error">
+          {errors?.password ? errors?.password?.message : EMPTY}
+        </FormHelperText>
+        <TextField
+          label={CONFIRM_PASSWORD_LABEL}
+          variant="filled"
+          type="text"
+          ref={confirmPasswordReference}
+          {...confirmPasswordProps}
+          error={!!errors.confirmPassword}
+          disabled={isPending}
+        />
+        <FormHelperText className="form-container__error">
+          {errors?.confirmPassword ? errors?.confirmPassword?.message : EMPTY}
+        </FormHelperText>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={6}>
             <Button variant="contained" type="submit" fullWidth color="error">
               Back
             </Button>
           </Grid>
-          <Grid item xs={12} md={5}>
+          <Grid item xs={12} md={6}>
             <Button variant="contained" type="submit" fullWidth>
               Save
             </Button>
