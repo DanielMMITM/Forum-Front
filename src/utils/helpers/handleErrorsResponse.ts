@@ -20,6 +20,12 @@ export const handleErrorsResponse = (error: CustomError) => {
       useLogout();
       break;
     }
+    case HttpErrors.NOT_FOUND: {
+      toast.error(error.debugMessage, {
+        className: "toast",
+      });
+      break;
+    }
     case HttpErrors.SERVER_ERROR: {
       toast.error(error.message, {
         className: "toast",
