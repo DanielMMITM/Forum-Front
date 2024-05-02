@@ -4,15 +4,26 @@ import { useLogout } from "@/utils/hooks/Auth/Logout/useLogout";
 import { CustomError } from "@/utils/types/errorTypes";
 
 export const handleErrorsResponse = (error: CustomError) => {
-  const { logout } = useLogout();
   toast.dismiss();
 
   switch (error.code) {
+    case HttpErrors.BAD_REQUEST: {
+      toast.error(error.debugMessage, {
+        className: "toast",
+      });
+      break;
+    }
     case HttpErrors.UNAUTHORIZED: {
       toast.error(error.message, {
         className: "toast",
       });
-      logout();
+      useLogout();
+      break;
+    }
+    case HttpErrors.SERVER_ERROR: {
+      toast.error(error.message, {
+        className: "toast",
+      });
       break;
     }
     default: {
