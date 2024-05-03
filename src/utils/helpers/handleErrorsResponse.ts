@@ -26,6 +26,12 @@ export const handleErrorsResponse = (error: CustomError) => {
       });
       break;
     }
+    case HttpErrors.CONFLICT: {
+      toast.error(error.debugMessage, {
+        className: "toast",
+      });
+      break;
+    }
     case HttpErrors.SERVER_ERROR: {
       toast.error(error.message, {
         className: "toast",
