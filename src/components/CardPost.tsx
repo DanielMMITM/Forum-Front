@@ -1,12 +1,13 @@
 import { Box } from "@mui/material";
 import profilePic from "@/assets/images/profile.webp";
+import { Link } from "react-router-dom";
 
 interface CardProps {
-  title: string;
-  text: string;
+  data: PostResponse;
 }
 
-export const CardPost = ({ title, text }: CardProps) => {
+export const CardPost = ({ data }: CardProps) => {
+  const { id, title, text } = data;
   return (
     <Box
       display={"flex"}
@@ -39,9 +40,11 @@ export const CardPost = ({ title, text }: CardProps) => {
         marginInlineStart={"2rem"}
         marginInlineEnd={"6rem"}
       >
-        <h2 className=" heading-secondary heading-secondary--card-post__title">
-          {title}
-        </h2>
+        <Link to={`/posts/${id}`} replace={true} state={data} className="posts">
+          <h2 className=" heading-secondary heading-secondary--card-post__title">
+            {title}
+          </h2>
+        </Link>
         <p className="text--card-post">{text}</p>
       </Box>
     </Box>
