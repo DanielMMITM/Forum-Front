@@ -7,18 +7,20 @@ import { Footer } from "@/components/Footer";
 import { Posts } from "@/pages/Posts/Posts";
 import { NewPost } from "@/pages/Posts/NewPost";
 import { SignUp } from "@/pages/Auth/SignUp";
+import { ViewPost } from "@/pages/Posts/ViewPost";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route index path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
         <Route element={<PrivateRouter />}>
           <Route path="/profile"></Route>
           <Route path="/posts" element={<Posts />}></Route>
+          <Route path="/posts/:id" element={<ViewPost />}></Route>
           <Route path="/new-post" element={<NewPost />}></Route>
         </Route>
       </Routes>
