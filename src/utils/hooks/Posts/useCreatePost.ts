@@ -15,7 +15,7 @@ export const useCreatePost = () => {
     onSuccess: (data) => {
       toast.success("Post created successfully!", { className: "toast" });
       queryClient.invalidateQueries({ queryKey: ["posts"] });
-      navigate(`/posts/${data.id}`);
+      navigate(`/posts/${data.id}`, { replace: true, state: data });
     },
     onError: (error: CustomAxiosError) => {
       handleErrorsResponse(error.response.data);
