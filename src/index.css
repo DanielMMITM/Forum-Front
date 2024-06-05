@@ -277,3 +277,7 @@ body {
 
 .posts__header {
   border-bottom: 2px solid #038ad8; }
+
+:link,
+:visited {
+  text-decoration: none; }
