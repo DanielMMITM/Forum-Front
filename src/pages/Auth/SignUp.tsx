@@ -7,7 +7,17 @@ import {
 import { EMPTY } from "@/utils/constants/GlobalConstants";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { useSignUpForm } from "@/utils/hooks/Auth/SignUp/useSignUpForm";
-import { Box, Button, FormHelperText, Grid, TextField } from "@mui/material";
+import { useSignUpUtils } from "@/utils/hooks/Auth/SignUp/useSignUpUtils";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import {
+  Box,
+  Button,
+  FormHelperText,
+  Grid,
+  IconButton,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
@@ -27,6 +37,13 @@ export const SignUp = () => {
     isPending,
   } = useSignUpForm();
   const navigate = useNavigate();
+
+  const {
+    showPassword,
+    handleClickShowPassword,
+    handleMouseDownPassword,
+    handleMouseUpPassword,
+  } = useSignUpUtils();
 
   if (localStorage.getItem("token")) return <Navigate to={"/"} replace />;
   return (
@@ -76,11 +93,30 @@ export const SignUp = () => {
         <TextField
           label={capitalizeString(PASSWORD_FIELD)}
           variant="filled"
-          type="text"
+          type={showPassword ? "text" : "password"}
           ref={passwordReference}
           {...passwordProps}
           error={!!errors.password}
           disabled={isPending}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  onMouseUp={handleMouseUpPassword}
+                  edge="end"
+                  sx={{ width: "4rem", height: "4rem" }}
+                >
+                  {showPassword ? (
+                    <VisibilityOff sx={{ width: "2rem", height: "2rem" }} />
+                  ) : (
+                    <Visibility sx={{ width: "2rem", height: "2rem" }} />
+                  )}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <FormHelperText className="form-container__error">
           {errors?.password ? errors?.password?.message : EMPTY}
@@ -88,11 +124,30 @@ export const SignUp = () => {
         <TextField
           label={CONFIRM_PASSWORD_LABEL}
           variant="filled"
-          type="text"
+          type={showPassword ? "text" : "password"}
           ref={confirmPasswordReference}
           {...confirmPasswordProps}
           error={!!errors.confirmPassword}
           disabled={isPending}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  onMouseUp={handleMouseUpPassword}
+                  edge="end"
+                  sx={{ width: "4rem", height: "4rem" }}
+                >
+                  {showPassword ? (
+                    <VisibilityOff sx={{ width: "2rem", height: "2rem" }} />
+                  ) : (
+                    <Visibility sx={{ width: "2rem", height: "2rem" }} />
+                  )}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <FormHelperText className="form-container__error">
           {errors?.confirmPassword ? errors?.confirmPassword?.message : EMPTY}
