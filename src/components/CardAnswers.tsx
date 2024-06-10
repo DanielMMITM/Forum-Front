@@ -9,7 +9,7 @@ interface CardAnswerProps {
 
 export const CardAnswers = ({ id, text, solution }: CardAnswerProps) => {
   return (
-    <Box display={"flex"} flexDirection={"row"} key={id}>
+    <Box display={"flex"} flexDirection={"row"} key={id} mt={"2rem"}>
       <Box
         display={"flex"}
         flexDirection={"column"}
