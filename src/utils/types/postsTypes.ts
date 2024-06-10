@@ -10,8 +10,15 @@ interface PostResponse {
   title: string;
   text: string;
   statusPost: string;
-  userId: number;
+  userCreator: UserCreator;
   courseId: number;
   answers: [];
   postDate: Date;
+}
+
+interface UserCreator {
+  id: number;
+  username: string;
+  email: string;
+  role: string;
 }
