@@ -59,7 +59,7 @@ export const Posts = () => {
         </Box>
       ) : (
         <>
-          {posts.map((post: any) => (
+          {posts?.map((post: any) => (
             <CardPost key={post.id} data={post} />
           ))}
           <Box display={"flex"} alignSelf={"end"} mt={"4rem"}>
