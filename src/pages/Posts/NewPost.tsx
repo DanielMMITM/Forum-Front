@@ -5,6 +5,7 @@ import {
 } from "@/utils/constants/Posts/PostsConstants";
 import { useCourses } from "@/utils/hooks/Posts/useCourses";
 import { usePostsForm } from "@/utils/hooks/Posts/usePostsForm";
+import { Course } from "@/utils/types/courseTypes";
 import {
   Box,
   Button,
@@ -111,7 +112,7 @@ export const NewPost = () => {
               <MenuItem value={0} sx={{ fontSize: "1.6rem" }} disabled>
                 <em>Select a course</em>
               </MenuItem>
-              {courses.map((course: { id: number; name: string }) => (
+              {courses?.map((course: Course) => (
                 <MenuItem
                   key={course.id}
                   value={course.id}
