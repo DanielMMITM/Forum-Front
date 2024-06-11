@@ -35,7 +35,6 @@ export const Posts = () => {
     <Box
       display={"flex"}
       flexDirection={"column"}
-      minHeight={"100vh"}
       marginTop={"calc(100vh - (100vh - 76px))"}
       padding={"6rem"}
       className="posts"
