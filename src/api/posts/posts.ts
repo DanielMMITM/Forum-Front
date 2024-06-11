@@ -1,5 +1,5 @@
 import { axiosClient, getToken } from "@/config/axios";
-import { PostResponse, PostsList } from "@/utils/types/postsTypes";
+import { PostResponse, PostsList } from "@/utils/types/postTypes";
 
 export const createPostRequest = async (
   body: Record<string, string | number>

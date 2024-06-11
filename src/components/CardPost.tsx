@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import profilePic from "@/assets/images/profile.webp";
 import { Link } from "react-router-dom";
-import { PostResponse } from "@/utils/types/postsTypes";
+import { PostResponse } from "@/utils/types/postTypes";
 
 interface CardProps {
   data: PostResponse;

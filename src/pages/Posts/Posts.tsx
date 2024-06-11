@@ -11,6 +11,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
 import { usePaginationUtils } from "@/utils/hooks/usePaginationUtils";
+import { PostResponse } from "@/utils/types/postTypes";
 
 export const Posts = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ export const Posts = () => {
         </Box>
       ) : (
         <>
-          {posts?.map((post: any) => (
+          {posts?.map((post: PostResponse) => (
             <CardPost key={post.id} data={post} />
           ))}
           <Box display={"flex"} alignSelf={"end"} mt={"4rem"}>

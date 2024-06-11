@@ -16,6 +16,7 @@ import { useCreatePost } from "./useCreatePost";
 import { SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
 import { useUserStore } from "@/store/userStore";
+import { PostForm } from "@/utils/types/postTypes";
 
 export const usePostsForm = () => {
   const { id } = useUserStore();
