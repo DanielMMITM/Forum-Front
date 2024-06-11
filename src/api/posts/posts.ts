@@ -14,7 +14,6 @@ export const showPostsRequest = async (page: number): Promise<PostsList> => {
   let url = `/posts`;
   if (page) url += `?page=${page}`;
   const { data } = await axiosClient.get(url);
-  console.log(data);
   return data;
 };
 
