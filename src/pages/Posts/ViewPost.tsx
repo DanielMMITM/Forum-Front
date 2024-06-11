@@ -3,11 +3,15 @@ import { Box, Button, FormHelperText, Grid } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import profilePic from "@/assets/images/profile.webp";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useUserStore } from "@/store/userStore";
+import { useDeletePost } from "@/utils/hooks/Posts/useDeletePost";
 
 export const ViewPost = () => {
+  const { id } = useUserStore();
   const { state } = useLocation();
   const navigate = useNavigate();
   const post = state as PostResponse;
+  const { isPending, deletePost } = useDeletePost();
 
   return (
     <Box
@@ -50,11 +54,28 @@ export const ViewPost = () => {
           </Box>
         </Box>
         <p className="text">{post.text}</p>
-        <Box display={"flex"} justifyContent={"end"}>
-          <Button variant="contained" type="submit" sx={{ fontSize: "1.5rem" }}>
-            Edit Post
-          </Button>
-        </Box>
+        {id === post.userCreator.id && (
+          <Box display={"flex"} justifyContent={"end"}>
+            <Button
+              variant="contained"
+              type="submit"
+              sx={{ fontSize: "1.5rem" }}
+              disabled={isPending}
+            >
+              Edit Post
+            </Button>
+            <Button
+              variant="contained"
+              type="submit"
+              color="error"
+              sx={{ fontSize: "1.5rem", marginLeft: { xs: 0, md: "1.5rem" } }}
+              onClick={() => deletePost(post.id)}
+              disabled={isPending}
+            >
+              Delete Post
+            </Button>
+          </Box>
+        )}
       </Box>
 
       <Box borderTop={"2px solid gray"} mt={"2rem"}>
@@ -67,7 +88,7 @@ export const ViewPost = () => {
           <Grid item xs={12} sx={{ fontSize: "1.5rem" }} mt={"2rem"}>
             <Box display={"flex"} flexDirection={"column"} className="posts">
               <label id="--custom-label">Add a comment</label>
-              <textarea id="--text-area" />
+              <textarea id="--text-area" disabled={isPending} />
             </Box>
             <FormHelperText className="form-container__error form-container__error--posts"></FormHelperText>
           </Grid>

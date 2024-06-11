@@ -15,3 +15,9 @@ export const showPostsRequest = async (page: number): Promise<any> => {
   const { data } = await axiosClient.get(url);
   return data;
 };
+
+export const deletePostRequest = async (id: number): Promise<String> => {
+  getToken();
+  const { data } = await axiosClient.delete(`/posts/${id}`);
+  return data;
+};
