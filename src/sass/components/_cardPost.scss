@@ -1,9 +1,8 @@
 .card-post {
-  border: 1px solid currentColor;
   min-height: 20rem;
   background-color: #efef;
   border-radius: 2rem;
-  box-shadow: 0 0 5px $black inset;
+  box-shadow: 0 1.5px 5px $black;
 
   &__picture {
     width: 11rem;

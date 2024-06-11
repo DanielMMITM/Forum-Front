@@ -7,7 +7,12 @@ interface CardProps {
 }
 
 export const CardPost = ({ data }: CardProps) => {
-  const { id, title, text } = data;
+  const {
+    id,
+    title,
+    text,
+    userCreator: { username },
+  } = data;
   return (
     <Box
       display={"flex"}
@@ -28,9 +33,7 @@ export const CardPost = ({ data }: CardProps) => {
           justifyContent={"center"}
           width={{ xs: "40vw", sm: "28vw", md: "16vw", lg: "10vw" }}
         >
-          <h2 className="heading-secondary--card-post__name">
-            Cristiano Ronaldo Santos Aveiro
-          </h2>
+          <h2 className="heading-secondary--card-post__name">{username}</h2>
         </Box>
       </Box>
       <Box

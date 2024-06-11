@@ -226,11 +226,10 @@ body {
       margin-right: 4rem; }
 
 .card-post {
-  border: 1px solid currentColor;
   min-height: 20rem;
   background-color: #efef;
   border-radius: 2rem;
-  box-shadow: 0 0 5px #000000 inset; }
+  box-shadow: 0 1.5px 5px #000000; }
   .card-post__picture {
     width: 11rem;
     height: 10rem;
