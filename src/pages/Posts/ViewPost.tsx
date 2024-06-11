@@ -5,6 +5,7 @@ import profilePic from "@/assets/images/profile.webp";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useUserStore } from "@/store/userStore";
 import { useDeletePost } from "@/utils/hooks/Posts/useDeletePost";
+import { PostResponse } from "@/utils/types/postsTypes";
 
 export const ViewPost = () => {
   const { id } = useUserStore();
