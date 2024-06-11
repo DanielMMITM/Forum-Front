@@ -6,6 +6,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useUserStore } from "@/store/userStore";
 import { useDeletePost } from "@/utils/hooks/Posts/useDeletePost";
 import { PostResponse } from "@/utils/types/postTypes";
+import { Response } from "@/utils/types/responseTypes";
 
 export const ViewPost = () => {
   const { id } = useUserStore();
@@ -100,7 +101,7 @@ export const ViewPost = () => {
           </Grid>
         </Grid>
         <Box mt={"2rem"}>
-          {post.answers.map((answer: any) => (
+          {post.answers.map((answer: Response) => (
             <CardAnswers
               key={answer.id}
               id={answer.id}
