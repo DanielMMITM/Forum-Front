@@ -17,7 +17,7 @@ export const useShowPosts = () => {
     queryKey: ["posts", currentPage],
   });
 
-  if (currentPage < totalPages - 1) {
+  if (currentPage < totalPages! - 1) {
     queryClient.prefetchQuery({
       queryKey: ["posts", currentPage + 1],
       queryFn: () => showPostsRequest(currentPage),
