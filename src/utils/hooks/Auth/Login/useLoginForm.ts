@@ -29,7 +29,7 @@ export const useLoginForm = () => {
         value: MAX_LENGTH,
         message: `${capitalizeString(
           USERNAME_FIELD
-        )}${MAX_LENGTH_ERROR}${MAX_LENGTH_ERROR}${CHARACTERS_WORD_ERROR}`,
+        )}${MAX_LENGTH_ERROR}${MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
       },
     }
   );
