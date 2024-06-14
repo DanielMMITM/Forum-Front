@@ -17,6 +17,14 @@ export const showPostsRequest = async (page: number): Promise<PostsList> => {
   return data;
 };
 
+export const updatePostRequest = async (
+  body: Record<string, string | number>
+): Promise<PostResponse> => {
+  getToken();
+  const { data } = await axiosClient.put("/posts", body);
+  return data;
+};
+
 export const deletePostRequest = async (id: number): Promise<String> => {
   getToken();
   const { data } = await axiosClient.delete(`/posts/${id}`);
