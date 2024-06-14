@@ -9,7 +9,7 @@ import { PostResponse } from "@/utils/types/postTypes";
 import { Response } from "@/utils/types/responseTypes";
 import { StatusIndicator } from "@/components/StatusIndicator";
 
-export const ViewPost = () => {
+export const ShowPost = () => {
   const { id } = useUserStore();
   const { state } = useLocation();
   const navigate = useNavigate();

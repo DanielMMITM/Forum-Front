@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Posts } from "@/pages/Posts/Posts";
 import { NewPost } from "@/pages/Posts/NewPost";
 import { SignUp } from "@/pages/Auth/SignUp";
-import { ViewPost } from "@/pages/Posts/ViewPost";
+import { ShowPost } from "@/pages/Posts/ShowPost";
 
 export const AppRouter = () => {
   return (
@@ -21,7 +21,7 @@ export const AppRouter = () => {
         <Route element={<PrivateRouter />}>
           <Route path="/profile"></Route>
           <Route path="/posts" element={<Posts />}></Route>
-          <Route path="/posts/:id" element={<ViewPost />}></Route>
+          <Route path="/posts/:id" element={<ShowPost />}></Route>
           <Route path="/new-post" element={<NewPost />}></Route>
         </Route>
       </Routes>
