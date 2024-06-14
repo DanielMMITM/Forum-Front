@@ -25,7 +25,12 @@ export const CardPost = ({ data }: CardProps) => {
       className="card-post"
       flexDirection={{ xs: "column", md: "row" }}
     >
-      <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        alignItems={"center"}
+        mt={{ xs: "1rem", md: 0 }}
+      >
         <Box display={"flex"} marginInline={"7rem"} className="card-post__img">
           <img
             src={profilePic}
