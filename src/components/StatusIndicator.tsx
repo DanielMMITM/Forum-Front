@@ -14,6 +14,8 @@ export const StatusIndicator = ({ status }: Props) => {
       borderRadius={3}
       border={`2px solid ${border}`}
       sx={{ backgroundColor: color }}
+      minWidth={"10rem"}
+      justifyContent={"center"}
     >
       <h3>{formatStatus(status)}</h3>
     </Box>
