@@ -5,7 +5,7 @@ import { Login } from "@/pages/Auth/Login";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Posts } from "@/pages/Posts/Posts";
-import { NewPost } from "@/pages/Posts/NewPost";
+import { CreateUpdatePost } from "@/pages/Posts/CreateUpdatePost";
 import { SignUp } from "@/pages/Auth/SignUp";
 import { ShowPost } from "@/pages/Posts/ShowPost";
 
@@ -22,7 +22,8 @@ export const AppRouter = () => {
           <Route path="/profile"></Route>
           <Route path="/posts" element={<Posts />}></Route>
           <Route path="/posts/:id" element={<ShowPost />}></Route>
-          <Route path="/new-post" element={<NewPost />}></Route>
+          <Route path="/new-post" element={<CreateUpdatePost />}></Route>
+          <Route path="/update-post" element={<CreateUpdatePost />}></Route>
         </Route>
       </Routes>
       <Footer />
