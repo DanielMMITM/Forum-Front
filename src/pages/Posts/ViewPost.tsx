@@ -7,6 +7,7 @@ import { useUserStore } from "@/store/userStore";
 import { useDeletePost } from "@/utils/hooks/Posts/useDeletePost";
 import { PostResponse } from "@/utils/types/postTypes";
 import { Response } from "@/utils/types/responseTypes";
+import { StatusIndicator } from "@/components/StatusIndicator";
 
 export const ViewPost = () => {
   const { id } = useUserStore();
@@ -52,7 +53,7 @@ export const ViewPost = () => {
           </Box>
           <Box>
             <h2>Curso: {post.courseId}</h2>
-            <h3>{post.statusPost}</h3>
+            <StatusIndicator status={post.statusPost} />
           </Box>
         </Box>
         <p className="text">{post.text}</p>
