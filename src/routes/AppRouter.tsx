@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import PrivateRouter from "./PrivateRouter";
 import { Home } from "@/pages/Home";
 import { Login } from "@/pages/Auth/Login";
@@ -14,6 +14,7 @@ export const AppRouter = () => {
     <BrowserRouter>
       <NavBar />
       <Routes>
+        <Route path="*" element={<Navigate to="/" replace />} />
         <Route index path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
