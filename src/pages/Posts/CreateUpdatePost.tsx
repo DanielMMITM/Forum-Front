@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/Spinner";
 import { EMPTY } from "@/utils/constants/GlobalConstants";
 import {
   TEXT_PLACEHOLDER,
@@ -11,7 +12,6 @@ import { PostResponse } from "@/utils/types/postTypes";
 import {
   Box,
   Button,
-  CircularProgress,
   Container,
   FormHelperText,
   Grid,
@@ -51,16 +51,7 @@ export const CreateUpdatePost = () => {
   }, []);
 
   if (isLoadingCourses && !courses) {
-    return (
-      <Box
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        minHeight={"100vh"}
-      >
-        <CircularProgress />
-      </Box>
-    );
+    return <Spinner />;
   }
 
   return (
