@@ -45,7 +45,12 @@ export const Posts = () => {
         </Box>
         <Button
           variant="contained"
-          onClick={() => navigate("/new-post")}
+          onClick={() =>
+            navigate("/new-post", {
+              replace: true,
+              state: { post: null, action: "Create" },
+            })
+          }
           sx={{ alignSelf: "center", fontSize: "1.3rem" }}
         >
           New Post
