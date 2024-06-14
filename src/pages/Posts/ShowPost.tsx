@@ -64,6 +64,12 @@ export const ShowPost = () => {
               type="submit"
               sx={{ fontSize: "1.5rem" }}
               disabled={isPending}
+              onClick={() => {
+                navigate(`/update-post`, {
+                  replace: true,
+                  state: { post: post, action: "Update" },
+                });
+              }}
             >
               Edit Post
             </Button>
