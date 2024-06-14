@@ -117,6 +117,9 @@ body {
     height: 2px;
     background: currentColor;
     margin-top: 1rem; }
+    @media screen and (max-width: 900px) {
+      .heading-secondary--card-post__title::after {
+        min-width: calc(100vw - 240px * 0.6); } }
 
 .heading-tertiary {
   font-size: 1.8rem;
@@ -147,6 +150,10 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis; }
+    @media screen and (max-width: 900px) {
+      .text--card-post {
+        margin-top: 1.5rem;
+        max-width: calc(100vw - 240px * 0.7); } }
 
 .toast {
   font-size: 1.6rem;

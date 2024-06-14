@@ -62,7 +62,11 @@ export const Posts = () => {
           {posts?.map((post: PostResponse) => (
             <CardPost key={post.id} data={post} />
           ))}
-          <Box display={"flex"} alignSelf={"end"} mt={"4rem"}>
+          <Box
+            display={"flex"}
+            alignSelf={{ xs: "center", md: "flex-end" }}
+            mt={"4rem"}
+          >
             <Pagination
               size="large"
               renderItem={(item) => (

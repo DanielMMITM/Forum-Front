@@ -101,6 +101,10 @@ body {
       height: 2px;
       background: currentColor;
       margin-top: 1rem;
+
+      @media screen and (max-width: 900px) {
+        min-width: calc(100vw - 240px * 0.6);
+      }
     }
   }
 }
@@ -142,6 +146,11 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @media screen and (max-width: 900px) {
+      margin-top: 1.5rem;
+      max-width: calc(100vw - 240px * 0.7);
+    }
   }
 }
 

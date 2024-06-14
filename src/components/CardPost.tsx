@@ -23,6 +23,7 @@ export const CardPost = ({ data }: CardProps) => {
       alignItems={"center"}
       mt={"2rem"}
       className="card-post"
+      flexDirection={{ xs: "column", md: "row" }}
     >
       <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
         <Box display={"flex"} marginInline={"7rem"} className="card-post__img">
@@ -43,7 +44,7 @@ export const CardPost = ({ data }: CardProps) => {
       <Box
         display={"flex"}
         flexDirection={"column"}
-        alignSelf={"start"}
+        alignSelf={{ xs: "stretch", md: "start" }}
         marginInlineStart={"2rem"}
         marginInlineEnd={"1.5rem"}
         flexGrow={1}
@@ -52,7 +53,7 @@ export const CardPost = ({ data }: CardProps) => {
           display={"flex"}
           alignItems={"center"}
           justifyContent={"space-between"}
-          flexBasis={"90%"}
+          flexDirection={{ xs: "column", md: "row" }}
         >
           <h2 className=" heading-secondary heading-secondary--card-post__title">
             {title}
@@ -62,8 +63,11 @@ export const CardPost = ({ data }: CardProps) => {
         <p className="text--card-post">{text}</p>
         <Box
           display={"flex"}
-          justifyContent={"flex-end"}
-          m={"3rem 3rem 1rem 0"}
+          justifyContent={{ xs: "center", sm: "flex-end" }}
+          m={{
+            xs: "1rem 0rem 2rem 0",
+            sm: "3rem 3rem 2rem 0",
+          }}
         >
           <Link
             to={`/posts/${id}`}
