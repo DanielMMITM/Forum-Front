@@ -50,7 +50,7 @@ export const usePostsForm = () => {
       value: TITLE_MAX_LENGTH,
       message: `${capitalizeString(
         TITLE_FIELD
-      )}${MAX_LENGTH_ERROR}${CHARACTERS_WORD_ERROR}`,
+      )}${MAX_LENGTH_ERROR}${TITLE_MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
     },
   });
 
