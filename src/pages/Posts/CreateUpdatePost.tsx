@@ -159,7 +159,14 @@ export const CreateUpdatePost = () => {
                 variant="contained"
                 color="error"
                 fullWidth
-                onClick={() => navigate(-1)}
+                onClick={() =>
+                  action === "Create"
+                    ? navigate(-1)
+                    : navigate(`/posts/${post.id}`, {
+                        replace: true,
+                        state: post,
+                      })
+                }
                 disabled={isPending}
               >
                 Back
