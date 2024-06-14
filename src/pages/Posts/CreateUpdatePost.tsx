@@ -5,7 +5,9 @@ import {
 } from "@/utils/constants/Posts/PostsConstants";
 import { useCourses } from "@/utils/hooks/Posts/useCourses";
 import { usePostsForm } from "@/utils/hooks/Posts/usePostsForm";
+import { ActionTypes } from "@/utils/types/commonTypes";
 import { Course } from "@/utils/types/courseTypes";
+import { PostResponse } from "@/utils/types/postTypes";
 import {
   Box,
   Button,
@@ -17,9 +19,13 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export const NewPost = () => {
+export const CreateUpdatePost = () => {
+  const { state } = useLocation();
+  const post = state?.post as PostResponse;
+  const action = state?.action as ActionTypes;
   const navigate = useNavigate();
   const { courses, isLoadingCourses } = useCourses();
   const {
@@ -36,7 +42,13 @@ export const NewPost = () => {
     isPending,
     handleChange,
     course,
-  } = usePostsForm();
+  } = usePostsForm({ post, action });
+
+  useEffect(() => {
+    if ((!post && action === "Update") || !action) {
+      navigate("/");
+    }
+  }, []);
 
   if (isLoadingCourses && !courses) {
     return (
@@ -62,7 +74,7 @@ export const NewPost = () => {
       <Box display={"flex"} className="posts__header">
         <Box display={"flex"} mr={"auto"}>
           <h2 className="heading-secondary heading-secondary--posts">
-            Create post
+            {action} post
           </h2>
         </Box>
       </Box>
@@ -166,7 +178,7 @@ export const NewPost = () => {
                 type="submit"
                 disabled={isPending}
               >
-                Create
+                {action}
               </Button>
             </Grid>
           </Grid>
