@@ -1,17 +1,12 @@
 import { CardPost } from "@/components/CardPost";
 import { useShowPosts } from "@/utils/hooks/Posts/useShowPosts";
-import {
-  Box,
-  Button,
-  CircularProgress,
-  Pagination,
-  PaginationItem,
-} from "@mui/material";
+import { Box, Button, Pagination, PaginationItem } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
 import { usePaginationUtils } from "@/utils/hooks/usePaginationUtils";
 import { PostResponse } from "@/utils/types/postTypes";
+import { Spinner } from "@/components/Spinner";
 
 export const Posts = () => {
   const navigate = useNavigate();
@@ -19,16 +14,7 @@ export const Posts = () => {
   const { currentPage, handleChange } = usePaginationUtils();
 
   if (isLoading && !posts) {
-    return (
-      <Box
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        minHeight={"100vh"}
-      >
-        <CircularProgress />
-      </Box>
-    );
+    return <Spinner />;
   }
 
   return (
