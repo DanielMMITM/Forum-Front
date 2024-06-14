@@ -2,9 +2,22 @@
   &__header {
     border-bottom: 2px solid $color-primary;
   }
-}
 
-:link,
-:visited {
-  text-decoration: none;
+  &--show-btn {
+    display: flex;
+    font-weight: bolder;
+    font-size: 1.7rem;
+    align-items: center;
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-primary-dark;
+    }
+
+    &:active {
+      color: $color-primary-dark;
+      transform: scale(0.8);
+    }
+  }
 }
