@@ -12,18 +12,25 @@ import {
 } from "@/utils/constants/Posts/PostsConstants";
 import { capitalizeString } from "@/utils/helpers/capitalizeString";
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import { useCreatePost } from "./useCreatePost";
+import { useCreateUpdatePost } from "./useCreateUpdatePost";
 import { SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUserStore } from "@/store/userStore";
-import { PostForm } from "@/utils/types/postTypes";
+import { PostForm, PostResponse } from "@/utils/types/postTypes";
+import { ActionTypes } from "@/utils/types/commonTypes";
 
-export const usePostsForm = () => {
+interface UpdateProps {
+  post?: PostResponse;
+  action: ActionTypes;
+}
+
+export const usePostsForm = ({ post, action }: UpdateProps) => {
   const { id } = useUserStore();
   const [course, setCourse] = useState<string>("0");
   const {
     register,
     formState: { errors },
+    setValue,
     handleSubmit,
     reset,
   } = useForm<PostForm>({
@@ -34,7 +41,16 @@ export const usePostsForm = () => {
     },
   });
 
-  const { createPost, isPending } = useCreatePost();
+  useEffect(() => {
+    if (post) {
+      setValue("title", post.title);
+      setValue("course", post.courseId);
+      setCourse(String(post.courseId));
+      setValue("text", post.text);
+    }
+  }, [post]);
+
+  const { createUpdatePost, isPending } = useCreateUpdatePost(action);
 
   function updateFields(): void {
     reset();
@@ -79,10 +95,15 @@ export const usePostsForm = () => {
     const body: Record<string, string | number> = {
       title: title,
       text: text,
-      userId: Number(id),
       courseId: course,
     };
-    createPost(body, { onSuccess: updateFields });
+    if (action === "Update") {
+      body["id"] = post!.id;
+      body["statusPost"] = post!.statusPost;
+    } else {
+      body["userId"] = Number(id);
+    }
+    createUpdatePost(body, { onSuccess: updateFields });
   };
 
   const onError: SubmitErrorHandler<PostForm> = (data) => {
