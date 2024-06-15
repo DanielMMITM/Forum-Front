@@ -16,7 +16,7 @@ export const ShowPost = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const post = state as PostResponse;
-  const { isPending } = useDeletePost();
+  const { isPending, deletePost } = useDeletePost();
   const { open, handleCloseModal, handleOpenModal } = useModalHandler();
 
   return (
@@ -126,6 +126,9 @@ export const ShowPost = () => {
         handleCloseModal={handleCloseModal}
         title="Delete post?"
         content="You are about to delete your post, this action cannot' be undone"
+        action="Delete"
+        post={post}
+        doAction={deletePost}
       />
     </Box>
   );
