@@ -8,13 +8,16 @@ import { useDeletePost } from "@/utils/hooks/Posts/useDeletePost";
 import { PostResponse } from "@/utils/types/postTypes";
 import { Response } from "@/utils/types/responseTypes";
 import { StatusIndicator } from "@/components/StatusIndicator";
+import { useModalHandler } from "@/utils/hooks/useModalHandler";
+import { CustomModal } from "@/components/CustomModal";
 
 export const ShowPost = () => {
   const { id } = useUserStore();
   const { state } = useLocation();
   const navigate = useNavigate();
   const post = state as PostResponse;
-  const { isPending, deletePost } = useDeletePost();
+  const { isPending } = useDeletePost();
+  const { open, handleCloseModal, handleOpenModal } = useModalHandler();
 
   return (
     <Box
@@ -78,7 +81,7 @@ export const ShowPost = () => {
               type="submit"
               color="error"
               sx={{ fontSize: "1.5rem", marginLeft: { xs: 0, md: "1.5rem" } }}
-              onClick={() => deletePost(post.id)}
+              onClick={handleOpenModal}
               disabled={isPending}
             >
               Delete Post
@@ -118,6 +121,12 @@ export const ShowPost = () => {
           ))}
         </Box>
       </Box>
+      <CustomModal
+        open={open}
+        handleCloseModal={handleCloseModal}
+        title="Delete post?"
+        content="You are about to delete your post, this action cannot' be undone"
+      />
     </Box>
   );
 };
