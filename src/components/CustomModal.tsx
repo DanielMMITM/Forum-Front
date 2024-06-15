@@ -1,10 +1,17 @@
+import { ActionTypes } from "@/utils/types/commonTypes";
+import { CustomAxiosError } from "@/utils/types/errorTypes";
+import { PostResponse } from "@/utils/types/postTypes";
 import { Button, Dialog, Grid, Typography } from "@mui/material";
+import { UseMutateFunction } from "@tanstack/react-query";
 
 interface ModalProps {
   handleCloseModal: () => void;
   open: boolean;
   title: string;
   content: string;
+  action: ActionTypes;
+  doAction: UseMutateFunction<String, CustomAxiosError, number, unknown>;
+  post: PostResponse;
 }
 
 export const CustomModal = ({
@@ -12,6 +19,9 @@ export const CustomModal = ({
   open,
   title,
   content,
+  action,
+  doAction,
+  post,
 }: ModalProps) => {
   return (
     <Dialog fullWidth maxWidth={"sm"} open={open} onClose={handleCloseModal}>
@@ -24,7 +34,16 @@ export const CustomModal = ({
         </Grid>
         <Grid container item spacing={2} xs={8} sm={8}>
           <Grid display={"flex"} item xs={12} md={6} order={{ xs: 1, md: 2 }}>
-            <Button fullWidth color="primary" variant="contained">
+            <Button
+              fullWidth
+              color="primary"
+              variant="contained"
+              onClick={() =>
+                action === "Delete"
+                  ? doAction(post.id, { onSuccess: handleCloseModal })
+                  : null
+              }
+            >
               Confirm
             </Button>
           </Grid>
