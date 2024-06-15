@@ -100,7 +100,7 @@ export const usePostsForm = ({ post, action }: UpdateProps) => {
     if (action === "Update") {
       body["id"] = post!.id;
       body["statusPost"] = post!.statusPost;
-    } else {
+    } else if (action === "Create") {
       body["userId"] = Number(id);
     }
     createUpdatePost(body, { onSuccess: updateFields });
