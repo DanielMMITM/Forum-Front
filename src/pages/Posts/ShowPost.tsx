@@ -42,9 +42,10 @@ export const ShowPost = () => {
         <h1 className=" heading-primary">{post.title}</h1>
         <Box
           display={"flex"}
+          flexDirection={{ xs: "column", md: "row" }}
           justifyContent={"space-between"}
           mb={"2rem"}
-          alignItems={"center"}
+          alignItems={"stretch"}
         >
           <Box display={"flex"} flexDirection={"column"} alignItems={"center"}>
             <img
@@ -54,14 +55,23 @@ export const ShowPost = () => {
             />
             <h2>{post.userCreator.username}</h2>
           </Box>
-          <Box>
+          <Box
+            display={"flex"}
+            flexDirection={{ xs: "column", sm: "row", md: "column" }}
+            alignItems={"center"}
+            justifyContent={{ sm: "space-between", md: "start" }}
+          >
             <h2>Curso: {post.courseId}</h2>
             <StatusIndicator status={post.statusPost} />
           </Box>
         </Box>
         <p className="text">{post.text}</p>
         {id === post.userCreator.id && (
-          <Box display={"flex"} justifyContent={"end"}>
+          <Box
+            display={"flex"}
+            flexDirection={{ xs: "column", sm: "row" }}
+            justifyContent={{ xs: "center", sm: "end" }}
+          >
             <Button
               variant="contained"
               type="submit"
@@ -80,7 +90,11 @@ export const ShowPost = () => {
               variant="contained"
               type="submit"
               color="error"
-              sx={{ fontSize: "1.5rem", marginLeft: { xs: 0, md: "1.5rem" } }}
+              sx={{
+                fontSize: "1.5rem",
+                marginLeft: { xs: 0, sm: "1.5rem" },
+                marginTop: { xs: "1.5rem", sm: 0 },
+              }}
               onClick={handleOpenModal}
               disabled={isPending}
             >
