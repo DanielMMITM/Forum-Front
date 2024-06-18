@@ -13,11 +13,12 @@
     &:visited {
       text-decoration: none;
       color: $color-primary-dark;
+      transition: all 0.2s;
     }
 
     &:active {
       color: $color-primary-dark;
-      transform: scale(0.8);
+      transform: scale(0.85);
     }
   }
 }

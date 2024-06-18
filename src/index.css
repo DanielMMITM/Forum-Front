@@ -322,7 +322,8 @@ body {
   align-items: center; }
   .posts--show-btn:link, .posts--show-btn:visited {
     text-decoration: none;
-    color: #003459; }
+    color: #003459;
+    transition: all 0.2s; }
   .posts--show-btn:active {
     color: #003459;
-    transform: scale(0.8); }
+    transform: scale(0.85); }
