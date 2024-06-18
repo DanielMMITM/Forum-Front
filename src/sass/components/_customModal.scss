@@ -1,16 +1,39 @@
-.modal-container {
-  padding: 3rem;
-  display: flex;
-  justify-content: center;
-  color: $color-primary-dark;
-  text-align: center;
+.modal {
+  position: relative;
 
-  & h1 {
-    text-transform: uppercase;
+  &-container {
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    color: $color-primary-dark;
+    text-align: center;
+
+    & h1 {
+      text-transform: uppercase;
+    }
+
+    & p {
+      font-family: inherit;
+      font-size: 1.8rem;
+    }
   }
 
-  & p {
-    font-family: inherit;
-    font-size: 1.8rem;
+  &__cancel-icon {
+    position: absolute;
+    left: 92%;
+    top: -8%;
+    color: #c62828;
+    width: 6rem !important;
+    height: 6rem !important;
+    cursor: pointer;
+    border-radius: 100%;
+
+    @media screen and (max-width: 430px) {
+      left: 88%;
+    }
   }
+}
+
+.css-tlc64q-MuiPaper-root-MuiDialog-paper {
+  overflow-y: visible !important;
 }

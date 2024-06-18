@@ -3,6 +3,7 @@ import { CustomAxiosError } from "@/utils/types/errorTypes";
 import { PostResponse } from "@/utils/types/postTypes";
 import { Button, Dialog, Grid, Typography } from "@mui/material";
 import { UseMutateFunction } from "@tanstack/react-query";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 interface ModalProps {
   handleCloseModal: () => void;
@@ -24,7 +25,14 @@ export const CustomModal = ({
   post,
 }: ModalProps) => {
   return (
-    <Dialog fullWidth maxWidth={"sm"} open={open} onClose={handleCloseModal}>
+    <Dialog
+      className="modal"
+      fullWidth
+      maxWidth={"sm"}
+      open={open}
+      onClose={handleCloseModal}
+    >
+      <CancelIcon className="modal__cancel-icon" onClick={handleCloseModal} />
       <Grid container spacing={2} className="modal-container">
         <Grid item xs={12}>
           <h1>{title}</h1>

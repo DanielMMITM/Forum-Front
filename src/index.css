@@ -244,17 +244,34 @@ body {
     height: 10rem;
     border-radius: 100%; }
 
-.modal-container {
-  padding: 3rem;
-  display: flex;
-  justify-content: center;
-  color: #003459;
-  text-align: center; }
-  .modal-container h1 {
-    text-transform: uppercase; }
-  .modal-container p {
-    font-family: inherit;
-    font-size: 1.8rem; }
+.modal {
+  position: relative; }
+  .modal-container {
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    color: #003459;
+    text-align: center; }
+    .modal-container h1 {
+      text-transform: uppercase; }
+    .modal-container p {
+      font-family: inherit;
+      font-size: 1.8rem; }
+  .modal__cancel-icon {
+    position: absolute;
+    left: 92%;
+    top: -8%;
+    color: #c62828;
+    width: 6rem !important;
+    height: 6rem !important;
+    cursor: pointer;
+    border-radius: 100%; }
+    @media screen and (max-width: 430px) {
+      .modal__cancel-icon {
+        left: 88%; } }
+
+.css-tlc64q-MuiPaper-root-MuiDialog-paper {
+  overflow-y: visible !important; }
 
 .home-header {
   background-image: linear-gradient(320deg, rgba(0, 52, 89, 0.9), rgba(0, 0, 0, 0.6)), url("/src/assets/images/header.webp");
