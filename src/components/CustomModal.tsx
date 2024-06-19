@@ -35,14 +35,15 @@ export const CustomModal = ({
       <CancelIcon className="modal__cancel-icon" onClick={handleCloseModal} />
       <Grid container spacing={2} className="modal-container">
         <Grid item xs={12}>
-          <h1>{title}</h1>
-        </Grid>
-        <Grid display={"flex"} item xs={12} justifyContent={"center"}>
-          <Typography variant="body1">{content}</Typography>
+          <h2 className="heading-secondary--modal__title">{title}</h2>
+          <Typography className="text--modal" variant="body1">
+            {content}
+          </Typography>
         </Grid>
         <Grid container item spacing={2} xs={8} sm={8}>
-          <Grid display={"flex"} item xs={12} md={6} order={{ xs: 1, md: 2 }}>
+          <Grid display={"flex"} item xs={12} sm={6} order={{ xs: 1, sm: 2 }}>
             <Button
+              className="text--button"
               fullWidth
               color="primary"
               variant="contained"
@@ -55,8 +56,9 @@ export const CustomModal = ({
               Confirm
             </Button>
           </Grid>
-          <Grid display={"flex"} item xs={12} md={6} order={{ xs: 2, md: 1 }}>
+          <Grid display={"flex"} item xs={12} sm={6} order={{ xs: 2, sm: 1 }}>
             <Button
+              className="text--button"
               onClick={handleCloseModal}
               fullWidth
               color="error"
