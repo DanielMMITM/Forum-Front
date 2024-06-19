@@ -25,11 +25,10 @@ export const Posts = () => {
       padding={"6rem"}
       className="posts"
     >
-      <Box display={"flex"} className="posts__header">
-        <Box display={"flex"} mr={"auto"}>
-          <h2 className="heading-secondary heading-secondary--posts">Posts</h2>
-        </Box>
+      <Box display={"flex"} className="posts__header" alignItems={"center"}>
+        <h2 className="heading-secondary heading-secondary--posts">Posts</h2>
         <Button
+          className="posts__add-btn"
           variant="contained"
           onClick={() =>
             navigate("/new-post", {
@@ -37,7 +36,6 @@ export const Posts = () => {
               state: { post: null, action: "Create" },
             })
           }
-          sx={{ alignSelf: "center", fontSize: "1.3rem" }}
         >
           New Post
         </Button>
@@ -57,6 +55,7 @@ export const Posts = () => {
             display={"flex"}
             alignSelf={{ xs: "center", md: "flex-end" }}
             mt={"4rem"}
+            sx={{ minWidth: "25rem" }}
           >
             <Pagination
               size="large"
