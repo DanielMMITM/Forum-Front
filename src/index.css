@@ -163,6 +163,8 @@ body {
     font-size: 2rem !important; }
   .text--button {
     font-size: 1.5rem !important; }
+    .text--button--add {
+      font-size: 1.3rem !important; }
 
 .toast {
   font-size: 1.6rem;
@@ -326,8 +328,7 @@ body {
       flex-direction: column; } }
 
 .posts__add-btn {
-  align-self: "center" !important;
-  font-size: 1.3rem !important; }
+  align-self: "center" !important; }
   @media screen and (max-width: 350px) {
     .posts__add-btn {
       margin-bottom: 1.7rem !important; } }

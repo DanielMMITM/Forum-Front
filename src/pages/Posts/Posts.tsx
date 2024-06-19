@@ -28,7 +28,7 @@ export const Posts = () => {
       <Box display={"flex"} className="posts__header" alignItems={"center"}>
         <h2 className="heading-secondary heading-secondary--posts">Posts</h2>
         <Button
-          className="posts__add-btn"
+          className="posts__add-btn text--button--add"
           variant="contained"
           onClick={() =>
             navigate("/new-post", {
