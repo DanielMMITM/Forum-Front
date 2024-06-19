@@ -7,15 +7,6 @@
     justify-content: center;
     color: $color-primary-dark;
     text-align: center;
-
-    & h1 {
-      text-transform: uppercase;
-    }
-
-    & p {
-      font-family: inherit;
-      font-size: 1.8rem;
-    }
   }
 
   &__cancel-icon {

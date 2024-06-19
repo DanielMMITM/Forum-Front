@@ -120,6 +120,10 @@ body {
     @media screen and (max-width: 900px) {
       .heading-secondary--card-post__title::after {
         min-width: calc(100vw - 240px * 0.6); } }
+  .heading-secondary--modal__title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem; }
 
 .heading-tertiary {
   font-size: 1.8rem;
@@ -154,6 +158,11 @@ body {
       .text--card-post {
         margin-top: 1.5rem;
         max-width: calc(100vw - 240px * 0.7); } }
+  .text--modal {
+    font-family: inherit !important;
+    font-size: 2rem !important; }
+  .text--button {
+    font-size: 1.5rem !important; }
 
 .toast {
   font-size: 1.6rem;
@@ -252,11 +261,6 @@ body {
     justify-content: center;
     color: #003459;
     text-align: center; }
-    .modal-container h1 {
-      text-transform: uppercase; }
-    .modal-container p {
-      font-family: inherit;
-      font-size: 1.8rem; }
   .modal__cancel-icon {
     position: absolute;
     left: 92%;

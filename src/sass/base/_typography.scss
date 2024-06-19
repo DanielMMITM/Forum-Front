@@ -107,6 +107,12 @@ body {
       }
     }
   }
+
+  &--modal__title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
 }
 
 .heading-tertiary {
@@ -151,6 +157,15 @@ body {
       margin-top: 1.5rem;
       max-width: calc(100vw - 240px * 0.7);
     }
+  }
+
+  &--modal {
+    font-family: inherit !important;
+    font-size: 2rem !important;
+  }
+
+  &--button {
+    font-size: 1.5rem !important;
   }
 }
 
