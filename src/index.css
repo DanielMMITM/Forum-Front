@@ -109,6 +109,10 @@ body {
     text-align: center;
     color: #003459;
     font-size: 1.8rem; }
+  .heading-secondary--card-response__name {
+    text-align: center;
+    color: #003459;
+    font-size: 1.5rem; }
   .heading-secondary--card-post__title::after {
     content: "";
     display: flex;
@@ -158,6 +162,11 @@ body {
       .text--card-post {
         margin-top: 1.5rem;
         max-width: calc(100vw - 240px * 0.7); } }
+  .text--card-response {
+    font-size: 1.7rem;
+    padding-inline-end: 2.2rem;
+    display: flex;
+    align-self: flex-start; }
   .text--modal {
     font-family: inherit !important;
     font-size: 2rem !important; }
@@ -278,6 +287,15 @@ body {
 
 .css-tlc64q-MuiPaper-root-MuiDialog-paper {
   overflow-y: visible !important; }
+
+.card-response {
+  background-color: transparent;
+  border-radius: 2rem;
+  border-bottom: 1px solid gray; }
+  .card-response__picture {
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem; }
 
 .home-header {
   background-image: linear-gradient(320deg, rgba(0, 52, 89, 0.9), rgba(0, 0, 0, 0.6)), url("/src/assets/images/header.webp");
