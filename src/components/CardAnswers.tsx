@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
-import profilePic from "@/assets/images/profile.webp";
+import { Box } from '@mui/material';
+import profilePic from '@/assets/images/profile.webp';
 
 interface CardAnswerProps {
   id: number;
@@ -7,34 +7,25 @@ interface CardAnswerProps {
   solution: boolean;
 }
 
-export const CardAnswers = ({ id, text, solution }: CardAnswerProps) => {
+export default function CardAnswers({ id, text, solution }: CardAnswerProps) {
   return (
     <Box
-      display={"flex"}
-      flexDirection={"row"}
+      display={'flex'}
+      flexDirection={'row'}
       key={id}
-      mt={"2rem"}
+      mt={'2rem'}
       className="card-response"
       alignItems={'start'}
     >
-      <Box
-        display={"flex"}
-        flexDirection={"column"}
-        flexBasis={"20%"}
-        alignSelf={"center"}
-      >
-        <Box display={"flex"} justifyContent={"center"}>
-          <img
-            src={profilePic}
-            alt="Profile Picture"
-            className="card-response__picture"
-          />
+      <Box display={'flex'} flexDirection={'column'} flexBasis={'20%'} alignSelf={'center'}>
+        <Box display={'flex'} justifyContent={'center'}>
+          <img src={profilePic} alt="Profile Picture" className="card-response__picture" />
         </Box>
         <h2 className="heading-secondary--card-response__name">Leonel Messi</h2>
       </Box>
-      <Box display={"flex"} flexBasis={"80%"} mt={-1}>
+      <Box display={'flex'} flexBasis={'80%'} mt={-1}>
         <p className="text--card-response">{text}</p>
       </Box>
     </Box>
   );
-};
+}
