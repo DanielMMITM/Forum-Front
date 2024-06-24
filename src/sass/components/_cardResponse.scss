@@ -1,0 +1,11 @@
+.card-response {
+  background-color: transparent;
+  border-radius: 2rem;
+  border-bottom: 1px solid gray;
+
+  &__picture {
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+  }
+}

@@ -92,6 +92,12 @@ body {
     font-size: 1.8rem;
   }
 
+  &--card-response__name {
+    text-align: center;
+    color: $color-primary-dark;
+    font-size: 1.5rem;
+  }
+
   &--card-post__title {
     &::after {
       content: "";
@@ -157,6 +163,13 @@ body {
       margin-top: 1.5rem;
       max-width: calc(100vw - 240px * 0.7);
     }
+  }
+
+  &--card-response {
+    font-size: 1.7rem;
+    padding-inline-end: 2.2rem;
+    display: flex;
+    align-self: flex-start;
   }
 
   &--modal {
