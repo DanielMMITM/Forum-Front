@@ -31,7 +31,7 @@ export const CardPost = ({ data }: CardProps) => {
         alignItems={"center"}
         mt={{ xs: "1rem", md: 0 }}
       >
-        <Box display={"flex"} marginInline={"7rem"} className="card-post__img">
+        <Box display={"flex"} marginInline={"7rem"}>
           <img
             src={profilePic}
             alt="Profile Picture"
