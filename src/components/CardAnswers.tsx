@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
 import profilePic from '@/assets/images/profile.webp';
-
 interface CardAnswerProps {
   id: number;
   text: string;
