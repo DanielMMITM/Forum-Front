@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, IconButton, Tooltip, Typography, Zoom } from '@mui/material';
 import profilePic from '@/assets/images/profile.webp';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 interface CardAnswerProps {
@@ -26,8 +26,17 @@ export default function CardAnswers({ id, text, solution }: CardAnswerProps) {
       <Box display={'flex'} flexBasis={'75%'} mt={-1}>
         <p className="text--card-response">{text}</p>
       </Box>
-      <Box display={'flex'} justifySelf={'end'}>
-        <CheckCircleIcon className="card-response__check" />
+      <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
+        <Tooltip
+          title={<Typography variant="h6">Set solution</Typography>}
+          placement="bottom"
+          disableInteractive
+          TransitionComponent={Zoom}
+        >
+          <IconButton size="small">
+            <CheckCircleIcon className="card-response__check" />
+          </IconButton>
+        </Tooltip>
       </Box>
     </Box>
   );
