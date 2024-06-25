@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import profilePic from '@/assets/images/profile.webp';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 interface CardAnswerProps {
   id: number;
   text: string;
@@ -22,8 +23,11 @@ export default function CardAnswers({ id, text, solution }: CardAnswerProps) {
         </Box>
         <h2 className="heading-secondary--card-response__name">Leonel Messi</h2>
       </Box>
-      <Box display={'flex'} flexBasis={'80%'} mt={-1}>
+      <Box display={'flex'} flexBasis={'75%'} mt={-1}>
         <p className="text--card-response">{text}</p>
+      </Box>
+      <Box display={'flex'} justifySelf={'end'}>
+        <CheckCircleIcon className="card-response__check" />
       </Box>
     </Box>
   );
