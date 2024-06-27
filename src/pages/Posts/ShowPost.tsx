@@ -22,9 +22,15 @@ export function ShowPost() {
   const { isPending, deletePost } = useDeletePost();
   const { open, handleCloseModal, handleOpenModal } = useModalHandler();
 
-  const { textReference, textProps, handleSubmit, onSubmit, onError, errors } = useAddResponseForm(
-    post.id
-  );
+  const {
+    textResponseReference,
+    textResponseProps,
+    handleSubmit,
+    onSubmit,
+    onError,
+    errors,
+    isPendingAddAnswer,
+  } = useAddResponseForm(post.id);
 
   return (
     <Box
@@ -139,10 +145,10 @@ export function ShowPost() {
                 <label className="heading-secondary form-container--label">Add comment</label>
                 <textarea
                   className="form-container__text-area--response"
-                  disabled={isPending}
+                  disabled={isPending || isPendingAddAnswer}
                   placeholder={TEXT_PLACEHOLDER}
-                  ref={textReference}
-                  {...textProps}
+                  ref={textResponseReference}
+                  {...textResponseProps}
                 />
                 <FormHelperText className="form-container__error form-container__error--posts">
                   {errors?.text ? errors?.text?.message : EMPTY}
@@ -151,7 +157,12 @@ export function ShowPost() {
               <FormHelperText className="form-container__error form-container__error--posts"></FormHelperText>
             </Grid>
             <Grid item xs={12} md={2}>
-              <Button variant="contained" fullWidth type="submit">
+              <Button
+                variant="contained"
+                fullWidth
+                type="submit"
+                disabled={isPendingAddAnswer || isPending}
+              >
                 Create
               </Button>
             </Grid>
