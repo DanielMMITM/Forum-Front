@@ -11,3 +11,5 @@ export interface Response {
   };
   responseDate: string;
 }
+
+export type ResponseForm = Pick<Response, 'text'>;
