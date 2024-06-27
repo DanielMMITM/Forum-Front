@@ -1,6 +1,6 @@
 .form-container {
   & label {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
   & ::placeholder {
     font-family: inherit;
@@ -14,17 +14,31 @@
   & button {
     font-size: 1.5rem;
   }
-  & #--custom-label {
-    font-size: 2.5rem;
+
+  .form-container--label {
+    font-size: 2rem;
   }
 
-  & #--text-area {
+  &__text-area {
     display: flex;
-    width: 100%;
-    font-size: 1.7rem;
-    resize: vertical;
-    min-height: 30vh;
     font-family: inherit;
+    width: 100%;
+
+    &--post {
+      resize: vertical;
+      min-height: 30vh;
+      font-family: inherit;
+      font-size: 1.7rem;
+      border-radius: 0.7rem;
+    }
+
+    &--response {
+      resize: vertical;
+      min-height: 10vh;
+      font-family: inherit;
+      font-size: 1.7rem;
+      border-radius: 0.7rem;
+    }
   }
 
   & #--select-option {
