@@ -201,7 +201,8 @@ body {
   font-size: 1.5rem; }
 
 .form-container .form-container--label {
-  font-size: 2rem; }
+  font-size: 2rem;
+  text-transform: none; }
 
 .form-container__text-area {
   display: flex;
