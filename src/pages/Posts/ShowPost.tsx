@@ -10,6 +10,9 @@ import { StatusIndicator } from '@/components/StatusIndicator';
 import { useModalHandler } from '@/utils/hooks/useModalHandler';
 import { CustomModal } from '@/components/CustomModal';
 import CardAnswers from '@/components/CardAnswers';
+import { useAddResponseForm } from '@/utils/hooks/Response/useAddResponseForm';
+import { EMPTY } from '@/utils/constants/GlobalConstants';
+import { TEXT_PLACEHOLDER } from '@/utils/constants/Response/responseConstants';
 
 export function ShowPost() {
   const { id } = useUserStore();
@@ -18,6 +21,10 @@ export function ShowPost() {
   const post = state as PostResponse;
   const { isPending, deletePost } = useDeletePost();
   const { open, handleCloseModal, handleOpenModal } = useModalHandler();
+
+  const { textReference, textProps, handleSubmit, onSubmit, onError, errors } = useAddResponseForm(
+    post.id
+  );
 
   return (
     <Box
@@ -125,20 +132,31 @@ export function ShowPost() {
         )}
       </Box>
       <Box borderTop={'2px solid gray'} mt={'2rem'}>
-        <Grid container spacing={2} className="form-container" justifyContent={'end'}>
-          <Grid item xs={12} sx={{ fontSize: '1.5rem' }} mt={'2rem'}>
-            <Box display={'flex'} flexDirection={'column'}>
-              <label className="heading-secondary form-container--label">Add comment</label>
-              <textarea className="form-container__text-area--response" disabled={isPending} />
-            </Box>
-            <FormHelperText className="form-container__error form-container__error--posts"></FormHelperText>
+        <form onSubmit={handleSubmit(onSubmit, onError)}>
+          <Grid container spacing={2} className="form-container" justifyContent={'end'}>
+            <Grid item xs={12} sx={{ fontSize: '1.5rem' }} mt={'2rem'}>
+              <Box display={'flex'} flexDirection={'column'}>
+                <label className="heading-secondary form-container--label">Add comment</label>
+                <textarea
+                  className="form-container__text-area--response"
+                  disabled={isPending}
+                  placeholder={TEXT_PLACEHOLDER}
+                  ref={textReference}
+                  {...textProps}
+                />
+                <FormHelperText className="form-container__error form-container__error--posts">
+                  {errors?.text ? errors?.text?.message : EMPTY}
+                </FormHelperText>
+              </Box>
+              <FormHelperText className="form-container__error form-container__error--posts"></FormHelperText>
+            </Grid>
+            <Grid item xs={12} md={2}>
+              <Button variant="contained" fullWidth type="submit">
+                Create
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={2}>
-            <Button variant="contained" fullWidth type="submit">
-              Create
-            </Button>
-          </Grid>
-        </Grid>
+        </form>
         <Box mt={'2rem'}>
           {post.answers.map((answer: Response) => (
             <CardAnswers
