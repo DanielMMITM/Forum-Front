@@ -29,7 +29,7 @@ export const useAddResponseForm = (postId: number) => {
     reset();
   }
 
-  const { ref: textReference, ...textProps } = register(TEXT_FIELD, {
+  const { ref: textResponseReference, ...textResponseProps } = register(TEXT_FIELD, {
     required: `${capitalizeString(TEXT_FIELD)}${REQUIRED_FIELD_ERROR}`,
     maxLength: {
       value: TEXT_MAX_LENGTH,
@@ -43,7 +43,7 @@ export const useAddResponseForm = (postId: number) => {
     console.log('submit: ', data);
     const { text } = data;
     const body: Record<string, string | number> = {
-      title: text,
+      text: text,
       postId: postId,
       userId: Number(id),
     };
@@ -55,8 +55,8 @@ export const useAddResponseForm = (postId: number) => {
   };
 
   return {
-    textReference,
-    textProps,
+    textResponseReference,
+    textResponseProps,
     handleSubmit,
     onSubmit,
     onError,
