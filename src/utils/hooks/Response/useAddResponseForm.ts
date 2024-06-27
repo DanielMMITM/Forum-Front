@@ -23,7 +23,7 @@ export const useAddResponseForm = (postId: number) => {
     },
   });
 
-  const { addResponse, isPending } = useAddResponse();
+  const { addResponse, isPendingAddAnswer } = useAddResponse();
 
   function updateFields(): void {
     reset();
@@ -61,6 +61,6 @@ export const useAddResponseForm = (postId: number) => {
     onSubmit,
     onError,
     errors,
-    isPending,
+    isPendingAddAnswer,
   };
 };
