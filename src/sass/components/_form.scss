@@ -1,6 +1,6 @@
 .form-container {
   & label {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
   }
   & ::placeholder {
     font-family: inherit;
@@ -15,10 +15,16 @@
     font-size: 1.5rem;
   }
 
-  &--label {
-    font-size: 2rem !important;
-    text-transform: none !important;
-    margin-bottom: 1rem !important;
+  &__label {
+    &--post {
+      font-size: 2.5rem !important;
+      margin-bottom: 1rem !important;
+    }
+    &--response {
+      text-transform: none !important;
+      font-size: 2rem !important;
+      margin-bottom: 1rem !important;
+    }
   }
 
   &__text-area {

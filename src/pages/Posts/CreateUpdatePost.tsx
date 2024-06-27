@@ -75,7 +75,7 @@ export const CreateUpdatePost = () => {
           onSubmit={handleSubmit(onSubmit, onError)}
         >
           <Grid item xs={12}>
-            <label className="heading-secondary">Title</label>
+            <label className="heading-secondary form-container__label--post">Title</label>
             <TextField
               type="text"
               placeholder={TITLE_PLACEHOLDER}
@@ -90,7 +90,7 @@ export const CreateUpdatePost = () => {
             </FormHelperText>
           </Grid>
           <Grid item xs={12} md={8}>
-            <label className="heading-secondary">Course</label>
+            <label className="heading-secondary form-container__label--post">Course</label>
             <Select
               fullWidth
               labelId="demo-simple-select-standard-label"
@@ -117,7 +117,7 @@ export const CreateUpdatePost = () => {
             </FormHelperText>
           </Grid>
           <Grid item xs={12} sx={{ fontSize: '1.5rem' }} display={'flex'} flexDirection={'column'}>
-            <label className="heading-secondary">Text</label>
+            <label className="heading-secondary form-container__label--post">Text</label>
             <textarea
               className="form-container__text-area--post"
               placeholder={TEXT_PLACEHOLDER}

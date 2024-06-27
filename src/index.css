@@ -188,7 +188,7 @@ body {
       text-decoration: none; }
 
 .form-container label {
-  font-size: 2.5rem; }
+  font-size: 1.5rem; }
 
 .form-container ::placeholder {
   font-family: inherit; }
@@ -200,9 +200,13 @@ body {
 .form-container button {
   font-size: 1.5rem; }
 
-.form-container--label {
-  font-size: 2rem !important;
+.form-container__label--post {
+  font-size: 2.5rem !important;
+  margin-bottom: 1rem !important; }
+
+.form-container__label--response {
   text-transform: none !important;
+  font-size: 2rem !important;
   margin-bottom: 1rem !important; }
 
 .form-container__text-area {
