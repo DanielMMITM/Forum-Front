@@ -15,9 +15,10 @@
     font-size: 1.5rem;
   }
 
-  .form-container--label {
-    font-size: 2rem;
-    text-transform: none;
+  &--label {
+    font-size: 2rem !important;
+    text-transform: none !important;
+    margin-bottom: 1rem !important;
   }
 
   &__text-area {

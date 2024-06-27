@@ -127,9 +127,9 @@ export function ShowPost() {
       <Box borderTop={'2px solid gray'} mt={'2rem'}>
         <Grid container spacing={2} className="form-container" justifyContent={'end'}>
           <Grid item xs={12} sx={{ fontSize: '1.5rem' }} mt={'2rem'}>
-            <Box display={'flex'} flexDirection={'column'} className="posts">
-              <label id="--custom-label">Add a comment</label>
-              <textarea id="--text-area" disabled={isPending} />
+            <Box display={'flex'} flexDirection={'column'}>
+              <label className="heading-secondary form-container--label">Add comment</label>
+              <textarea className="form-container__text-area--response" disabled={isPending} />
             </Box>
             <FormHelperText className="form-container__error form-container__error--posts"></FormHelperText>
           </Grid>
