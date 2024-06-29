@@ -178,6 +178,7 @@ export function ShowPost() {
               userCreator={post.userCreator.id}
               text={answer.text}
               solution={answer.solution}
+              postStatus={post.statusPost}
             />
           ))}
         </Box>

@@ -2,15 +2,25 @@ import { Box, IconButton, Tooltip, Typography, Zoom } from '@mui/material';
 import profilePic from '@/assets/images/profile.webp';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useUserStore } from '@/store/userStore';
+import { useCheckSolution } from '@/utils/hooks/Response/useCheckSolution';
+import { Status } from '@/utils/enum/Status';
 interface CardAnswerProps {
   id: number;
   userCreator: number;
   text: string;
   solution: boolean;
+  postStatus: string;
 }
 
-export default function CardAnswers({ userCreator, text, solution }: CardAnswerProps) {
-  const { id } = useUserStore.getState();
+export default function CardAnswers({
+  id,
+  userCreator,
+  text,
+  solution,
+  postStatus,
+}: CardAnswerProps) {
+  const { id: userId } = useUserStore.getState();
+  const { checkSolution, isPendingSolution } = useCheckSolution();
   return (
     <Box
       display={'flex'}
@@ -28,20 +38,22 @@ export default function CardAnswers({ userCreator, text, solution }: CardAnswerP
       <Box display={'flex'} flexBasis={'75%'} mt={-1}>
         <p className="text--card-response">{text}</p>
       </Box>
-      {id === userCreator && (
-        <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
-          <Tooltip
-            title={<Typography variant="h6">Set solution</Typography>}
-            placement="bottom"
-            disableInteractive
-            TransitionComponent={Zoom}
-          >
-            <IconButton size="small">
-              <CheckCircleIcon className="card-response__check" />
-            </IconButton>
-          </Tooltip>
-        </Box>
-      )}
+      {userId === userCreator ||
+        !isPendingSolution ||
+        (postStatus !== Status.SOLVED && (
+          <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
+            <Tooltip
+              title={<Typography variant="h6">Set solution</Typography>}
+              placement="bottom"
+              disableInteractive
+              TransitionComponent={Zoom}
+            >
+              <IconButton size="small" onClick={() => checkSolution(id)}>
+                <CheckCircleIcon className="card-response__check" />
+              </IconButton>
+            </Tooltip>
+          </Box>
+        ))}
     </Box>
   );
 }
