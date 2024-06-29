@@ -1,18 +1,19 @@
 import { Box, IconButton, Tooltip, Typography, Zoom } from '@mui/material';
 import profilePic from '@/assets/images/profile.webp';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { useUserStore } from '@/store/userStore';
 interface CardAnswerProps {
-  id: number;
+  userCreator: number;
   text: string;
   solution: boolean;
 }
 
-export default function CardAnswers({ id, text, solution }: CardAnswerProps) {
+export default function CardAnswers({ userCreator, text, solution }: CardAnswerProps) {
+  const { id } = useUserStore.getState();
   return (
     <Box
       display={'flex'}
       flexDirection={'row'}
-      key={id}
       mt={'2rem'}
       className="card-response"
       alignItems={'start'}
@@ -26,18 +27,20 @@ export default function CardAnswers({ id, text, solution }: CardAnswerProps) {
       <Box display={'flex'} flexBasis={'75%'} mt={-1}>
         <p className="text--card-response">{text}</p>
       </Box>
-      <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
-        <Tooltip
-          title={<Typography variant="h6">Set solution</Typography>}
-          placement="bottom"
-          disableInteractive
-          TransitionComponent={Zoom}
-        >
-          <IconButton size="small">
-            <CheckCircleIcon className="card-response__check" />
-          </IconButton>
-        </Tooltip>
-      </Box>
+      {id === userCreator && (
+        <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
+          <Tooltip
+            title={<Typography variant="h6">Set solution</Typography>}
+            placement="bottom"
+            disableInteractive
+            TransitionComponent={Zoom}
+          >
+            <IconButton size="small">
+              <CheckCircleIcon className="card-response__check" />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      )}
     </Box>
   );
 }
