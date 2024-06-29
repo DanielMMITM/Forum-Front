@@ -3,6 +3,7 @@ import profilePic from '@/assets/images/profile.webp';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useUserStore } from '@/store/userStore';
 interface CardAnswerProps {
+  id: number;
   userCreator: number;
   text: string;
   solution: boolean;
