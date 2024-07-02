@@ -11,7 +11,7 @@ import { useAddResponse } from './useAddResponse';
 import { TEXT_FIELD, TEXT_MAX_LENGTH } from '@/utils/constants/Response/responseConstants';
 
 export const useAddResponseForm = (postId: number) => {
-  const { id } = useUserStore();
+  const { id } = useUserStore.getState();
   const {
     register,
     formState: { errors },
