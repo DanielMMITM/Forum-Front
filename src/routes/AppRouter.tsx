@@ -1,13 +1,13 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import PrivateRouter from "./PrivateRouter";
-import { Home } from "@/pages/Home";
-import { Login } from "@/pages/Auth/Login";
-import { NavBar } from "@/components/NavBar";
-import { Footer } from "@/components/Footer";
-import { Posts } from "@/pages/Posts/Posts";
-import { CreateUpdatePost } from "@/pages/Posts/CreateUpdatePost";
-import { SignUp } from "@/pages/Auth/SignUp";
-import { ShowPost } from "@/pages/Posts/ShowPost";
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import PrivateRouter from './PrivateRouter';
+import { Home } from '@/pages/Home';
+import { Login } from '@/pages/Auth/Login';
+import { NavBar } from '@/components/NavBar';
+import { Footer } from '@/components/Footer';
+import { Posts } from '@/pages/Posts/Posts';
+import { CreateUpdatePost } from '@/pages/Posts/CreateUpdatePost';
+import { SignUp } from '@/pages/Auth/SignUp';
+import { ShowPost } from '@/pages/Posts/ShowPost';
 
 export const AppRouter = () => {
   return (
@@ -21,7 +21,7 @@ export const AppRouter = () => {
         <Route element={<PrivateRouter />}>
           <Route path="/profile"></Route>
           <Route path="/posts" element={<Posts />}></Route>
-          <Route path="/posts/:id" element={<ShowPost />}></Route>
+          <Route path="/show" element={<ShowPost />}></Route>
           <Route path="/new-post" element={<CreateUpdatePost />}></Route>
           <Route path="/update-post" element={<CreateUpdatePost />}></Route>
         </Route>
