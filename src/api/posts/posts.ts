@@ -1,11 +1,11 @@
-import { axiosClient, getToken } from "@/config/axios";
-import { PostResponse, PostsList } from "@/utils/types/postTypes";
+import { axiosClient, getToken } from '@/config/axios';
+import { PostResponse, PostsList } from '@/utils/types/postTypes';
 
 export const createPostRequest = async (
   body: Record<string, string | number>
 ): Promise<PostResponse> => {
   getToken();
-  const { data } = await axiosClient.post("/posts", body);
+  const { data } = await axiosClient.post('/posts', body);
   return data;
 };
 
@@ -17,11 +17,17 @@ export const showPostsRequest = async (page: number): Promise<PostsList> => {
   return data;
 };
 
+export const showPostRequest = async (postId: number): Promise<PostResponse> => {
+  getToken();
+  const { data } = await axiosClient.get(`/posts/${postId}`);
+  return data;
+};
+
 export const updatePostRequest = async (
   body: Record<string, string | number>
 ): Promise<PostResponse> => {
   getToken();
-  const { data } = await axiosClient.put("/posts", body);
+  const { data } = await axiosClient.put('/posts', body);
   return data;
 };
 
