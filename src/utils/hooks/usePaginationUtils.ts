@@ -6,7 +6,7 @@ export const usePaginationUtils = () => {
   const currentPage = params.get('page');
   if (!currentPage) params.set('page', '1');
 
-  function handleChange(event: ChangeEvent<unknown>, pageSelected: number) {
+  function handleChange(_event: ChangeEvent<unknown>, pageSelected: number) {
     params.set('page', pageSelected.toString());
     setParams(params);
   }
