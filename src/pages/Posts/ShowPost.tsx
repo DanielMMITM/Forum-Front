@@ -15,6 +15,7 @@ import { TEXT_PLACEHOLDER } from '@/utils/constants/Response/responseConstants';
 import { useShowPost } from '@/utils/hooks/Posts/useShowPost';
 import { Spinner } from '@/components/Spinner';
 import { scrollToTop } from '@/utils/helpers/scrollToTop';
+import { Status } from '@/utils/enum/Status';
 
 export function ShowPost() {
   const { id } = useUserStore.getState();
@@ -156,7 +157,7 @@ export function ShowPost() {
                   </label>
                   <textarea
                     className="form-container__text-area--response"
-                    disabled={isPending || isPendingAddAnswer}
+                    disabled={isPending || isPendingAddAnswer || post.statusPost === Status.CLOSED}
                     placeholder={TEXT_PLACEHOLDER}
                     ref={textResponseReference}
                     {...textResponseProps}
@@ -172,7 +173,7 @@ export function ShowPost() {
                   variant="contained"
                   fullWidth
                   type="submit"
-                  disabled={isPendingAddAnswer || isPending}
+                  disabled={isPendingAddAnswer || isPending || post.statusPost === Status.CLOSED}
                 >
                   Create
                 </Button>
