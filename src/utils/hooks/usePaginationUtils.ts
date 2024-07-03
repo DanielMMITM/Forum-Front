@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { scrollToTop } from '../helpers/scrollToTop';
 
 export const usePaginationUtils = () => {
   const [params, setParams] = useSearchParams();
@@ -14,6 +15,8 @@ export const usePaginationUtils = () => {
   useEffect(() => {
     setParams(params);
   }, []);
+
+  scrollToTop();
 
   return { currentPage, handleChange };
 };

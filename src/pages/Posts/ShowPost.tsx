@@ -14,6 +14,7 @@ import { EMPTY } from '@/utils/constants/GlobalConstants';
 import { TEXT_PLACEHOLDER } from '@/utils/constants/Response/responseConstants';
 import { useShowPost } from '@/utils/hooks/Posts/useShowPost';
 import { Spinner } from '@/components/Spinner';
+import { scrollToTop } from '@/utils/helpers/scrollToTop';
 
 export function ShowPost() {
   const { id } = useUserStore.getState();
@@ -34,6 +35,8 @@ export function ShowPost() {
     errors,
     isPendingAddAnswer,
   } = useAddResponseForm(post?.id!);
+
+  scrollToTop();
 
   if (isLoadingPost) return <Spinner />;
 

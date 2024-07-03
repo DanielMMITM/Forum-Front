@@ -1,6 +1,7 @@
 import { Spinner } from '@/components/Spinner';
 import { EMPTY } from '@/utils/constants/GlobalConstants';
 import { TEXT_PLACEHOLDER, TITLE_PLACEHOLDER } from '@/utils/constants/Posts/PostsConstants';
+import { scrollToTop } from '@/utils/helpers/scrollToTop';
 import { useCourses } from '@/utils/hooks/Posts/useCourses';
 import { usePostsForm } from '@/utils/hooks/Posts/usePostsForm';
 import { ActionTypes } from '@/utils/types/commonTypes';
@@ -46,6 +47,8 @@ export const CreateUpdatePost = () => {
       navigate('/');
     }
   }, []);
+
+  scrollToTop();
 
   if (isLoadingCourses && !courses) {
     return <Spinner />;
