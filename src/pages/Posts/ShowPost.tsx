@@ -180,11 +180,9 @@ export function ShowPost() {
             {post.answers.map((answer: Response) => (
               <CardAnswers
                 key={answer.id}
-                id={answer.id}
-                userCreator={post.userCreator.id}
-                text={answer.text}
-                solution={answer.solution}
+                postUserCreator={post.userCreator.id}
                 postStatus={post.statusPost}
+                response={answer}
               />
             ))}
           </Box>

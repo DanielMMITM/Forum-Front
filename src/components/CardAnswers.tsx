@@ -4,20 +4,21 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useUserStore } from '@/store/userStore';
 import { useCheckSolution } from '@/utils/hooks/Response/useCheckSolution';
 import { Status } from '@/utils/enum/Status';
+import { Response } from '@/utils/types/responseTypes';
 interface CardAnswerProps {
-  id: number;
-  userCreator: number;
-  text: string;
-  solution: boolean;
+  postUserCreator: number;
   postStatus: string;
+  response: Response;
 }
 
 export default function CardAnswers({
-  id,
-  userCreator,
-  text,
-  solution,
+  postUserCreator,
   postStatus,
+  response: {
+    id,
+    text,
+    userCreator: { username },
+  },
 }: CardAnswerProps) {
   const { id: userId } = useUserStore.getState();
   const { checkSolution, isPendingSolution } = useCheckSolution();
@@ -33,12 +34,12 @@ export default function CardAnswers({
         <Box display={'flex'} justifyContent={'center'}>
           <img src={profilePic} alt="Profile Picture" className="card-response__picture" />
         </Box>
-        <h2 className="heading-secondary--card-response__name">Leonel Messi</h2>
+        <h2 className="heading-secondary--card-response__name">{username}</h2>
       </Box>
       <Box display={'flex'} flexBasis={'75%'} mt={-1}>
         <p className="text--card-response">{text}</p>
       </Box>
-      {userId === userCreator ||
+      {userId === postUserCreator ||
         !isPendingSolution ||
         (postStatus !== Status.SOLVED && (
           <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
