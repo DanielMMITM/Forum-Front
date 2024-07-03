@@ -5,7 +5,7 @@ import { scrollToTop } from '../helpers/scrollToTop';
 export const usePaginationUtils = () => {
   const [params, setParams] = useSearchParams();
   const currentPage = params.get('page');
-  if (!currentPage) params.set('page', '1');
+  console.log(currentPage);
 
   function handleChange(_event: ChangeEvent<unknown>, pageSelected: number) {
     params.set('page', pageSelected.toString());

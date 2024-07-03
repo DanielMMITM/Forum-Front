@@ -2,7 +2,7 @@ import { showPostsRequest } from '@/api/Posts/posts';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSearchParams } from 'react-router-dom';
 
-export const useShowPosts = () => {
+export const usePostsList = () => {
   const queryClient = useQueryClient();
   const [params] = useSearchParams();
 

@@ -1,5 +1,4 @@
 import { CardPost } from '@/components/CardPost';
-import { useShowPosts } from '@/utils/hooks/Posts/useShowPosts';
 import { Box, Button, Pagination, PaginationItem } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -7,10 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import { usePaginationUtils } from '@/utils/hooks/usePaginationUtils';
 import { PostResponse } from '@/utils/types/postTypes';
 import { Spinner } from '@/components/Spinner';
+import { usePostsList } from '@/utils/hooks/Posts/usePostsList';
 
 export const Posts = () => {
   const navigate = useNavigate();
-  const { posts, totalPages, isLoading } = useShowPosts();
+  const { posts, totalPages, isLoading } = usePostsList();
   const { currentPage, handleChange } = usePaginationUtils();
 
   if (isLoading && !posts) {
