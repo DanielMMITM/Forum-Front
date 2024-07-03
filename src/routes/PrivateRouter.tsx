@@ -1,11 +1,11 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { useUserStore } from '@/store/userStore';
+import { Navigate, Outlet } from 'react-router-dom';
 
 const PrivateRouter = () => {
-  return localStorage.getItem("token") ? (
-    <Outlet />
-  ) : (
-    <Navigate to={"login"} replace></Navigate>
-  );
+  const { id } = useUserStore();
+
+  if (!localStorage.getItem('token') || !id) localStorage.clear();
+  return localStorage.getItem('token') && id ? <Outlet /> : <Navigate to={'login'} replace />;
 };
 
 export default PrivateRouter;
