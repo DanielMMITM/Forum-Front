@@ -8,6 +8,14 @@
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
+
+  @media only screen and(max-width:900px) {
+    font-size: 50%;
+  }
+
+  @media only screen and(max-width:600px) {
+    font-size: 37.5%;
+  }
 }
 
 body {
