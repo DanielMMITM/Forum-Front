@@ -1,43 +1,39 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import PersonIcon from "@mui/icons-material/Person";
-import { Link } from "react-router-dom";
-import { useLogout } from "@/utils/hooks/Auth/Logout/useLogout";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
+import PersonIcon from '@mui/icons-material/Person';
+import { Link } from 'react-router-dom';
+import { useLogout } from '@/utils/hooks/Auth/Logout/useLogout';
 
 const pages = [
-  { id: 1, name: "Home", link: "/" },
-  { id: 2, name: "Posts", link: "/posts" },
+  { id: 1, name: 'Home', link: '/' },
+  { id: 2, name: 'Posts', link: '/posts' },
 ];
 
 export const NavBar = () => {
   const { logout } = useLogout();
 
   const settings = [
-    localStorage.getItem("token")
-      ? { id: 1, name: "Profile", link: "/profile" }
-      : { id: 1, name: "Register", link: "/signup" },
-    localStorage.getItem("token")
-      ? { id: 2, name: "Logout", link: "" }
-      : { id: 2, name: "Login", link: "/login" },
+    localStorage.getItem('token')
+      ? { id: 1, name: 'Profile', link: '/profile' }
+      : { id: 1, name: 'Register', link: '/signup' },
+    localStorage.getItem('token')
+      ? { id: 2, name: 'Logout', link: '' }
+      : { id: 2, name: 'Login', link: '/login' },
   ];
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -57,16 +53,13 @@ export const NavBar = () => {
   return (
     <AppBar position="fixed" className="navbar">
       <Container maxWidth="auto">
-        <Toolbar
-          disableGutters
-          sx={{ display: "flex", justifyContent: "space-between" }}
-        >
+        <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <AdbIcon
             sx={{
-              display: { xs: "none", md: "flex" },
+              display: { xs: 'none', md: 'flex' },
               mr: 1,
-              width: { md: "3rem" },
-              height: { md: "3rem" },
+              width: { md: '3rem' },
+              height: { md: '3rem' },
             }}
           />
           <Typography
@@ -76,12 +69,12 @@ export const NavBar = () => {
             href="#"
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
             }}
           >
             LOGO
@@ -90,7 +83,7 @@ export const NavBar = () => {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "flex", md: "none" },
+              display: { xs: 'flex', md: 'none' },
             }}
           >
             <IconButton
@@ -103,8 +96,8 @@ export const NavBar = () => {
             >
               <MenuIcon
                 sx={{
-                  width: { xs: "2.5rem", md: "4rem" },
-                  height: { xs: "2.5rem", md: "4rem" },
+                  width: { xs: '2.5rem', md: '4rem' },
+                  height: { xs: '2.5rem', md: '4rem' },
                 }}
               />
             </IconButton>
@@ -112,18 +105,18 @@ export const NavBar = () => {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+                vertical: 'bottom',
+                horizontal: 'left',
               }}
               keepMounted
               transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
+                vertical: 'top',
+                horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: 'block', md: 'none' },
               }}
             >
               {pages.map((page) => (
@@ -131,7 +124,7 @@ export const NavBar = () => {
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography
                       textAlign="center"
-                      sx={{ fontSize: { xs: "1.5rem", sm: "1.9rem" } }}
+                      sx={{ fontSize: { xs: '1.5rem', sm: '1.9rem' } }}
                     >
                       {page.name}
                     </Typography>
@@ -142,10 +135,10 @@ export const NavBar = () => {
           </Box>
           <AdbIcon
             sx={{
-              display: { xs: "flex", md: "none" },
+              display: { xs: 'flex', md: 'none' },
               mr: 1,
-              width: { xs: "3.5rem" },
-              height: { xs: "3.5rem" },
+              width: { xs: '3.5rem' },
+              height: { xs: '3.5rem' },
             }}
           />
           <Typography
@@ -155,27 +148,27 @@ export const NavBar = () => {
             href="#"
             sx={{
               mr: 2,
-              display: { xs: "flex", md: "none" },
+              display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
             }}
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link key={page.id} to={page.link} className="navbar__link">
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{
                     my: 2,
-                    color: "white",
-                    display: "block",
-                    fontSize: { xs: "1.1rem", md: "1.5rem" },
+                    color: 'white',
+                    display: 'block',
+                    fontSize: { xs: '1.1rem', md: '1.5rem' },
                   }}
                 >
                   {page.name}
@@ -189,38 +182,34 @@ export const NavBar = () => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <PersonIcon
                   sx={{
-                    color: "white",
-                    width: { xs: "2.5rem", md: "4rem" },
-                    height: { xs: "2.5rem", md: "4rem" },
+                    color: 'white',
+                    width: { xs: '2.5rem', md: '4rem' },
+                    height: { xs: '2.5rem', md: '4rem' },
                   }}
                 ></PersonIcon>
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: "45px" }}
+              sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
+                vertical: 'top',
+                horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
+                vertical: 'top',
+                horizontal: 'right',
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <Link
-                  key={setting?.id}
-                  to={setting!.link}
-                  className="navbar__link"
-                >
+                <Link key={setting?.id} to={setting!.link} className="navbar__link">
                   <MenuItem
                     onClick={
-                      setting?.name === "Logout"
+                      setting?.name === 'Logout'
                         ? () => {
                             handleCloseUserMenu();
                             logout();
@@ -231,7 +220,7 @@ export const NavBar = () => {
                     <Typography
                       textAlign="center"
                       sx={{
-                        fontSize: { xs: "1.5rem", sm: "1.9rem" },
+                        fontSize: { xs: '1.5rem', sm: '1.9rem' },
                       }}
                     >
                       {setting?.name}

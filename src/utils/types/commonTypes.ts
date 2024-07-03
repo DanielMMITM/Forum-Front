@@ -1,1 +1,1 @@
-export type ActionTypes = "Update" | "Create" | "Delete";
+export type ActionTypes = 'Update' | 'Create' | 'Delete';

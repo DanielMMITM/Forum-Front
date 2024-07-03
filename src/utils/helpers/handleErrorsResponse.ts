@@ -1,7 +1,7 @@
-import toast from "react-hot-toast";
-import { HttpErrors } from "@/utils/enum/HttpErrors";
-import { useLogout } from "@/utils/hooks/Auth/Logout/useLogout";
-import { CustomError } from "@/utils/types/errorTypes";
+import toast from 'react-hot-toast';
+import { HttpErrors } from '@/utils/enum/HttpErrors';
+import { useLogout } from '@/utils/hooks/Auth/Logout/useLogout';
+import { CustomError } from '@/utils/types/errorTypes';
 
 export const handleErrorsResponse = (error: CustomError) => {
   toast.dismiss();
@@ -9,32 +9,32 @@ export const handleErrorsResponse = (error: CustomError) => {
   switch (error.code) {
     case HttpErrors.BAD_REQUEST: {
       toast.error(error.debugMessage, {
-        className: "toast",
+        className: 'toast',
       });
       break;
     }
     case HttpErrors.UNAUTHORIZED: {
       toast.error(error.message, {
-        className: "toast",
+        className: 'toast',
       });
       useLogout();
       break;
     }
     case HttpErrors.NOT_FOUND: {
       toast.error(error.debugMessage, {
-        className: "toast",
+        className: 'toast',
       });
       break;
     }
     case HttpErrors.CONFLICT: {
       toast.error(error.debugMessage, {
-        className: "toast",
+        className: 'toast',
       });
       break;
     }
     case HttpErrors.SERVER_ERROR: {
       toast.error(error.message, {
-        className: "toast",
+        className: 'toast',
       });
       break;
     }

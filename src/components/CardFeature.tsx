@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
-import sprite from "@/assets/icons/sprite.svg";
+import { Box } from '@mui/material';
+import sprite from '@/assets/icons/sprite.svg';
 
 interface CardProperties {
   iconName: string;
@@ -7,19 +7,15 @@ interface CardProperties {
   description: string;
 }
 
-export const CardFeature = ({
-  iconName,
-  title,
-  description,
-}: CardProperties) => {
+export const CardFeature = ({ iconName, title, description }: CardProperties) => {
   return (
     <Box
-      display={"flex"}
-      flexDirection={"column"}
-      alignItems={"center"}
-      flexBasis={"25%"}
-      padding={"2rem"}
-      mt={{ xs: "3rem", md: "0" }}
+      display={'flex'}
+      flexDirection={'column'}
+      alignItems={'center'}
+      flexBasis={'25%'}
+      padding={'2rem'}
+      mt={{ xs: '3rem', md: '0' }}
       className="feature"
     >
       <svg className="feature__icon">

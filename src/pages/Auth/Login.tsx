@@ -1,21 +1,11 @@
-import {
-  Box,
-  Button,
-  FormHelperText,
-  IconButton,
-  InputAdornment,
-  TextField,
-} from "@mui/material";
-import { useLoginForm } from "@/utils/hooks/Auth/Login/useLoginForm";
-import { capitalizeString } from "@/utils/helpers/capitalizeString";
-import {
-  PASSWORD_FIELD,
-  USERNAME_FIELD,
-} from "@/utils/constants/Auth/authConstants";
-import { EMPTY } from "@/utils/constants/GlobalConstants";
-import { Navigate } from "react-router-dom";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useLoginUtils } from "@/utils/hooks/Auth/Login/useLoginUtils";
+import { Box, Button, FormHelperText, IconButton, InputAdornment, TextField } from '@mui/material';
+import { useLoginForm } from '@/utils/hooks/Auth/Login/useLoginForm';
+import { capitalizeString } from '@/utils/helpers/capitalizeString';
+import { PASSWORD_FIELD, USERNAME_FIELD } from '@/utils/constants/Auth/authConstants';
+import { EMPTY } from '@/utils/constants/GlobalConstants';
+import { Navigate } from 'react-router-dom';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { useLoginUtils } from '@/utils/hooks/Auth/Login/useLoginUtils';
 
 export const Login = () => {
   const {
@@ -30,31 +20,27 @@ export const Login = () => {
     isPending,
   } = useLoginForm();
 
-  const {
-    showPassword,
-    handleClickShowPassword,
-    handleMouseDownPassword,
-    handleMouseUpPassword,
-  } = useLoginUtils();
+  const { showPassword, handleClickShowPassword, handleMouseDownPassword, handleMouseUpPassword } =
+    useLoginUtils();
 
-  if (localStorage.getItem("token")) return <Navigate to={"/"} replace />;
+  if (localStorage.getItem('token')) return <Navigate to={'/'} replace />;
   return (
     <Box
-      display={"flex"}
-      flexDirection={"column"}
-      justifyContent={"center"}
-      alignItems={"center"}
-      minHeight={"100vh"}
+      display={'flex'}
+      flexDirection={'column'}
+      justifyContent={'center'}
+      alignItems={'center'}
+      minHeight={'100vh'}
     >
       <h1 className="heading-primary">Login</h1>
       <Box
-        display={"flex"}
-        alignContent={"center"}
-        flexDirection={"column"}
-        rowGap={"2rem"}
-        minWidth={"30%"}
+        display={'flex'}
+        alignContent={'center'}
+        flexDirection={'column'}
+        rowGap={'2rem'}
+        minWidth={'30%'}
         className="form-container"
-        component={"form"}
+        component={'form'}
         onSubmit={handleSubmit(onSubmit, onError)}
         autoComplete="off"
       >
@@ -73,7 +59,7 @@ export const Login = () => {
         <TextField
           label={capitalizeString(PASSWORD_FIELD)}
           variant="filled"
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           ref={passwordReference}
           {...passwordProps}
           error={!!errors.password}
@@ -86,12 +72,12 @@ export const Login = () => {
                   onMouseDown={handleMouseDownPassword}
                   onMouseUp={handleMouseUpPassword}
                   edge="end"
-                  sx={{ width: "4rem", height: "4rem" }}
+                  sx={{ width: '4rem', height: '4rem' }}
                 >
                   {showPassword ? (
-                    <VisibilityOff sx={{ width: "2rem", height: "2rem" }} />
+                    <VisibilityOff sx={{ width: '2rem', height: '2rem' }} />
                   ) : (
-                    <Visibility sx={{ width: "2rem", height: "2rem" }} />
+                    <Visibility sx={{ width: '2rem', height: '2rem' }} />
                   )}
                 </IconButton>
               </InputAdornment>

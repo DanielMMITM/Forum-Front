@@ -3,12 +3,12 @@ import {
   EMAIL_FIELD,
   PASSWORD_FIELD,
   USERNAME_FIELD,
-} from "@/utils/constants/Auth/authConstants";
-import { EMPTY } from "@/utils/constants/GlobalConstants";
-import { capitalizeString } from "@/utils/helpers/capitalizeString";
-import { useSignUpForm } from "@/utils/hooks/Auth/SignUp/useSignUpForm";
-import { useSignUpUtils } from "@/utils/hooks/Auth/SignUp/useSignUpUtils";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+} from '@/utils/constants/Auth/authConstants';
+import { EMPTY } from '@/utils/constants/GlobalConstants';
+import { capitalizeString } from '@/utils/helpers/capitalizeString';
+import { useSignUpForm } from '@/utils/hooks/Auth/SignUp/useSignUpForm';
+import { useSignUpUtils } from '@/utils/hooks/Auth/SignUp/useSignUpUtils';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -17,8 +17,8 @@ import {
   IconButton,
   InputAdornment,
   TextField,
-} from "@mui/material";
-import { Navigate, useNavigate } from "react-router-dom";
+} from '@mui/material';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export const SignUp = () => {
   const {
@@ -38,31 +38,27 @@ export const SignUp = () => {
   } = useSignUpForm();
   const navigate = useNavigate();
 
-  const {
-    showPassword,
-    handleClickShowPassword,
-    handleMouseDownPassword,
-    handleMouseUpPassword,
-  } = useSignUpUtils();
+  const { showPassword, handleClickShowPassword, handleMouseDownPassword, handleMouseUpPassword } =
+    useSignUpUtils();
 
-  if (localStorage.getItem("token")) return <Navigate to={"/"} replace />;
+  if (localStorage.getItem('token')) return <Navigate to={'/'} replace />;
   return (
     <Box
-      display={"flex"}
-      flexDirection={"column"}
-      justifyContent={"center"}
-      alignItems={"center"}
-      minHeight={"100vh"}
+      display={'flex'}
+      flexDirection={'column'}
+      justifyContent={'center'}
+      alignItems={'center'}
+      minHeight={'100vh'}
     >
       <h1 className="heading-primary">Sign Up</h1>
       <Box
-        display={"flex"}
-        alignContent={"center"}
-        flexDirection={"column"}
-        rowGap={"2rem"}
-        minWidth={"30%"}
+        display={'flex'}
+        alignContent={'center'}
+        flexDirection={'column'}
+        rowGap={'2rem'}
+        minWidth={'30%'}
         className="form-container"
-        component={"form"}
+        component={'form'}
         autoComplete="off"
         onSubmit={handleSubmit(onSubmit, onError)}
       >
@@ -93,7 +89,7 @@ export const SignUp = () => {
         <TextField
           label={capitalizeString(PASSWORD_FIELD)}
           variant="filled"
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           ref={passwordReference}
           {...passwordProps}
           error={!!errors.password}
@@ -106,12 +102,12 @@ export const SignUp = () => {
                   onMouseDown={handleMouseDownPassword}
                   onMouseUp={handleMouseUpPassword}
                   edge="end"
-                  sx={{ width: "4rem", height: "4rem" }}
+                  sx={{ width: '4rem', height: '4rem' }}
                 >
                   {showPassword ? (
-                    <VisibilityOff sx={{ width: "2rem", height: "2rem" }} />
+                    <VisibilityOff sx={{ width: '2rem', height: '2rem' }} />
                   ) : (
-                    <Visibility sx={{ width: "2rem", height: "2rem" }} />
+                    <Visibility sx={{ width: '2rem', height: '2rem' }} />
                   )}
                 </IconButton>
               </InputAdornment>
@@ -124,7 +120,7 @@ export const SignUp = () => {
         <TextField
           label={CONFIRM_PASSWORD_LABEL}
           variant="filled"
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           ref={confirmPasswordReference}
           {...confirmPasswordProps}
           error={!!errors.confirmPassword}
@@ -137,12 +133,12 @@ export const SignUp = () => {
                   onMouseDown={handleMouseDownPassword}
                   onMouseUp={handleMouseUpPassword}
                   edge="end"
-                  sx={{ width: "4rem", height: "4rem" }}
+                  sx={{ width: '4rem', height: '4rem' }}
                 >
                   {showPassword ? (
-                    <VisibilityOff sx={{ width: "2rem", height: "2rem" }} />
+                    <VisibilityOff sx={{ width: '2rem', height: '2rem' }} />
                   ) : (
-                    <Visibility sx={{ width: "2rem", height: "2rem" }} />
+                    <Visibility sx={{ width: '2rem', height: '2rem' }} />
                   )}
                 </IconButton>
               </InputAdornment>
@@ -160,18 +156,13 @@ export const SignUp = () => {
               fullWidth
               color="error"
               disabled={isPending}
-              onClick={() => navigate("/")}
+              onClick={() => navigate('/')}
             >
               Back
             </Button>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Button
-              variant="contained"
-              type="submit"
-              fullWidth
-              disabled={isPending}
-            >
+            <Button variant="contained" type="submit" fullWidth disabled={isPending}>
               Save
             </Button>
           </Grid>

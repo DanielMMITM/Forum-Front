@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useState } from 'react';
 
 export const useSignUpUtils = () => {
   const [showPassword, setShowPassword] = useState(false);

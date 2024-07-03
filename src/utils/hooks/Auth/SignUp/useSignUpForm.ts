@@ -6,15 +6,15 @@ import {
   MAX_LENGTH_EMAIL,
   PASSWORD_FIELD,
   USERNAME_FIELD,
-} from "@/utils/constants/Auth/authConstants";
+} from '@/utils/constants/Auth/authConstants';
 import {
   CHARACTERS_WORD_ERROR,
   MAX_LENGTH_ERROR,
   REQUIRED_FIELD_ERROR,
-} from "@/utils/constants/GlobalConstants";
-import { capitalizeString } from "@/utils/helpers/capitalizeString";
-import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import { useSignUp } from "./useSignUp";
+} from '@/utils/constants/GlobalConstants';
+import { capitalizeString } from '@/utils/helpers/capitalizeString';
+import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
+import { useSignUp } from './useSignUp';
 
 export const useSignUpForm = () => {
   const {
@@ -26,26 +26,23 @@ export const useSignUpForm = () => {
     formState: { errors },
   } = useForm<SignUpForm>({
     defaultValues: {
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
     },
   });
   const { createUser, isPending } = useSignUp();
 
-  const { ref: usernameReference, ...usernameProps } = register(
-    USERNAME_FIELD,
-    {
-      required: `${capitalizeString(USERNAME_FIELD)}${REQUIRED_FIELD_ERROR}`,
-      maxLength: {
-        value: MAX_LENGTH,
-        message: `${capitalizeString(
-          USERNAME_FIELD
-        )}${MAX_LENGTH_ERROR}${MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
-      },
-    }
-  );
+  const { ref: usernameReference, ...usernameProps } = register(USERNAME_FIELD, {
+    required: `${capitalizeString(USERNAME_FIELD)}${REQUIRED_FIELD_ERROR}`,
+    maxLength: {
+      value: MAX_LENGTH,
+      message: `${capitalizeString(
+        USERNAME_FIELD
+      )}${MAX_LENGTH_ERROR}${MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
+    },
+  });
 
   const { ref: emailReference, ...emailProps } = register(EMAIL_FIELD, {
     required: `${capitalizeString(EMAIL_FIELD)}${REQUIRED_FIELD_ERROR}`,
@@ -57,26 +54,23 @@ export const useSignUpForm = () => {
     },
   });
 
-  const { ref: passwordReference, ...passwordProps } = register(
-    PASSWORD_FIELD,
-    {
-      required: `${capitalizeString(PASSWORD_FIELD)}${REQUIRED_FIELD_ERROR}`,
-      maxLength: {
-        value: MAX_LENGTH,
-        message: `${capitalizeString(
-          PASSWORD_FIELD
-        )}${MAX_LENGTH_ERROR}${MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
-      },
-      validate: () => {
-        if (watch("password") === watch("confirmPassword")) {
-          clearErrors("confirmPassword");
-          return undefined;
-        } else {
-          setError("confirmPassword", { message: CONFIRM_PASSWORD_ERROR });
-        }
-      },
-    }
-  );
+  const { ref: passwordReference, ...passwordProps } = register(PASSWORD_FIELD, {
+    required: `${capitalizeString(PASSWORD_FIELD)}${REQUIRED_FIELD_ERROR}`,
+    maxLength: {
+      value: MAX_LENGTH,
+      message: `${capitalizeString(
+        PASSWORD_FIELD
+      )}${MAX_LENGTH_ERROR}${MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
+    },
+    validate: () => {
+      if (watch('password') === watch('confirmPassword')) {
+        clearErrors('confirmPassword');
+        return undefined;
+      } else {
+        setError('confirmPassword', { message: CONFIRM_PASSWORD_ERROR });
+      }
+    },
+  });
 
   const { ref: confirmPasswordReference, ...confirmPasswordProps } = register(
     CONFIRM_PASSWORD_FIELD,
@@ -89,7 +83,7 @@ export const useSignUpForm = () => {
         )}${MAX_LENGTH_ERROR}${MAX_LENGTH}${CHARACTERS_WORD_ERROR}`,
       },
       validate: () => {
-        if (watch("confirmPassword") !== watch("password")) {
+        if (watch('confirmPassword') !== watch('password')) {
           return CONFIRM_PASSWORD_ERROR;
         }
       },
@@ -107,7 +101,7 @@ export const useSignUpForm = () => {
   };
 
   const onError: SubmitErrorHandler<SignUpForm> = (data) => {
-    console.log("ERROR: ", data);
+    console.log('ERROR: ', data);
   };
 
   return {

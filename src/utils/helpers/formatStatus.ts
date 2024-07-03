@@ -1,3 +1,3 @@
 export function formatStatus(str: string) {
-  return str.replace("_", " ");
+  return str.replace('_', ' ');
 }

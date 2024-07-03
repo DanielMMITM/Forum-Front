@@ -2,22 +2,22 @@ import {
   CHARACTERS_WORD_ERROR,
   MAX_LENGTH_ERROR,
   REQUIRED_FIELD_ERROR,
-} from "@/utils/constants/GlobalConstants";
+} from '@/utils/constants/GlobalConstants';
 import {
   TEXT_FIELD,
   TEXT_MAX_LENGTH,
   TITLE_FIELD,
   TITLE_MAX_LENGTH,
   COURSE_FIELD,
-} from "@/utils/constants/Posts/PostsConstants";
-import { capitalizeString } from "@/utils/helpers/capitalizeString";
-import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import { useCreateUpdatePost } from "./useCreateUpdatePost";
-import { SelectChangeEvent } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useUserStore } from "@/store/userStore";
-import { PostForm, PostResponse } from "@/utils/types/postTypes";
-import { ActionTypes } from "@/utils/types/commonTypes";
+} from '@/utils/constants/Posts/PostsConstants';
+import { capitalizeString } from '@/utils/helpers/capitalizeString';
+import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
+import { useCreateUpdatePost } from './useCreateUpdatePost';
+import { SelectChangeEvent } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { useUserStore } from '@/store/userStore';
+import { PostForm, PostResponse } from '@/utils/types/postTypes';
+import { ActionTypes } from '@/utils/types/commonTypes';
 
 interface UpdateProps {
   post?: PostResponse;
@@ -26,7 +26,7 @@ interface UpdateProps {
 
 export const usePostsForm = ({ post, action }: UpdateProps) => {
   const { id } = useUserStore();
-  const [course, setCourse] = useState<string>("0");
+  const [course, setCourse] = useState<string>('0');
   const {
     register,
     formState: { errors },
@@ -35,18 +35,18 @@ export const usePostsForm = ({ post, action }: UpdateProps) => {
     reset,
   } = useForm<PostForm>({
     defaultValues: {
-      title: "",
+      title: '',
       course: 0,
-      text: "",
+      text: '',
     },
   });
 
   useEffect(() => {
     if (post) {
-      setValue("title", post.title);
-      setValue("course", post.courseId);
+      setValue('title', post.title);
+      setValue('course', post.courseId);
       setCourse(String(post.courseId));
-      setValue("text", post.text);
+      setValue('text', post.text);
     }
   }, [post]);
 
@@ -73,7 +73,7 @@ export const usePostsForm = ({ post, action }: UpdateProps) => {
   const { ref: courseReference, ...courseProps } = register(COURSE_FIELD, {
     required: `${capitalizeString(COURSE_FIELD)}${REQUIRED_FIELD_ERROR}`,
     validate: (value: number) => {
-      if (String(value) === "0") {
+      if (String(value) === '0') {
         return `${capitalizeString(COURSE_FIELD)}${REQUIRED_FIELD_ERROR}`;
       }
     },
@@ -90,24 +90,24 @@ export const usePostsForm = ({ post, action }: UpdateProps) => {
   });
 
   const onSubmit: SubmitHandler<PostForm> = (data) => {
-    console.log("submit: ", data);
+    console.log('submit: ', data);
     const { title, text, course } = data;
     const body: Record<string, string | number> = {
       title: title,
       text: text,
       courseId: course,
     };
-    if (action === "Update") {
-      body["id"] = post!.id;
-      body["statusPost"] = post!.statusPost;
-    } else if (action === "Create") {
-      body["userId"] = Number(id);
+    if (action === 'Update') {
+      body['id'] = post!.id;
+      body['statusPost'] = post!.statusPost;
+    } else if (action === 'Create') {
+      body['userId'] = Number(id);
     }
     createUpdatePost(body, { onSuccess: updateFields });
   };
 
   const onError: SubmitErrorHandler<PostForm> = (data) => {
-    console.log("error: ", data);
+    console.log('error: ', data);
   };
 
   return {
