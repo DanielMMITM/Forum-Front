@@ -14,6 +14,10 @@ body {
   color: $color-primary;
   text-align: center;
 
+  @media screen and (max-width: 900px) {
+    grid-template-columns: minmax(max-content, 1.5fr) 3fr minmax(max-content, 1.5fr);
+  }
+
   &--main {
     letter-spacing: 1rem;
     font-size: 6rem;
@@ -23,11 +27,6 @@ body {
     margin-top: -5rem;
 
     animation: move-in-up 1s ease-out;
-
-    @media screen and (max-width: 700px) {
-      font-size: 3rem;
-      letter-spacing: 1rem;
-    }
   }
 
   &--sub {
@@ -42,11 +41,6 @@ body {
 
     width: 65vw;
     margin-top: -1rem;
-
-    @media screen and (max-width: 700px) {
-      font-size: 2rem;
-      line-height: 3.5rem;
-    }
   }
 
   &::before,
