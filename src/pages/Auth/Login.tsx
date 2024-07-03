@@ -6,6 +6,7 @@ import { EMPTY } from '@/utils/constants/GlobalConstants';
 import { Navigate } from 'react-router-dom';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useLoginUtils } from '@/utils/hooks/Auth/Login/useLoginUtils';
+import MUIMediaQuery from '@/utils/helpers/MUIMediaQuery';
 
 export const Login = () => {
   const {
@@ -23,6 +24,8 @@ export const Login = () => {
   const { showPassword, handleClickShowPassword, handleMouseDownPassword, handleMouseUpPassword } =
     useLoginUtils();
 
+  const { isSmallScreen } = MUIMediaQuery();
+
   if (localStorage.getItem('token')) return <Navigate to={'/'} replace />;
   return (
     <Box
@@ -30,7 +33,7 @@ export const Login = () => {
       flexDirection={'column'}
       justifyContent={'center'}
       alignItems={'center'}
-      minHeight={'100vh'}
+      minHeight={'100dvh'}
     >
       <h1 className="heading-primary">Login</h1>
       <Box
@@ -38,7 +41,7 @@ export const Login = () => {
         alignContent={'center'}
         flexDirection={'column'}
         rowGap={'2rem'}
-        minWidth={'30%'}
+        minWidth={{ xs: '70%', md: '30%' }}
         className="form-container"
         component={'form'}
         onSubmit={handleSubmit(onSubmit, onError)}
@@ -52,6 +55,7 @@ export const Login = () => {
           {...usernameProps}
           error={!!errors.username}
           disabled={isPending}
+          size={isSmallScreen ? 'small' : 'medium'}
         />
         <FormHelperText className="form-container__error">
           {errors?.username ? errors?.username?.message : EMPTY}
@@ -64,6 +68,7 @@ export const Login = () => {
           {...passwordProps}
           error={!!errors.password}
           disabled={isPending}
+          size={isSmallScreen ? 'small' : 'medium'}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -87,7 +92,12 @@ export const Login = () => {
         <FormHelperText className="form-container__error">
           {errors?.password ? errors?.password?.message : EMPTY}
         </FormHelperText>
-        <Button variant="contained" type="submit" disabled={isPending}>
+        <Button
+          size={isSmallScreen ? 'small' : 'medium'}
+          variant="contained"
+          type="submit"
+          disabled={isPending}
+        >
           Login
         </Button>
       </Box>

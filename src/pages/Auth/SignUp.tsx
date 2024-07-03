@@ -5,6 +5,7 @@ import {
   USERNAME_FIELD,
 } from '@/utils/constants/Auth/authConstants';
 import { EMPTY } from '@/utils/constants/GlobalConstants';
+import MUIMediaQuery from '@/utils/helpers/MUIMediaQuery';
 import { capitalizeString } from '@/utils/helpers/capitalizeString';
 import { useSignUpForm } from '@/utils/hooks/Auth/SignUp/useSignUpForm';
 import { useSignUpUtils } from '@/utils/hooks/Auth/SignUp/useSignUpUtils';
@@ -41,6 +42,8 @@ export const SignUp = () => {
   const { showPassword, handleClickShowPassword, handleMouseDownPassword, handleMouseUpPassword } =
     useSignUpUtils();
 
+  const { isSmallScreen } = MUIMediaQuery();
+
   if (localStorage.getItem('token')) return <Navigate to={'/'} replace />;
   return (
     <Box
@@ -48,7 +51,7 @@ export const SignUp = () => {
       flexDirection={'column'}
       justifyContent={'center'}
       alignItems={'center'}
-      minHeight={'100vh'}
+      minHeight={'100dvh'}
     >
       <h1 className="heading-primary">Sign Up</h1>
       <Box
@@ -56,7 +59,7 @@ export const SignUp = () => {
         alignContent={'center'}
         flexDirection={'column'}
         rowGap={'2rem'}
-        minWidth={'30%'}
+        minWidth={{ xs: '70%', md: '30%' }}
         className="form-container"
         component={'form'}
         autoComplete="off"
@@ -70,6 +73,7 @@ export const SignUp = () => {
           {...usernameProps}
           error={!!errors.username}
           disabled={isPending}
+          size={isSmallScreen ? 'small' : 'medium'}
         />
         <FormHelperText className="form-container__error">
           {errors?.username ? errors?.username?.message : EMPTY}
@@ -82,6 +86,7 @@ export const SignUp = () => {
           {...emailProps}
           error={!!errors.email}
           disabled={isPending}
+          size={isSmallScreen ? 'small' : 'medium'}
         />
         <FormHelperText className="form-container__error">
           {errors?.email ? errors?.email?.message : EMPTY}
@@ -94,6 +99,7 @@ export const SignUp = () => {
           {...passwordProps}
           error={!!errors.password}
           disabled={isPending}
+          size={isSmallScreen ? 'small' : 'medium'}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -125,6 +131,7 @@ export const SignUp = () => {
           {...confirmPasswordProps}
           error={!!errors.confirmPassword}
           disabled={isPending}
+          size={isSmallScreen ? 'small' : 'medium'}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -156,13 +163,20 @@ export const SignUp = () => {
               fullWidth
               color="error"
               disabled={isPending}
+              size={isSmallScreen ? 'small' : 'medium'}
               onClick={() => navigate('/')}
             >
               Back
             </Button>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Button variant="contained" type="submit" fullWidth disabled={isPending}>
+            <Button
+              variant="contained"
+              type="submit"
+              fullWidth
+              disabled={isPending}
+              size={isSmallScreen ? 'small' : 'medium'}
+            >
               Save
             </Button>
           </Grid>
