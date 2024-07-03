@@ -1,5 +1,5 @@
 import { Box, Button, FormHelperText, Grid } from '@mui/material';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import profilePic from '@/assets/images/profile.webp';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useUserStore } from '@/store/userStore';
