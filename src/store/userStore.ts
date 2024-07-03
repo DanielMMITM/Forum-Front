@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { devtools } from "zustand/middleware";
+import { create } from 'zustand';
+import { devtools, persist } from 'zustand/middleware';
 
 interface UserStore {
   id: number | null;
@@ -7,12 +7,17 @@ interface UserStore {
 }
 
 export const useUserStore = create<UserStore>()(
-  devtools((set) => ({
-    id: null,
-    setId: (id: number | null): void => {
-      set(() => ({
-        id: id,
-      }));
-    },
-  }))
+  devtools(
+    persist(
+      (set) => ({
+        id: null,
+        setId: (id: number | null): void => {
+          set(() => ({
+            id: id,
+          }));
+        },
+      }),
+      { name: 'userStore' }
+    )
+  )
 );
