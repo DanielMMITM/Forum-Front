@@ -14,6 +14,7 @@ export const useCheckSolution = () => {
         className: 'toast',
       });
       queryClient.invalidateQueries({ queryKey: ['post'] });
+      queryClient.invalidateQueries({ queryKey: ['postsList'] });
     },
     onError: (error: CustomAxiosError) => {
       handleErrorsResponse(error.response.data);

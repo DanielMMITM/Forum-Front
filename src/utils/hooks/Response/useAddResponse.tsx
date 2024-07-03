@@ -12,7 +12,8 @@ export const useAddResponse = () => {
       toast.success(`Response created successfully!`, {
         className: 'toast',
       });
-      queryClient.invalidateQueries({ queryKey: ['posts'] });
+      queryClient.invalidateQueries({ queryKey: ['post'] });
+      queryClient.invalidateQueries({ queryKey: ['postsList'] });
     },
     onError: (error: CustomAxiosError) => {
       handleErrorsResponse(error.response.data);
