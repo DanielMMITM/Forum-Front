@@ -354,7 +354,6 @@ body {
   min-height: auto;
   background-position: center;
   background-size: cover;
-  aspect-ratio: 4/1;
   color: #ffffff; }
 
 .posts__header {
