@@ -22,6 +22,9 @@ export default function CardAnswers({
 }: CardAnswerProps) {
   const { id: userId } = useUserStore.getState();
   const { checkSolution, isPendingSolution } = useCheckSolution();
+
+  const checkSolutionAllowed = postStatus !== Status.CLOSED && postStatus !== Status.SOLVED;
+
   return (
     <Box
       display={'flex'}
@@ -39,22 +42,20 @@ export default function CardAnswers({
       <Box display={'flex'} flexBasis={'75%'} mt={-1}>
         <p className="text--card-response">{text}</p>
       </Box>
-      {userId === postUserCreator ||
-        !isPendingSolution ||
-        (postStatus !== Status.SOLVED && (
-          <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
-            <Tooltip
-              title={<Typography variant="h6">Set solution</Typography>}
-              placement="bottom"
-              disableInteractive
-              TransitionComponent={Zoom}
-            >
-              <IconButton size="small" onClick={() => checkSolution(id)}>
-                <CheckCircleIcon className="card-response__check" />
-              </IconButton>
-            </Tooltip>
-          </Box>
-        ))}
+      {userId === postUserCreator && checkSolutionAllowed && !isPendingSolution && (
+        <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
+          <Tooltip
+            title={<Typography variant="h6">Set solution</Typography>}
+            placement="bottom"
+            disableInteractive
+            TransitionComponent={Zoom}
+          >
+            <IconButton size="small" onClick={() => checkSolution(id)}>
+              <CheckCircleIcon className="card-response__check" />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      )}
     </Box>
   );
 }
