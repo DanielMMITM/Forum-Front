@@ -312,14 +312,16 @@ body {
     border-radius: 100%;
     width: 5rem;
     height: 5rem; }
-  .card-response__check {
-    color: #00dc00;
-    opacity: 0.3;
+  .card-response__solution {
+    color: #00dc00 !important;
     width: 3rem !important;
     height: 3rem !important; }
-    .card-response__check:hover {
-      opacity: 1;
-      cursor: pointer; }
+    .card-response__solution--check {
+      color: #00dc00 !important;
+      opacity: 0.3; }
+      .card-response__solution--check:hover {
+        opacity: 1;
+        cursor: pointer; }
 
 .home-header {
   background-image: linear-gradient(320deg, rgba(0, 52, 89, 0.9), rgba(0, 0, 0, 0.6)), url("/src/assets/images/header.webp");

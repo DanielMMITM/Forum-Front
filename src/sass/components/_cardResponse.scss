@@ -9,15 +9,19 @@
     height: 5rem;
   }
 
-  &__check {
-    color: #00dc00;
-    opacity: 0.3;
+  &__solution {
+    color: #00dc00 !important;
     width: 3rem !important;
     height: 3rem !important;
 
-    &:hover {
-      opacity: 1;
-      cursor: pointer;
+    &--check {
+      color: #00dc00 !important;
+      opacity: 0.3;
+
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
     }
   }
 }
