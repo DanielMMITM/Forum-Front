@@ -24,7 +24,7 @@ export const useCreateUpdatePost = (action: ActionTypes) => {
       );
       queryClient.invalidateQueries({ queryKey: ['postsList'] });
       queryClient.invalidateQueries({ queryKey: ['post'] });
-      if (action !== 'Close') navigate(`/posts/${data.id}`, { replace: true, state: data });
+      if (action !== 'Close') navigate(`/show`, { replace: true, state: { postId: data.id } });
     },
     onError: (error: CustomAxiosError) => {
       handleErrorsResponse(error.response.data);
