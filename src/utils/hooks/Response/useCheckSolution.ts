@@ -9,8 +9,8 @@ export const useCheckSolution = () => {
 
   const { mutate: checkSolution, isPending: isPendingSolution } = useMutation({
     mutationFn: (id: number) => checkSolutionRequest(id),
-    onSuccess: () => {
-      toast.success(`Solution checked successfully!`, {
+    onSuccess: ({ solution }) => {
+      toast.success(`Solution ${solution ? 'checked' : 'unchecked'} successfully!`, {
         className: 'toast',
       });
       queryClient.invalidateQueries({ queryKey: ['post'] });

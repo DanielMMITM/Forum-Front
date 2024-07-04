@@ -5,6 +5,7 @@ import { useUserStore } from '@/store/userStore';
 import { useCheckSolution } from '@/utils/hooks/Response/useCheckSolution';
 import { Status } from '@/utils/enum/Status';
 import { Response } from '@/utils/types/responseTypes';
+
 interface CardAnswerProps {
   postUserCreator: number;
   postStatus: string;
@@ -47,7 +48,7 @@ export default function CardAnswers({
         <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
           {!solution ? (
             <Tooltip
-              title={<Typography variant="h6">{solution ? 'Solution' : 'Set solution'}</Typography>}
+              title={<Typography variant="h6">Set solution</Typography>}
               placement="bottom"
               disableInteractive
               TransitionComponent={Zoom}
@@ -57,7 +58,18 @@ export default function CardAnswers({
               </IconButton>
             </Tooltip>
           ) : (
-            <CheckCircleIcon sx={{ opacity: 1 }} className="card-response__solution" />
+            <>
+              <Tooltip
+                title={<Typography variant="h6">Unmark solution</Typography>}
+                placement="bottom"
+                disableInteractive
+                TransitionComponent={Zoom}
+              >
+                <IconButton size="small" onClick={() => checkSolution(id)}>
+                  <CheckCircleIcon className="card-response__solution" />
+                </IconButton>
+              </Tooltip>
+            </>
           )}
         </Box>
       )}
