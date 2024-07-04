@@ -18,6 +18,7 @@ export default function CardAnswers({
     id,
     text,
     userCreator: { username },
+    solution,
   },
 }: CardAnswerProps) {
   const { id: userId } = useUserStore.getState();
@@ -42,18 +43,22 @@ export default function CardAnswers({
       <Box display={'flex'} flexBasis={'75%'} mt={-1}>
         <p className="text--card-response">{text}</p>
       </Box>
-      {userId === postUserCreator && checkSolutionAllowed && !isPendingSolution && (
+      {((userId === postUserCreator && checkSolutionAllowed && !isPendingSolution) || solution) && (
         <Box display={'flex'} justifySelf={'end'} fontSize={'inherit'}>
-          <Tooltip
-            title={<Typography variant="h6">Set solution</Typography>}
-            placement="bottom"
-            disableInteractive
-            TransitionComponent={Zoom}
-          >
-            <IconButton size="small" onClick={() => checkSolution(id)}>
-              <CheckCircleIcon className="card-response__check" />
-            </IconButton>
-          </Tooltip>
+          {!solution ? (
+            <Tooltip
+              title={<Typography variant="h6">{solution ? 'Solution' : 'Set solution'}</Typography>}
+              placement="bottom"
+              disableInteractive
+              TransitionComponent={Zoom}
+            >
+              <IconButton size="small" onClick={() => checkSolution(id)}>
+                <CheckCircleIcon className="card-response__solution card-response__solution--check" />
+              </IconButton>
+            </Tooltip>
+          ) : (
+            <CheckCircleIcon sx={{ opacity: 1 }} className="card-response__solution" />
+          )}
         </Box>
       )}
     </Box>
