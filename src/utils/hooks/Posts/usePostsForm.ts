@@ -44,8 +44,8 @@ export const usePostsForm = ({ post, action }: UpdateProps) => {
   useEffect(() => {
     if (post) {
       setValue('title', post.title);
-      setValue('course', post.courseId);
-      setCourse(String(post.courseId));
+      setValue('course', post.course.id);
+      setCourse(String(post.course.id));
       setValue('text', post.text);
     }
   }, [post]);
