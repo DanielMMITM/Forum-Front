@@ -9,7 +9,7 @@ export const useDeletePost = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
-  const { mutate: deletePost, isPending } = useMutation({
+  const { mutate: deletePost, isPending: isDeletingPending } = useMutation({
     mutationFn: (id: number) => deletePostRequest(id),
     onSuccess: (data) => {
       toast.success(`${data}`, { className: 'toast' });
@@ -20,5 +20,5 @@ export const useDeletePost = () => {
       handleErrorsResponse(error.response.data);
     },
   });
-  return { deletePost, isPending };
+  return { deletePost, isDeletingPending };
 };
