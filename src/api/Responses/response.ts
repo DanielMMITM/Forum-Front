@@ -1,4 +1,5 @@
 import { axiosClient, getToken } from '@/config/axios';
+import { Response } from '@/utils/types/responseTypes';
 
 export const AddResponseRequest = async (
   body: Record<string, string | number>
