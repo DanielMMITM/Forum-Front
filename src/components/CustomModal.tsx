@@ -4,6 +4,7 @@ import { PostResponse } from '@/utils/types/postTypes';
 import { Button, Dialog, Grid, Typography } from '@mui/material';
 import { UseMutateFunction } from '@tanstack/react-query';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { Status } from '@/utils/enum/Status';
 
 interface ModalProps {
   handleCloseModal: () => void;
@@ -11,7 +12,13 @@ interface ModalProps {
   title: string;
   content: string;
   action: ActionTypes;
-  doAction: UseMutateFunction<String, CustomAxiosError, number, unknown>;
+  deletePostAction?: UseMutateFunction<String, CustomAxiosError, number, unknown>;
+  closePostAction?: UseMutateFunction<
+    PostResponse,
+    CustomAxiosError,
+    Record<string, string | number>,
+    unknown
+  >;
   post: PostResponse;
 }
 
@@ -21,9 +28,21 @@ export const CustomModal = ({
   title,
   content,
   action,
-  doAction,
+  deletePostAction,
+  closePostAction,
   post,
 }: ModalProps) => {
+  const handleClosePost = () => {
+    const body: Record<string, string | number> = {
+      id: post.id,
+      title: post.title,
+      text: post.text,
+      statusPost: Status.CLOSED,
+      courseId: post.course.id,
+    };
+    if (closePostAction) closePostAction(body, { onSuccess: handleCloseModal });
+  };
+
   return (
     <Dialog className="modal" fullWidth maxWidth={'sm'} open={open} onClose={handleCloseModal}>
       <CancelIcon className="modal__cancel-icon" onClick={handleCloseModal} />
@@ -42,7 +61,11 @@ export const CustomModal = ({
               color="primary"
               variant="contained"
               onClick={() =>
-                action === 'Delete' ? doAction(post.id, { onSuccess: handleCloseModal }) : null
+                action === 'Delete' && deletePostAction
+                  ? deletePostAction(post.id, { onSuccess: handleCloseModal })
+                  : action === 'Close' && closePostAction
+                  ? handleClosePost()
+                  : null
               }
             >
               Confirm

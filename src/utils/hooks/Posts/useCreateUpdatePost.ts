@@ -14,11 +14,17 @@ export const useCreateUpdatePost = (action: ActionTypes) => {
     mutationFn: (body: Record<string, string | number>) =>
       action === 'Create' ? createPostRequest(body) : updatePostRequest(body),
     onSuccess: (data) => {
-      toast.success(`Post ${action === 'Create' ? 'created' : 'updated'} successfully!`, {
-        className: 'toast',
-      });
+      toast.success(
+        `Post ${
+          action === 'Create' ? 'created' : action === 'Update' ? 'updated' : 'closed'
+        } successfully!`,
+        {
+          className: 'toast',
+        }
+      );
       queryClient.invalidateQueries({ queryKey: ['postsList'] });
-      navigate(`/posts/${data.id}`, { replace: true, state: data });
+      queryClient.invalidateQueries({ queryKey: ['post'] });
+      if (action !== 'Close') navigate(`/posts/${data.id}`, { replace: true, state: data });
     },
     onError: (error: CustomAxiosError) => {
       handleErrorsResponse(error.response.data);

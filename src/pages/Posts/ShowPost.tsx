@@ -16,14 +16,16 @@ import { useShowPost } from '@/utils/hooks/Posts/useShowPost';
 import { Spinner } from '@/components/Spinner';
 import { scrollToTop } from '@/utils/helpers/scrollToTop';
 import { Status } from '@/utils/enum/Status';
+import { useCreateUpdatePost } from '@/utils/hooks/Posts/useCreateUpdatePost';
 
 export function ShowPost() {
   const { id } = useUserStore.getState();
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  const { isPending, deletePost } = useDeletePost();
-  const { open, handleCloseModal, handleOpenModal } = useModalHandler();
+  const { isDeletingPending, deletePost } = useDeletePost();
+  const { isPending, createUpdatePost } = useCreateUpdatePost('Close');
+  const { open, handleCloseModal, handleOpenModal, action } = useModalHandler();
 
   const { post, isLoadingPost } = useShowPost(state.postId as number);
 
@@ -107,23 +109,25 @@ export function ShowPost() {
                 sm: 'end',
               }}
             >
-              <Button
-                variant="contained"
-                type="submit"
-                sx={{ fontSize: '1.5rem' }}
-                disabled={isPending}
-                onClick={() => {
-                  navigate(`/update-post`, {
-                    replace: true,
-                    state: {
-                      post: post,
-                      action: 'Update',
-                    },
-                  });
-                }}
-              >
-                Edit Post
-              </Button>
+              {post.statusPost !== Status.CLOSED && (
+                <Button
+                  variant="contained"
+                  type="submit"
+                  sx={{ fontSize: '1.5rem' }}
+                  disabled={isDeletingPending || isPending}
+                  onClick={() => {
+                    navigate(`/update-post`, {
+                      replace: true,
+                      state: {
+                        post: post,
+                        action: 'Update',
+                      },
+                    });
+                  }}
+                >
+                  Edit Post
+                </Button>
+              )}
               <Button
                 variant="contained"
                 type="submit"
@@ -139,11 +143,33 @@ export function ShowPost() {
                     sm: 0,
                   },
                 }}
-                onClick={handleOpenModal}
-                disabled={isPending}
+                onClick={() => handleOpenModal('Delete')}
+                disabled={isDeletingPending || isPending}
               >
                 Delete Post
               </Button>
+              {post.statusPost !== Status.CLOSED && (
+                <Button
+                  variant="outlined"
+                  type="submit"
+                  color="warning"
+                  sx={{
+                    fontSize: '1.5rem',
+                    marginLeft: {
+                      xs: 0,
+                      sm: '1.5rem',
+                    },
+                    marginTop: {
+                      xs: '1.5rem',
+                      sm: 0,
+                    },
+                  }}
+                  disabled={isDeletingPending || isPending}
+                  onClick={() => handleOpenModal('Close')}
+                >
+                  Close post
+                </Button>
+              )}
             </Box>
           )}
         </Box>
@@ -157,7 +183,12 @@ export function ShowPost() {
                   </label>
                   <textarea
                     className="form-container__text-area--response"
-                    disabled={isPending || isPendingAddAnswer || post.statusPost === Status.CLOSED}
+                    disabled={
+                      isDeletingPending ||
+                      isPending ||
+                      isPendingAddAnswer ||
+                      post.statusPost === Status.CLOSED
+                    }
                     placeholder={TEXT_PLACEHOLDER}
                     ref={textResponseReference}
                     {...textResponseProps}
@@ -173,7 +204,12 @@ export function ShowPost() {
                   variant="contained"
                   fullWidth
                   type="submit"
-                  disabled={isPendingAddAnswer || isPending || post.statusPost === Status.CLOSED}
+                  disabled={
+                    isPendingAddAnswer ||
+                    isDeletingPending ||
+                    isPending ||
+                    post.statusPost === Status.CLOSED
+                  }
                 >
                   Create
                 </Button>
@@ -191,15 +227,29 @@ export function ShowPost() {
             ))}
           </Box>
         </Box>
-        <CustomModal
-          open={open}
-          handleCloseModal={handleCloseModal}
-          title="Delete post?"
-          content="You are about to delete your post, this action cannot' be undone"
-          action="Delete"
-          post={post}
-          doAction={deletePost}
-        />
+        {action === 'Delete' && (
+          <CustomModal
+            open={open}
+            handleCloseModal={handleCloseModal}
+            title="Delete post?"
+            content="You are about to delete your post, this action cannot' be undone."
+            action={action}
+            post={post}
+            deletePostAction={deletePost}
+          />
+        )}
+
+        {action === 'Close' && (
+          <CustomModal
+            open={open}
+            handleCloseModal={handleCloseModal}
+            title="Close post?"
+            content="You are about to close your post, this means you wouldn't be able to edit or allow users to respond your post. This action cannot' be undone."
+            action={action}
+            post={post}
+            closePostAction={createUpdatePost}
+          />
+        )}
       </Box>
     );
 }
