@@ -1,3 +1,5 @@
+import { Course } from './courseTypes';
+
 export interface PostForm {
   title: string;
   text: string;
@@ -11,7 +13,7 @@ export interface PostResponse {
   text: string;
   statusPost: string;
   userCreator: UserCreator;
-  courseId: number;
+  course: Course;
   answers: [];
   postDate: Date;
 }
