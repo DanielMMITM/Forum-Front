@@ -75,7 +75,7 @@ export function ShowPost() {
           >
             <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
               <img src={profilePic} alt="Profile Picture" className="card-post__picture" />
-              <h2>{post.userCreator.username}</h2>
+              <h2 className="heading-tertiary">{post.userCreator.username}</h2>
             </Box>
             <Box
               display={'flex'}
@@ -90,7 +90,7 @@ export function ShowPost() {
                 md: 'start',
               }}
             >
-              <h2>Curso: {post.courseId}</h2>
+              <h2>Curso: {post.course.name}</h2>
               <StatusIndicator status={post.statusPost} />
             </Box>
           </Box>
