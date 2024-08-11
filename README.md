@@ -2,7 +2,7 @@
 This projects work together with a REST API, visit it here: [Forum API](https://github.com/DanielMMITM/Challenge-ONE-BackEnd-Alura-Foro)
 
 ## Note
-I'm still developing the front-end, I'm missing some interfaces and features such as profile page, select solution of the post, CRUD operations on comment posts, responsive text, dark mode, etc.
+It is already finished but I plan to do some changes like implement dark mode, sort data by date and do some tests.
 
 As I mentioned, I decided to do a fullstack application and get hands-on with my knowledge. So this forum is about allows you to post, and comment posts to help other people. You must be authenticated to freely navigate and interact through the application
 
@@ -14,7 +14,7 @@ Here are some of the thecnologies I chose to develop this app.
 * Material UI
 
 ### Things to get better
-* Delete Sass redundancy styles
+* Delete Sass redundancy styles using mixins and functions
 * Migrate images to Cloudflare
 * Some component styles
 -----
